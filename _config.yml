@@ -67,12 +67,12 @@ plugins:
 author:
   name   : "Josué Page Vizcaíno"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "My awesome biography constrained to a sentence or two goes here."
+  bio    : "Computational Microscopy PhD Student at the TUM"
   googlescholar: "https://scholar.google.com/citations?hl=en&user=5WfCRjQAAAAJ"
   links:
-    - label: "Website"
+    - label: "Institutional Website"
       icon: "fas fa-fw fa-link"
-      url: "https://"
+      url: "https://ciip.in.tum.de/people/page.html"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"
       url: "https://github.com/pvjosue/"

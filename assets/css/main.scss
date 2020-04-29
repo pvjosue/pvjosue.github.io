@@ -1,0 +1,45 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+
+@charset "utf-8";
+
+// $link-color: red;
+
+// $global-font-family : Monaco; // $serif;
+// $header-font-family : Monaco; //$sans-serif-narrow;
+
+
+@import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
+@import "minimal-mistakes"; // main partials
+
+html {
+    font-size: 22px;
+    @include breakpoint($x-large) {
+      font-size: $type-size-5; // change to whatever
+    }
+  }
+  
+  ///// Menu //////
+  $menu-background-color: linear-gradient(to right, $primay-color-dark 0%, $primary-color 100%); //mix(#fff, $primary-color, 50%)
+//   $menu-background-color: linear-gradient(to right, #00cc00 0%, #003300 100%); //mix(#fff, $primary-color, 50%)
+
+// Text color
+// .greedy-nav a{ color: darkred; }
+
+
+// Menu text background
+.masthead {
+    background: $menu-background-color;
+      }
+.greedy-nav {
+    background: $menu-background-color;
+  }
+// Menu position
+.greedy-nav .visible-links {
+    justify-content: center;
+}
+
+.search__toggle .icon {
+    fill: white
+}

@@ -1,0 +1,10 @@
+main:
+  - title: Publications 
+    icon: "fa fa-briefcase"
+    url: /posts/
+  - title: Ideas
+    icon: "fa fa-bolt"
+    url: /ideas/
+  - title: CV
+    icon: "fa fa-id-badge" 
+    url: /cv/

@@ -33,7 +33,7 @@ html {
     background: $menu-background-color;
       }
 .greedy-nav {
-    background: $menu-background-color;
+    background: rgba(255, 0, 0, 0);;//$menu-background-color;
   }
 // Menu position
 .greedy-nav .visible-links {

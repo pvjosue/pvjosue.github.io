@@ -333,7 +333,7 @@ body {
   padding-bottom: 1em;
 
   &:not(:last-child) {
-    // border-bottom: solid 3px $border-color;
+    border-bottom: solid 3px $border-color;
     margin-bottom: 1em;
   }
 

@@ -24,9 +24,6 @@ html {
   $menu-background-color: linear-gradient(to right, $primary-color-dark 0%, $primary-color 100%); //mix(#fff, $primary-color, 50%)
 //   $menu-background-color: linear-gradient(to right, #00cc00 0%, #003300 100%); //mix(#fff, $primary-color, 50%)
 
-// Text color
-// .greedy-nav a{ color: darkred; }
-
 
 // Menu text background
 .masthead {
@@ -47,4 +44,9 @@ html {
 
 .masthead .site-title {
     color: white;//$primary-color;
+}
+
+.page__content {
+  color: $masthead-link-color-hover;
+  font-size: $type-size-5;
 }

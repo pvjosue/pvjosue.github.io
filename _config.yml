@@ -60,14 +60,14 @@ plugins:
   # - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
-  - jekyll-feed
+  # - jekyll-feed
   - jemoji
   - jekyll-include-cache
 
 author:
   name   : "Josué Page Vizcaíno"
-  avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Computational Microscopy PhD Student at the TUM"
+  avatar : "/assets/images/bio-photo2.jpg"
+  bio    : "Computational Microscopy PhD Student at the Technical University of Munich"
   googlescholar: "https://scholar.google.com/citations?hl=en&user=5WfCRjQAAAAJ"
   links:
     - label: "Institutional Website"

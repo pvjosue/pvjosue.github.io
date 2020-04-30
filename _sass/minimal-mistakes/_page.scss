@@ -333,7 +333,8 @@ body {
   padding-bottom: 1em;
 
   &:not(:last-child) {
-    border-bottom: solid 1px $border-color;
+    // border-bottom: solid 3px $border-color;
+    margin-bottom: 1em;
   }
 
   .archive__item-title {
@@ -343,11 +344,18 @@ body {
   .archive__subtitle {
     clear: both;
     border: 0;
+    font-size: x-large;
   }
 
   + .taxonomy__section {
     margin-top: 2em;
   }
+  // Lines between posts
+    article {
+      border-top: solid 1px $border-color;
+      padding-top: 1em;
+    }
+  // }
 }
 
 .taxonomy__title {

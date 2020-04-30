@@ -6,7 +6,7 @@ venue: 'Optics express, Optical Society of America'
 citation: 'A. Stefanoiu, J. Page, P. Symvoulidis, GG. Westmeyer, T. Lasser &quot;Artifact-free deconvolution in light field microscopy.&quot; In <i>Optics express 19</i>.'
 ---
 
- [[Pdf]](https://www.osapublishing.org/viewmedia.cfm?uri=oe-27-22-31644&seq=0) 
+ [[PDF]](https://www.osapublishing.org/viewmedia.cfm?uri=oe-27-22-31644&seq=0) 
  <!-- [[Project Page]](https://sjenni.github.io/LearningToSpotArtifacts/) [[Code]](https://github.com/sjenni/LearningToSpotArtifacts)  -->
 
 ## Abstract

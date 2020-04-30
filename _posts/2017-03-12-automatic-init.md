@@ -6,7 +6,7 @@ venue: 'Bildverarbeitung für die Medizin 2017'
 citation: 'J. Page, N. Rieke, D. J. Tan, F. Tombari, A. Eslami, N. Navab &quot;Automatic Initialization and Failure Detection for Surgical Tool Tracking in Retinal Microsurgery.&quot; In <i>BMV 2017</i>.'
 ---
 
- [[Pdf]](https://www.researchgate.net/profile/Josue_Page/publication/314136704_Automatic_Initialization_and_Failure_Detection_for_Surgical_Tool_Tracking_in_Retinal_Microsurgery/links/5b3bea804585150d23f6638b/Automatic-Initialization-and-Failure-Detection-for-Surgical-Tool-Tracking-in-Retinal-Microsurgery.pdf) 
+ [[PDF]](https://www.researchgate.net/profile/Josue_Page/publication/314136704_Automatic_Initialization_and_Failure_Detection_for_Surgical_Tool_Tracking_in_Retinal_Microsurgery/links/5b3bea804585150d23f6638b/Automatic-Initialization-and-Failure-Detection-for-Surgical-Tool-Tracking-in-Retinal-Microsurgery.pdf) 
  <!-- [[Project Page]](https://sjenni.github.io/LearningToSpotArtifacts/) [[Code]](https://github.com/sjenni/LearningToSpotArtifacts)  -->
 
 ## Abstract

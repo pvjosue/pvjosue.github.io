@@ -82,7 +82,12 @@ author:
     - label: "ORCID"
       icon: "fab fa-fw fa-orcid"
       url: "https://orcid.org/0000-0002-5848-3063"
-  
+
+github-repos:
+  - name: LFMNet
+  - name: pytorch_convNd
+  - name: OpenCV-Spout
+
 footer:
   links:
     - label: "Website"

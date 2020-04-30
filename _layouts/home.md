@@ -1,6 +1,7 @@
 ---
 layout: archive
 ---
+<h2>About me</h2>
 {{ site.description }}
 
 {% if site.use_paginator %}
@@ -16,4 +17,17 @@ layout: archive
     {% endfor %}
 
     {% include paginator.html %}
+{% endif %}
+
+<meta name="gc:base" content="assets/github-cards/">
+
+
+{% if site.github-repos %}
+<h2>Repositories</h2>
+<div class="grid__wrapper">
+{% for repo in site.github-repos %}
+  <div class="github-card" data-github="pvjosue/{{repo.name}}" data-width="400" data-height="" data-theme="default"></div>
+{% endfor %}
+</div>
+<script src="assets/github-cards/src/widget.js"></script>
 {% endif %}

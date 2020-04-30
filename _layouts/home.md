@@ -26,7 +26,7 @@ layout: archive
 <h2>Repositories</h2>
 <div class="grid__wrapper">
 {% for repo in site.github-repos %}
-  <div class="github-card" data-github="pvjosue/{{repo.name}}" data-width="400" data-height="" data-theme="default"></div>
+  <div class="github-card" data-github="pvjosue/{{repo.name}}" data-width="300em" data-height="" data-theme="default"></div>
 {% endfor %}
 </div>
 <script src="assets/github-cards/src/widget.js"></script>

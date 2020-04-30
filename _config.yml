@@ -67,7 +67,7 @@ plugins:
 author:
   name   : "Josué Page Vizcaíno"
   avatar : "/assets/images/bio-photo2.jpg"
-  bio    : "Computational Microscopy PhD Student at the Technical University of Munich"
+  bio    : "Light-Field, Computational Microscopy and Deep Learning | PhD Student at the Technical University of Munich"
   googlescholar: "https://scholar.google.com/citations?hl=en&user=5WfCRjQAAAAJ"
   links:
     - label: "Institutional Website"

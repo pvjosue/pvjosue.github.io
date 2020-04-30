@@ -16,12 +16,12 @@
 html {
     font-size: 22px;
     @include breakpoint($x-large) {
-      font-size: $type-size-5; // change to whatever
+      font-size: $type-size-6; // change to whatever
     }
   }
   
   ///// Menu //////
-  $menu-background-color: linear-gradient(to right, $primay-color-dark 0%, $primary-color 100%); //mix(#fff, $primary-color, 50%)
+  $menu-background-color: linear-gradient(to right, $primary-color-dark 0%, $primary-color 100%); //mix(#fff, $primary-color, 50%)
 //   $menu-background-color: linear-gradient(to right, #00cc00 0%, #003300 100%); //mix(#fff, $primary-color, 50%)
 
 // Text color
@@ -33,13 +33,18 @@ html {
     background: $menu-background-color;
       }
 .greedy-nav {
-    background: rgba(255, 0, 0, 0);;//$menu-background-color;
+    background: rgba(255, 0, 0, 0);//$menu-background-color;
   }
 // Menu position
 .greedy-nav .visible-links {
     justify-content: center;
+    font-size: $type-size-4;
 }
 
 .search__toggle .icon {
-    fill: white
+    fill: $primary-color-dark
+}
+
+.masthead .site-title {
+    color: white;//$primary-color;
 }

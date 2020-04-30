@@ -23,9 +23,8 @@ masthead_title: >-
 repository: "pvjosue/test.github.io"
 email: "pv.josue@gmail.com"
 description: >- # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
+  I'm a PhD student currently living in Munich, I work in Light-Field microscopy, Computational Microscopy and Deep Learning.
+  Coding is my passion, and together with researching the nature of light, I've found a subject that suits me perfectly. 
 github_username: pvjosue
 minimal_mistakes_skin: neon
 search: true
@@ -43,31 +42,19 @@ timezone: Europe/Berlin # https://en.wikipedia.org/wiki/List_of_tz_database_time
 include:
   - _pages
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
-
 # Plugins (previously gems:)
 plugins:
   # - jekyll-paginate
   - jekyll-sitemap
   - jekyll-gist
-  # - jekyll-feed
+  - jekyll-feed
   - jemoji
   - jekyll-include-cache
 
 author:
   name   : "Josué Page Vizcaíno"
   avatar : "/assets/images/bio-photo2.jpg"
-  bio    : "Light-Field, Computational Microscopy and Deep Learning | PhD Student at the Technical University of Munich"
+  bio    : "PhD Student at the Technical University of Munich"
   googlescholar: "https://scholar.google.com/citations?hl=en&user=5WfCRjQAAAAJ"
   links:
     - label: "Institutional Website"

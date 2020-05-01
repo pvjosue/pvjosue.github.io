@@ -2,8 +2,19 @@
 layout: archive
 ---
 <h2>About me</h2>
-{{ site.description }}
-
+<article class="text__description">
+    {{ site.description }}
+    <br>
+    <br>
+    My main research interests are:
+    <ul>    
+        <li>3D real time microscopy and adaptive optics.</li>
+        <li>Wave Optics modeling of optical systems.</li>
+        <li>Deep learning aproches for solving inverse imaging problems.</li>
+    </ul>
+    In the past year, I've explored the computational advantages of substituting some parts of the Light-field inverse problem with Deep-Learning. While doing this, I had the chance to learn Pytorch, and to create functions specific for higher dimensional data, needed for my research (LFMNet, convNd and fftNd, see repos. at the bottom).
+</article>
+  
 {% if site.use_paginator %}
     <h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
     {% if paginator %}

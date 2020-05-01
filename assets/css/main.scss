@@ -46,7 +46,16 @@ html {
     color: white;//$primary-color;
 }
 
-.page__content {
+// Main Page style
+.page__content, .text__description{
   color: $masthead-link-color-hover;
   font-size: $type-size-5;
+}
+.page__content, .text__description ul {
+  margin-top: 0;
+  // margin-bottom: 0;
+}
+.page__content, .text__description ul li{
+  margin-top: 0;
+  margin-bottom: 0;
 }

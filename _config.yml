@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: "Josue Page" 
+title: "Josue Page LFM" 
 masthead_title: >- 
   <i class="fas fa-microscope fa-2x" ></i> 
   <i class="fas fa-plus"></i> 
@@ -22,9 +22,8 @@ masthead_title: >-
   <i class="fas fa-cube fa-2x"></i>
 repository: "pvjosue/test.github.io"
 email: "pv.josue@gmail.com"
-description: >- # this means to ignore newlines until "baseurl:"
-  I'm a PhD student currently living in Munich, I work in Light-Field microscopy, Computational Microscopy and Deep Learning.
-  Coding is my passion, and together with researching the nature of light, I've found a subject that suits me perfectly. 
+description: "I'm a PhD student at the Technical University of Munich." 
+
 github_username: pvjosue
 minimal_mistakes_skin: neon
 search: true
@@ -74,6 +73,7 @@ github-repos:
   - name: LFMNet
   - name: pytorch_convNd
   - name: OpenCV-Spout
+  - name: pytorch_fftNd
 
 footer:
   links:

@@ -2,7 +2,7 @@
 title: "Artifact-free deconvolution in light field microscopy"
 collection: publications
 date: 2019-10-28
-venue: 'Optics express, Optical Society of America'
+venue: 'Optics express, OSA'
 citation: 'A. Stefanoiu, J. Page, P. Symvoulidis, GG. Westmeyer, T. Lasser &quot;Artifact-free deconvolution in light field microscopy.&quot; In <i>Optics express 19</i>.'
 ---
 

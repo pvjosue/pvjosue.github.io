@@ -2,7 +2,7 @@
 title: "Real-time online adaption for robust instrument tracking and pose estimation"
 collection: publications
 date: 2016-10-17
-venue: 'MICCAI 2016'
+venue: 'MICCAI'
 citation: 'N. Rieke, D. J. Tan, F. Tombari, J. Page Vizcaíno, C. Amat di San Filippo, A. Eslami, N. Navab &quot;Real-time online adaption for robust instrument tracking and pose estimation.&quot; In <i>MICCAI 16</i>.'
 ---
 

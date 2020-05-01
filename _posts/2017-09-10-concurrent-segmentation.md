@@ -2,7 +2,7 @@
 title: "Concurrent segmentation and localization for tracking of surgical instruments"
 collection: publications
 date: 2017-9-10
-venue: 'MICCAI 2017'
+venue: 'MICCAI'
 citation: 'I. Laina, N. Rieke, C. Rupprecht, J. Page Vizcaíno, A. Eslami, F. Tombari, N. Navab &quot;Concurrent segmentation and localization for tracking of surgical instruments.&quot; In <i>MICCAI 17</i>.'
 ---
 

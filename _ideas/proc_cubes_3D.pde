@@ -2,7 +2,7 @@ float theta=0, r, g, b, max_separation=4, size_ratio=6, separacion=2;
 int h=0, blanco=0;
 void setup()
 {
-  size(900, 450, P3D);
+  size(externals.window.innerWidth/2, externals.window.innerWidth/4, P3D);
   r=random(100,255);
   g=random(100,255);
   b=random(100,255);

@@ -8,7 +8,7 @@ toc_sticky: true
 
 <style scoped>
     h2, h3{
-    color: white;
+    /* color: white; */
     }
     /* strong, p > strong{
         margin-top: 1px;

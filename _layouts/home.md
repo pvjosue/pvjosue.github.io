@@ -1,7 +1,7 @@
 ---
 layout: archive
 ---
-<h2>About me</h2>
+<h1 class="page__title" itemprop="headline">About</h1>
 <article class="text__description">
     {{ site.description }}
     <br>
@@ -31,14 +31,10 @@ layout: archive
 {% endif %}
 
 <meta name="gc:base" content="assets/github-cards/">
-<br>
-<br>
-<br>
-<br>
-<br>
+
 <br>
 {% if site.github-repos %}
-<h2>Repositories</h2>
+<h1>Repositories</h1>
 <div class="grid__wrapper">
 {% for repo in site.github-repos %}
   <div class="github-card" data-github="pvjosue/{{repo.name}}" data-width="300em" data-height="" data-theme="default"></div>

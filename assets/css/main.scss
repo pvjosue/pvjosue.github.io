@@ -9,6 +9,7 @@
 // $global-font-family : Monaco; // $serif;
 // $header-font-family : Monaco; //$sans-serif-narrow;
 
+$sidebar-background-color: lightgray;
 
 @import "minimal-mistakes/skins/{{ site.minimal_mistakes_skin | default: 'default' }}"; // skin
 @import "minimal-mistakes"; // main partials
@@ -20,42 +21,42 @@ html {
     }
   }
   
-  ///// Menu //////
-  $menu-background-color: linear-gradient(to right, $primary-color-dark 0%, $primary-color 100%); //mix(#fff, $primary-color, 50%)
-//   $menu-background-color: linear-gradient(to right, #00cc00 0%, #003300 100%); //mix(#fff, $primary-color, 50%)
+// //   ///// Menu //////
+// //   $menu-background-color: linear-gradient(to right, $primary-color-dark 0%, $primary-color 100%); //mix(#fff, $primary-color, 50%)
+// // //   $menu-background-color: linear-gradient(to right, #00cc00 0%, #003300 100%); //mix(#fff, $primary-color, 50%)
 
 
-// Menu text background
-.masthead {
-    background: $menu-background-color;
-      }
-.greedy-nav {
-    background: rgba(255, 0, 0, 0);//$menu-background-color;
-  }
-// Menu position
-.greedy-nav .visible-links {
-    justify-content: center;
-    font-size: $type-size-4;
-}
+// // // Menu text background
+// // .masthead {
+// //     background: $menu-background-color;
+// //       }
+// // .greedy-nav {
+// //     background: rgba(255, 0, 0, 0);//$menu-background-color;
+// //   }
+// // // Menu position
+// // .greedy-nav .visible-links {
+// //     justify-content: center;
+// //     font-size: $type-size-4;
+// // }
 
-.search__toggle .icon {
-    fill: $primary-color-dark
-}
+// // .search__toggle .icon {
+// //     fill: $primary-color-dark
+// // }
 
-.masthead .site-title {
-    color: white;//$primary-color;
-}
+// // .masthead .site-title {
+// //     color: white;//$primary-color;
+// // }
 
-// Main Page style
-.page__content, .text__description{
-  color: $masthead-link-color-hover;
-  font-size: $type-size-5;
-}
-.page__content, .text__description ul {
-  margin-top: 0;
-  // margin-bottom: 0;
-}
-.page__content, .text__description ul li{
-  margin-top: 0;
-  margin-bottom: 0;
-}
+// // // Main Page style
+// // .page__content, .text__description{
+// //   color: $masthead-link-color-hover;
+// //   font-size: $type-size-5;
+// // }
+// // .page__content, .text__description ul {
+// //   margin-top: 0;
+// //   // margin-bottom: 0;
+// // }
+// // .page__content, .text__description ul li{
+// //   margin-top: 0;
+// //   margin-bottom: 0;
+// // }

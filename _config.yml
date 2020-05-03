@@ -70,12 +70,13 @@ author:
       icon: "fab fa-fw fa-orcid"
       url: "https://orcid.org/0000-0002-5848-3063"
 
-
-  github-repos:
-    - name: pvjosue/LFMNet
-    - name: pvjosue/pytorch_convNd
-    - name: pvjosue/OpenCV-Spout
-    - name: pvjosue/pytorch_fftNd
+      
+github-cards-path: /assets/github-cards/
+github-repos:
+  - name: pvjosue/LFMNet
+  - name: pvjosue/pytorch_convNd
+  - name: pvjosue/OpenCV-Spout
+  - name: pvjosue
 
 footer:
   links:

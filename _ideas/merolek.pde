@@ -18,46 +18,9 @@ PVector[] c1 = new PVector[tam];
 PVector[] d1 = new PVector[tam];
 color col,col1;
 
-/**
- * Size() to JS Window (v1.0)
- * GoToLoop (2016-Oct-17)
- *
- * forum.Processing.org/two/discussion/18556/
- * adaptive-canvas-size-for-sketch-in-web#Item_3
- */
- 
-static final boolean IS_PJS = 1/2 == 1/2.;
- 
-void settings() {
-  size(externals.window.innerWidth, externals.window.innerHeight);
- 
-  println(width + " x " + height);
-  print(externals.window.innerWidth + " x ");
-  println(externals.window.innerHeight);
-}
- 
-void setup() {
-  if (IS_PJS)  settings();
-  exit();
-  background(0);
-  //smooth();
-  for(int e=0;e<tam;e++)
-  {
-    a[e] = new PVector(0,0);
-    b[e] = new PVector(0,0);
-    c[e] = new PVector(0,0);
-    d[e] = new PVector(0,0);
-    a1[e] = new PVector(0,0);
-    b1[e] = new PVector(0,0);
-    c1[e] = new PVector(0,0);
-    d1[e] = new PVector(0,0);
-  }
-  col = color(255);
-}
-
 void setup()
 {
-  size(externals.window.innerWidth/4, externals.window.innerWidth/4);
+  size(externals.window.innerWidth/2, externals.window.innerWidth/2);
   background(0);
   //smooth();
   for(int e=0;e<tam;e++)
@@ -72,6 +35,8 @@ void setup()
     d1[e] = new PVector(0,0);
   }
   col = color(255);
+  mouseX = width/2;
+  mouseY = height/2;
 }
 void draw()
 {

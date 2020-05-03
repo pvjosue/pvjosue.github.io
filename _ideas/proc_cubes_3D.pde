@@ -3,9 +3,11 @@ float theta=0,r,g,b,separacion=2;
 void setup()
 {
   size(externals.window.innerWidth/2, externals.window.innerWidth/4, P3D);
-r=random(255);
-g=random(255);
-b=random(255);
+  r=random(255);
+  g=random(255);
+  b=random(255);
+  mouseX = width/2;
+  mouseY = height/2;
 }
 void draw()
 {

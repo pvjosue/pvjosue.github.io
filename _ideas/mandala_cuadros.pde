@@ -10,6 +10,8 @@ void setup()
  // mm = new MovieMaker(this, width, height, "drawing.mov", 30, MovieMaker.H263,
  // MovieMaker.HIGH);
  rectMode(CENTER);
+  mouseX = width/2;
+  mouseY = height/2;
 }
 void draw()
 {

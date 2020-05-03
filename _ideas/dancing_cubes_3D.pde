@@ -4,12 +4,14 @@ color col=255;
 float theta=0.1,t=0.1, step = 0.005;
 void setup()
 {
-  size(500,500,P3D);
+  size(externals.window.innerWidth/2, externals.window.innerWidth/2,P3D);
   background(0);
 
   fill(random(255),random(255),random(255));
   noStroke();
   lights();
+  mouseX = width/2;
+  mouseY = height/2;
 }
 void draw()
 {

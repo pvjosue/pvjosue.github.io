@@ -5,7 +5,7 @@ float theta=0.1,tam=100,r=10;
 color col=0;
 void setup()
 {
-  size(externals.window.innerWidth/2, externals.window.innerWidth/4, OPENGL);
+  size(externals.window.innerWidth/2, externals.window.innerWidth/2, OPENGL);
   background(255);
  // mm = new MovieMaker(this, width, height, "drawing.mov", 30, MovieMaker.H263,
  // MovieMaker.HIGH);

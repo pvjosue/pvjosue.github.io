@@ -77,9 +77,9 @@ Here are some of my sketches from back then.
 <!-- Tab links -->
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'merolek')">Curves</button>
-  <button id="default_tab" class="tablinks active" onclick="openCity(event, 'mandala_cuadros')">Mandala squares</button>
+  <button class="tablinks" onclick="openCity(event, 'mandala_cuadros')">Mandala squares</button>
   <button class="tablinks" onclick="openCity(event, 'fractal_3D')">Fractal 3D</button>
-  <button class="tablinks" onclick="openCity(event, 'dancing_cubes_3D')">Dancing Cubes 3D</button>
+  <button id="default_tab" class="tablinks active" onclick="openCity(event, 'dancing_cubes_3D')">Dancing Cubes 3D</button>
 </div>
 
 <!-- Tab content -->

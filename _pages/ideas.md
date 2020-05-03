@@ -70,29 +70,39 @@ author_profile: true
 <script type="text/javascript" src="../assets/processing/processingNew.js"></script>
 
 
+
+## Processing Sketches
+Back in 2011 a good friend introduced [Processing](https://processing.org/), a visual and interactive programing framework based on Java. It helped me to develop my programing skills in an intuitive way. Even getting one of my sketches (Fractal 3D) to the front page of [OpenProcessing.org](https://www.openprocessing.org).
+Here are some of my sketches from back then.
 <!-- Tab links -->
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'merolek')">Curves</button>
   <button id="default_tab" class="tablinks active" onclick="openCity(event, 'mandala_cuadros')">Mandala squares</button>
   <button class="tablinks" onclick="openCity(event, 'fractal_3D')">Fractal 3D</button>
+  <button class="tablinks" onclick="openCity(event, 'dancing_cubes_3D')">Dancing Cubes 3D</button>
 </div>
 
 <!-- Tab content -->
 <div id="merolek" class="tabcontent">
     <h3 id="sketch_title">Curves by lines</h3>
-    <canvas id="processing_canvas2" data-processing-sources="merolek.pde" style="width:  100%; height: 100%; border-style: solid;"></canvas>
+    <canvas id="processing_canvas" data-processing-sources="merolek.pde" style="width:  100%; height: 100%; border-style: solid;"></canvas>
     <br>
     Click on the sketch and use <i class="fa fa-arrow-up"></i> and <i class="fa fa-arrow-down"></i> keys for interaction.
 </div>
 
 <div id="fractal_3D" class="tabcontent">
   <h3 id="sketch_title">Fractal 3D</h3>
-    <canvas id="processing_canvas2" data-processing-sources="proc_cubes_3D.pde" style="width:  100%; height: 100%; border-style: solid;"></canvas>
+    <canvas id="processing_canvas" data-processing-sources="proc_cubes_3D.pde" style="width:  100%; height: 100%; border-style: solid;"></canvas>
+</div>
+
+<div id="dancing_cubes_3D" class="tabcontent">
+  <h3 id="sketch_title">Dancing Cubes 3D</h3>
+    <canvas id="processing_canvas" data-processing-sources="dancing_cubes_3D.pde" style="width:  100%; height: 100%; border-style: solid;"></canvas>
 </div>
 
 <div id="mandala_cuadros" class="tabcontent">
   <h3 id="sketch_title">Mandala squares</h3>
-    <canvas id="processing_canvas2" data-processing-sources="mandala_cuadros.pde" style="width:  100%; height: 100%; border-style: solid;"></canvas>
+    <canvas id="processing_canvas" data-processing-sources="mandala_cuadros.pde" style="width:  100%; height: 100%; border-style: solid;"></canvas>
     <br>
     Click mouse to erase. And control size of circles and squares with mouse position.
 </div>

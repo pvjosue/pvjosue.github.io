@@ -1,107 +1,71 @@
-float theta=0, r, g, b, max_separation=4, size_ratio=6, separacion=2;
-int h=0, blanco=0;
+
+float theta=0,r,g,b,separacion=2;
 void setup()
 {
   size(externals.window.innerWidth/2, externals.window.innerWidth/4, P3D);
-  r=random(100,255);
-  g=random(100,255);
-  b=random(100,255);
+r=random(255);
+g=random(255);
+b=random(255);
 }
 void draw()
 {
-
-  background(0, 20);
-  if (blanco>0)
-    background(255, 20);
-  else
-    background(0, 20);
-  translate(0, height/2, -500);
-  stroke(239, 247, 7, 50);
-  for (int e=1;e<=1;e+=2) {
-    separacion=map(mouseX, 0, width, 0, max_separation);
-    pushMatrix();
-    translate(width/2+e*width/3, 0, 0);
-    if (e==-1)  
-    {
-      rotateY(theta);
-      rotateX(theta);
-      rotateZ(theta);
-    }
-    if (e==1)
-    {
-      rotateY(theta);
-      rotateX(-theta);
-      rotateZ(-theta);
-    }
-    // rotateY(theta);
-    drawSphere(0, 0, 0, mouseY/size_ratio, 100, 100, 100, separacion);
-    drawSphere(0, height/4, 0, mouseY/size_ratio, r, g, b, separacion);
-    drawSphere(0, -height/4, 0, mouseY/size_ratio, r, g, b, separacion);
-    drawSphere(0, 0, height/4, mouseY/size_ratio, r, g, b, separacion);
-    drawSphere(0, 0, -height/4, mouseY/size_ratio, r, g, b, separacion);
-    popMatrix();
-  }
-  theta+=0.02;
-  h+=100;
-  if (h==10000)
-    h=0;
-}
-
-void drawSphere(float x, float y, float z, float radio, float r, float g, float b, float divisor)
-{
-  pushMatrix();
-  translate(x, y, z);
-  // if (blanco>0)
-    stroke(0, 60);
-  // else
-    // stroke(255, 60);
-  strokeWeight(1);
-  beginShape(LINES);
-  vertex(0, 0, 0);
-  vertex(radio/divisor, 0, 0);
-  endShape();
-  beginShape(LINES);
-  vertex(0, 0, 0);
-  vertex(-radio/divisor, 0, 0);
-  endShape();
-  beginShape(LINES);
-  vertex(0, 0, 0);
-  vertex(0, radio/divisor, 0);
-  endShape();
-  beginShape(LINES);
-  vertex(0, 0, 0);
-  vertex(0, -radio/divisor, 0);
-  endShape();
-  beginShape(LINES);
-  vertex(0, 0, 0);
-  vertex(0, 0, radio/divisor);
-  endShape();
-  beginShape(LINES);
-  vertex(0, 0, 0);
-  vertex(0, 0, -radio/divisor);
-  endShape();
-  fill(r, g, b);
-  // noStroke();
-  box(radio);
-  if (radio>20)
+  directionalLight(126, 126, 126, 0, 0, -1);
+  ambientLight(102, 102, 102);
+  pointLight(255,255,255,0,0,0);
+// translate(width/3,height/2,0);
+translate(0,0,-200);
+background(0);
+// stroke(139,147,107);
+// stroke(0);
+for(int e=1;e<=1;e++){
+  //background(0);
+  if(mousePressed)
   {
-    drawSphere(radio/divisor, 0, 0, radio/2, r, 0, b, divisor);
-    drawSphere(-radio/divisor, 0, 0, radio/2, r, g, 0, divisor);
-    drawSphere(0, radio/divisor, 0, radio/2, 0, g, b, divisor);
-    drawSphere(0, -radio/divisor, 0, radio/2, r, g, 0, divisor);
-    drawSphere(0, 0, radio/divisor, radio/2, r, 0, b, divisor);
-    drawSphere(0, 0, -radio/divisor, radio/2, 0, g, b, divisor);
+    theta*=-1;
   }
+  separacion=map(mouseX,0,width,0,3);
+  pushMatrix();
+  translate(2*width/3,height/2,0);
+  if(e==2)
+    
+  {
+  rotateY(-theta);
+  rotateX(-theta);
+  rotateZ(-theta);
+  }
+  if(e==1)
+  {
+  rotateY(theta);
+  rotateX(theta);
+  rotateZ(theta);
+  }
+//rotateY(theta);
+  drawSphere(0,0,0,mouseY/4,100,100,100,separacion);
+  drawSphere(0,height/4,0,mouseY/4,r,g,b,separacion);
+  drawSphere(0,-height/4,0,mouseY/4,r,g,b,separacion);
+  drawSphere(0,0,height/4,mouseY/4,r/3,g/3,b/3,separacion);
+  drawSphere(0,0,-height/4,mouseY/4,r/3,g/3,b/3,separacion);
+  drawSphere(height/4,0,0,mouseY/4,r/2,g/2,b/2,separacion);
+  drawSphere(-height/4,0,0,mouseY/4,r/2,g/2,b/2,separacion);
   popMatrix();
 }
-void mouseReleased()
-{
-  blanco*=-1;
+theta+=0.05;
 }
-void keyPressed()
-{
 
-  r=random(255);
-  g=random(255);
-  b=random(255);
+void drawSphere(float x,float y,float z,float radio,float r,float g,float b,float divisor)
+{
+  pushMatrix();
+  translate(x,y,z);
+  fill(r,g,b,200);
+  box(radio);
+  if(radio>20)
+  {
+    drawSphere(radio/divisor,0,0,radio/2,r/2,g,b,divisor); 
+    drawSphere(-radio/divisor,0,0,radio/2,r/3,g,b,divisor);
+    drawSphere(0,radio/divisor,0,radio/2,r,g/2,b,divisor);
+    drawSphere(0,-radio/divisor,0,radio/2,r,g/3,b,divisor);
+    drawSphere(0,0,radio/divisor,radio/2,r,g,b/2,divisor);
+    drawSphere(0,0,-radio/divisor,radio/2,r,g,b/3,divisor);
+  }
+  popMatrix();
 }

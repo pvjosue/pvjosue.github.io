@@ -54,6 +54,7 @@ author:
   name   : "Josué Page Vizcaíno"
   avatar : "/assets/images/bio-photo2.jpg"
   bio    : "PhD Student at the Technical University of Munich"
+  location: "Munich, Germany"
   googlescholar: "https://scholar.google.com/citations?hl=en&user=5WfCRjQAAAAJ"
   links:
     - label: "Institutional Website"
@@ -90,6 +91,11 @@ footer:
       icon: "fab fa-fw fa-orcid"
       url: "https://orcid.org/0000-0002-5848-3063"
 
+analytics:
+  provider: "google-gtag"
+  google:
+    tracking_id: "UA-165372182-1"
+    anonymize_ip: false # default
 # Collections
 collections:
   ideas:

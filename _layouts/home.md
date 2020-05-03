@@ -7,12 +7,13 @@ layout: archive
     <br>
     <br>
     My main research interests are:
-    <ul>    
-        <li>3D real time microscopy and adaptive optics.</li>
-        <li>Wave Optics modeling of optical systems.</li>
-        <li>Deep learning aproches for solving inverse imaging problems.</li>
+    <ul style="margin-top: 0; margin-bottom: 0;">    
+        <li style="margin-top: 0; margin-bottom: 0;">3D real time microscopy and adaptive optics.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Wave Optics modeling of optical systems.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Deep learning aproches for solving inverse imaging problems.</li>
     </ul>
-    In the past year, I've explored the computational advantages of substituting some parts of the Light-field inverse problem with Deep-Learning. While doing this, I had the chance to learn Pytorch, and to create functions specific for higher dimensional data, needed for my research (LFMNet, convNd and fftNd, see repos. at the bottom).
+    <br>
+    In the past year, I've explored the substitution of some parts of the Light-field imaging inverse problem with Deep-Learning. While doing this, I had the chance to learn Pytorch, and develop functions specific for higher dimensional data, needed for my research (LFMNet, convNd and fftNd).
 </article>
   
 {% if site.use_paginator %}

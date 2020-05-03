@@ -76,7 +76,8 @@ github-repos:
   - name: pvjosue/LFMNet
   - name: pvjosue/pytorch_convNd
   - name: pvjosue/OpenCV-Spout
-  - name: pvjosue
+  - name: pvjosue/pytorch_fftNd
+  - name: pvjosue/github-cards
 
 footer:
   links:

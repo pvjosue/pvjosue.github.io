@@ -73,7 +73,7 @@ author_profile: true
 <!-- Tab links -->
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'merolek')">Curves</button>
-  <button class="tablinks" onclick="openCity(event, 'mandala_cuadros')">Mandala squares</button>
+  <button id="default_tab" class="tablinks active" onclick="openCity(event, 'mandala_cuadros')">Mandala squares</button>
   <button class="tablinks" onclick="openCity(event, 'fractal_3D')">Fractal 3D</button>
 </div>
 
@@ -96,3 +96,9 @@ author_profile: true
     <br>
     Click mouse to erase. And control size of circles and squares with mouse position.
 </div>
+
+
+<script>
+  document.getElementById("default_tab").click()
+  console.log('clicled')
+</script>

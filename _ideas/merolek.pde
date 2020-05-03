@@ -83,7 +83,7 @@ void draw()
   fill(0);
   else
   fill(random(0,255),random(0,255),random(0,255),70);
-  rect(0,0,tamx,tamy);
+  rect(0,0,width,height);
 //   if(mousePressed){
 //   col = color(random(0,255),random(0,255),random(0,255));
 //   contador++;

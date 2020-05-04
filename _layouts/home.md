@@ -1,6 +1,8 @@
 ---
 layout: archive
 ---
+{% seo %}
+
 <h1 class="page__title" itemprop="headline">About</h1>
 <article class="text__description">
     {{ site.description }}

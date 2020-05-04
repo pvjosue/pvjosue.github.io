@@ -112,3 +112,6 @@ Here are some of my sketches from back then.
   document.getElementById("default_tab").click()
   console.log('clicled')
 </script>
+
+
+{% seo %}

@@ -132,3 +132,6 @@ Technical Experience
 * Micro-controlers and sensing (PIC, Arduino, chipkit, freescale, PLC).  
 * Communication protocols (I2C, OSC, MIDI, DMX, Spout).  
 * Animation: After Effects, Cinema 4D, RealFlow, etc.
+
+
+{% seo %}

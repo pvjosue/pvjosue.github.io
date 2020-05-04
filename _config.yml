@@ -49,7 +49,7 @@ plugins:
   - jekyll-feed
   - jemoji
   - jekyll-include-cache
-
+  - jekyll-seo-tag 
 author:
   name   : "Josué Page Vizcaíno"
   avatar : "/assets/images/bio-photo2.jpg"

@@ -52,7 +52,7 @@ plugins:
   - jekyll-seo-tag 
 author:
   name   : "Josué Page Vizcaíno"
-  avatar : "/assets/images/bio-photo2.jpg"
+  avatar : "/assets/images/bio-photo.jpg"
   bio    : "PhD Student at the Technical University of Munich"
   location: "Munich, Germany"
   googlescholar: "https://scholar.google.com/citations?hl=en&user=5WfCRjQAAAAJ"

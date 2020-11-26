@@ -1,13 +1,49 @@
 {% capture logo_path %}{{ site.logo }}{% endcapture %}
 
+
+<script type="text/javascript">
+  var r = document.querySelector(':root');
+    function darkFunction() {
+      // Get the checkbox
+      var checkBox = document.getElementById("darkCheck");
+      var rs = getComputedStyle(r);
+      // Alert the value of the --blue variable
+      // alert("The value of --blue is: " + rs.getPropertyValue('text-color'));
+      var all = document.getElementsByTagName("*");
+      var tab_links = document.getElementsByClassName("tablinks");
+      // If the checkbox is checked, display the output text
+      if (checkBox.checked == true){
+        r.style.setProperty('background-color', 'black');
+        document.body.style.color = "white"
+        document.getElementById("site-nav").style.background = "black"
+
+        color = "white"
+        color_tab = "black"
+      } else {
+        document.body.style.color = "#40514e"
+        r.style.setProperty('background-color', '#f3f6f6');
+        document.getElementById("site-nav").style.background = "#f3f6f6"
+        color = "#40514e"
+        color_tab = "white"
+      }
+      for (var i=0, max=all.length; i < max; i++) {
+        all[i].style.color = color;
+      }
+      for (var i=0, max=tab_links.length; i < max; i++) {
+        tab_links[i].style.color = color_tab;
+      }
+    }
+  </script>
+
 <div class="masthead">
+
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
         {% unless logo_path == empty %}
           <a class="site-logo" href="{{ '/' | relative_url }}"><img src="{{ logo_path | relative_url }}" alt=""></a>
         {% endunless %}
-        <a class="site-title" href="{{ '/' | relative_url }}">
+        <a id="site-title" class="site-title" href="{{ '/' | relative_url }}">
           {{ site.masthead_title | default: site.title }}
           {% if site.subtitle %}<span class="site-subtitle">{{ site.subtitle }}</span>{% endif %}
         </a>
@@ -27,6 +63,13 @@
           </svg>
         </button>
         {% endif %}
+        
+        <label id="lights-switch" class="switch">
+          <input type="checkbox" id="darkCheck" onclick="darkFunction()"> 
+          <span class="slider round" ></span> 
+          
+        </label>
+        <a id="lights-label" style="margin-left: 2px;">Lights</a>
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
           <div class="navicon"></div>

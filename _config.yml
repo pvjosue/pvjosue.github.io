@@ -69,6 +69,9 @@ author:
     - label: "ORCID"
       icon: "fab fa-fw fa-orcid"
       url: "https://orcid.org/0000-0002-5848-3063"
+    - label: "Open Processing"
+      icon: "fab fa-product-hunt"
+      url: "https://www.openprocessing.org/user/9498/"
 
 
 google_site_verification: "5cB-ixj9LM-TwE__EP9Cx_5VZCxXup4zKdO3Gq4No_k"

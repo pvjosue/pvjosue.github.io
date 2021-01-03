@@ -2,38 +2,78 @@
 
 
 <script type="text/javascript">
-  var r = document.querySelector(':root');
-    function darkFunction() {
-      // Get the checkbox
-      var checkBox = document.getElementById("darkCheck");
-      var rs = getComputedStyle(r);
-      // Alert the value of the --blue variable
-      // alert("The value of --blue is: " + rs.getPropertyValue('text-color'));
-      var all = document.getElementsByTagName("*");
-      var tab_links = document.getElementsByClassName("tablinks");
-      // If the checkbox is checked, display the output text
-      if (checkBox.checked == true){
-        r.style.setProperty('background-color', 'black');
-        document.body.style.color = "white"
-        document.getElementById("site-nav").style.background = "black"
+  function setCookie(cname, cvalue, exdays) {
+    var d = new Date();
+    d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+    var expires = "expires="+d.toUTCString();
+    document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+  }
 
-        color = "white"
-        color_tab = "black"
-      } else {
-        document.body.style.color = "#40514e"
-        r.style.setProperty('background-color', '#f3f6f6');
-        document.getElementById("site-nav").style.background = "#f3f6f6"
-        color = "#40514e"
-        color_tab = "white"
+  function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i = 0; i < ca.length; i++) {
+      var c = ca[i];
+      while (c.charAt(0) == ' ') {
+        c = c.substring(1);
       }
-      for (var i=0, max=all.length; i < max; i++) {
-        all[i].style.color = color;
-      }
-      for (var i=0, max=tab_links.length; i < max; i++) {
-        tab_links[i].style.color = color_tab;
+      if (c.indexOf(name) == 0) {
+        return c.substring(name.length, c.length);
       }
     }
-  </script>
+    return "";
+  }
+
+  var r = document.querySelector(':root');
+  function darkFunction() {
+    // Get the checkbox
+    var checkBox = document.getElementById("darkCheck");
+    var rs = getComputedStyle(r);
+    // Alert the value of the --blue variable
+    // alert("The value of --blue is: " + rs.getPropertyValue('text-color'));
+    var all = document.getElementsByTagName("*");
+    var tab_links = document.getElementsByClassName("tablinks");
+    
+    // If the checkbox is checked, display the output text
+    if (checkBox.checked == true){
+      r.style.setProperty('background-color', 'black');
+      document.body.style.color = "white"
+      document.getElementById("site-nav").style.background = "black"
+
+      color = "white"
+      color_tab = "black"
+
+    } else {
+      document.body.style.color = "#40514e"
+      r.style.setProperty('background-color', '#f3f6f6');
+      document.getElementById("site-nav").style.background = "#f3f6f6"
+      color = "#40514e"
+      color_tab = "white"
+    }
+
+    setCookie("lights", checkBox.checked, 365)
+    
+    for (var i=0, max=all.length; i < max; i++) {
+      all[i].style.color = color;
+    }
+    for (var i=0, max=tab_links.length; i < max; i++) {
+      tab_links[i].style.color = color_tab;
+    }
+  }
+
+
+  // var lights = getCookie("lights");
+  // if (lights != ""){
+  //   window.alert(lights)
+  //   if(lights == "true"){
+  //     var checkBox = document.getElementById("darkCheck");
+  //     checkBox.checked = true
+  //   }
+  //   // checkBox.checked = Boolean(lights)
+  //   // window.alert(checkBox.checked)
+  //   // darkFunction()
+  // }
+</script>
 
 <div class="masthead">
 
@@ -79,3 +119,19 @@
     </div>
   </div>
 </div>
+
+<!-- Persistent colormode -->
+<script type="text/javascript">
+
+  var lights = getCookie("lights");
+  if (lights != ""){
+    // window.alert(lights)
+    if(lights == "true"){
+      var checkBox = document.getElementById("darkCheck");
+      checkBox.checked = true
+      darkFunction()
+    }
+    // checkBox.checked = Boolean(lights)
+    // window.alert(checkBox.checked)
+  }
+</script>

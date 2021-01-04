@@ -85,24 +85,24 @@ Here are some of my sketches from back then.
 <!-- Tab content -->
 <div id="merolek" class="tabcontent">
     <h3 id="sketch_title">Curves by lines</h3>
-    <canvas id="processing_canvas" data-processing-sources="merolek.pde" style="width:  100%; height: 100%; border-style: solid;"></canvas>
+    <canvas id="processing_canvas_1" data-processing-sources="merolek.pde" style="width:  100%; height: 100%; border-style: solid;" resize></canvas>
     <br>
     Click on the sketch and use <i class="fa fa-arrow-up"></i> and <i class="fa fa-arrow-down"></i> keys for interaction.
 </div>
 
 <div id="fractal_3D" class="tabcontent">
   <h3 id="sketch_title">Fractal 3D</h3>
-    <canvas id="processing_canvas" data-processing-sources="proc_cubes_3D.pde" style="width:  100%; height: 100%; border-style: solid;"></canvas>
+    <canvas id="processing_canvas_2" data-processing-sources="proc_cubes_3D.pde" style="width:  100%; height: 100%; border-style: solid;" resize></canvas>
 </div>
 
 <div id="dancing_cubes_3D" class="tabcontent">
   <h3 id="sketch_title">Dancing Cubes 3D</h3>
-    <canvas id="processing_canvas" data-processing-sources="dancing_cubes_3D.pde" style="width:  100%; height: 100%; border-style: solid;"></canvas>
+    <canvas id="processing_canvas_3" data-processing-sources="dancing_cubes_3D.pde" style="width:  100%; height: 100%; border-style: solid; " resize></canvas>
 </div>
 
 <div id="mandala_cuadros" class="tabcontent">
   <h3 id="sketch_title">Mandala squares</h3>
-    <canvas id="processing_canvas" data-processing-sources="mandala_cuadros.pde" style="width:  100%; height: 100%; border-style: solid;"></canvas>
+    <canvas id="processing_canvas_4" data-processing-sources="mandala_cuadros.pde" style="width:  100%; height: 100%; border-style: solid;" resize></canvas>
     <br>
     Click mouse to erase. And control size of circles and squares with mouse position.
 </div>
@@ -111,6 +111,26 @@ Here are some of my sketches from back then.
 <script>
   document.getElementById("default_tab").click()
   console.log('clicled')
+
+  // Get the canvas element form the page
+  var canvas = document.getElementById('processing_canvas');
+  
+  function fullscreen(){
+    var el = document.getElementById(this.id);
+
+    if(el.webkitRequestFullScreen) {
+        el.webkitRequestFullScreen();
+    }
+    else {
+      el.mozRequestFullScreen();
+    }            
+  }
+  
+  document.getElementById('processing_canvas_1').addEventListener("click",fullscreen)
+  document.getElementById('processing_canvas_2').addEventListener("click",fullscreen)
+  document.getElementById('processing_canvas_3').addEventListener("click",fullscreen)
+  document.getElementById('processing_canvas_4').addEventListener("click",fullscreen)
+
 </script>
 
 

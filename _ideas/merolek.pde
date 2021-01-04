@@ -20,6 +20,7 @@ color col,col1;
 
 void setup()
 {
+  // size(externals.window.innerWidth, externals.window.innerHeight);
   size(externals.window.innerWidth/2, externals.window.innerWidth/2);
   background(0);
   //smooth();

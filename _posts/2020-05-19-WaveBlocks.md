@@ -6,8 +6,8 @@ venue: 'arXiv'
 citation: 'J. Page, P. Favaro &quot;Learning to Model and Calibrate Optics via a Differentiable Wave Optics Simulator.&quot; In <i>arXiv</i>.'
 ---
 
- [[PDF]](https://arxiv.org/pdf/2005.08562) 
- [[Project Page]](https://arxiv.org/abs/2005.08562) [[Code]](https://github.com/pvjosue/WaveBlocks) 
+ [[PDF]](https://cvg.unibe.ch/media/publications/pdf/pagejosue_ICIP_2020_Wave_blocks.pdf) 
+ [[Project Page]](https://github.com/pvjosue/WaveBlocks) [[Code]](https://github.com/pvjosue/WaveBlocks) 
 
 ## Abstract
 

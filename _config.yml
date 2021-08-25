@@ -77,6 +77,7 @@ author:
 google_site_verification: "5cB-ixj9LM-TwE__EP9Cx_5VZCxXup4zKdO3Gq4No_k"
 github-cards-path: /assets/github-cards/
 github-repos:
+  - name: pvjosue/SLNet_XLFMNet
   - name: pvjosue/LFMNet
   - name: pvjosue/WaveBlocks
   - name: pvjosue/pytorch_convNd

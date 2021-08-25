@@ -36,6 +36,7 @@ Education
 * *Group:* [Computational Imaging and Inverse Problems](https://ciip.in.tum.de/)  
 * *Supervisor:* PD Dr. Tobias Lasser.
 * Publications and Repos:
+    * [Real-Time Light Field 3D Microscopy via Sparsity-Driven Learned Deconvolution](/SLXLFMNet)
     * [Artifact-free deconvolution in light field microscopy](/artifact-free)
     * [oLaF: A flexible 3D reconstruction framework for light field microscopy](/olaf)
 
@@ -49,6 +50,7 @@ Education
 * *Supervisor:* Prof. Paolo Favaro
 * Gain expertise in: Deep learning algorithms (Pytorch), Wave Optics simulation of microscopes.
 * Publications and Repos:
+    * [Learning to Model and Calibrate Optics Via a Differentiable Wave Optics Simulator](/WaveBlocks)
     * [Learning to Reconstruct Confocal Microscopy Stacks from Single Light Field Images](/LFMNet)
     * N-dimensional convolution in Pytorch [convNd](https://github.com/pvjosue/pytorch_convNd)
     * N-dimensional Fourier transform in Pytorch [fftNd](https://github.com/pvjosue/pytorch_fftNd)

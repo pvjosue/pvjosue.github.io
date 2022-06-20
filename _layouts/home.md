@@ -10,14 +10,11 @@ layout: archive
     <br>
     My main research interests are:
     <ul style="margin-top: 0; margin-bottom: 0;">    
-        <li style="margin-top: 0; margin-bottom: 0;">Computational microscopy towards real-time 3D microscopy.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Joint optimization of optical systems and reconstruction algorithms through wave optics and adaptive optics with a Pytorch back-end (see <a href="https://github.com/pvjosue/WaveBlocks">WaveBlocks</a> framework).</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Deep learning, Bayesian learning, normalizing flows, etc. For solving inverse imaging problems, etc.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Life sciences are a plus; I'm astonished by nature's beauty and elegance and happy to collaborate for further understanding.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Computational microscopy towards real-time 3D imaging.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Joint optimization of optical systems and reconstruction algorithms through a self developed framework (see <a href="https://github.com/pvjosue/WaveBlocks">WaveBlocks</a>).</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Deep learning, Bayesian learning, normalizing flows, etc. For solving inverse imaging problems.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Life sciences. I'm astonished by nature's beauty and elegance and happy to collaborate for further understanding.</li>
     </ul>
-    <br>
-    <br>
-    In my ongoing Ph.D. I built strong intuition on Wave-Optics and machine learning, allowing me to explore the substitution of some parts of the Light-field imaging inverse problem with Deep and Bayesian Learning.
     <br>
     <br>
 Throughout my career, I had the chance to encounter complex problems involving many different audio-visual, scientific, and industrial applications, software, frameworks, and ideas. This has allowed me to create and adapt solutions for various goals.

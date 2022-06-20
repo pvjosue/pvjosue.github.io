@@ -17,11 +17,14 @@ layout: archive
     </ul>
     <br>
     <br>
-    In my ongoing Ph.D., I built up intuition on Wave-Optics and machine learning, allowing me to explore the substitution of some parts of the Light-field imaging inverse problem with Deep and Bayesian Learning.
+    In my ongoing Ph.D. I built strong intuition on Wave-Optics and machine learning, allowing me to explore the substitution of some parts of the Light-field imaging inverse problem with Deep and Bayesian Learning.
     <br>
     <br>
 Throughout my career, I had the chance to encounter complex problems involving many different audio-visual, scientific, and industrial applications, software, frameworks, and ideas. This has allowed me to create and adapt solutions for various goals.
 
+    <br>
+    <br>
+    Some of my skills and interest can be resumed by:
 <ul style="margin-top: 0; margin-bottom: 0;">    
         <li style="margin-top: 0; margin-bottom: 0;">Lots of coding: C++, Python, other scripting languages, and GPU acceleration frameworks like CUDA and OpenCL.</li>
         <li style="margin-top: 0; margin-bottom: 0;">Deep visual programming and 3D animation like TouchDesigner, Processing, VVVV, Cinema 4D, RealFlow, etc.</li>

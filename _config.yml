@@ -61,7 +61,7 @@ author:
       icon: "fas fa-fw fa-link"
       url: "https://ciip.in.tum.de/people/page.html"
     - label: "LinkedIn"
-      icon: "fas fa-fw fa-linkedin"
+      icon: "fa-brands fa-linkedin"
       url: "https://www.linkedin.com/in/pvjosue"
     - label: "GitHub"
       icon: "fab fa-fw fa-github"

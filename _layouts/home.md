@@ -17,14 +17,14 @@ layout: archive
     </ul>
     <br>
     <br>
-Throughout my career, I had the chance to encounter complex problems involving many different audio-visual, scientific, and industrial applications, software, frameworks, and ideas. This has allowed me to create and adapt solutions for various goals.
+Throughout my career, I had the chance to encounter complex problems involving many different audio-visual, scientific, and industrial applications, software, frameworks, and ideas. This has allowed me to develop versatility and creativity when approaching new problems.
 
     <br>
     <br>
     Some of my skills and interest can be resumed by:
 <ul style="margin-top: 0; margin-bottom: 0;">    
-        <li style="margin-top: 0; margin-bottom: 0;">Lots of coding: C++, Python, other scripting languages, and GPU acceleration frameworks like CUDA and OpenCL.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Deep visual programming and 3D animation like TouchDesigner, Processing, VVVV, Cinema 4D, RealFlow, etc.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Coding: C++, Python, other scripting languages, and GPU acceleration frameworks like CUDA and OpenCL.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Visual programming and 3D animation in frameworks like TouchDesigner, Processing, VVVV, Cinema 4D, RealFlow, After effects, setc.</li>
         <li style="margin-top: 0; margin-bottom: 0;">Plugin development for Micro-manager, Leap Motion, Cinema 4D, After effects, etc.</li>
         <li style="margin-top: 0; margin-bottom: 0;">Complex audio-visual system integration, such as a structured-light-based calibration system for video-mapping applications (see <a href="www.visualma.com">Visualma</a>), interactive and real-time installations using Leap Motion, Kinect, Raspberry Pi, and many self-made sensing and computing tools.</li>
     </ul>

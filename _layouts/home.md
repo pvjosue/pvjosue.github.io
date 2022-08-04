@@ -19,6 +19,7 @@ layout: archive
     <br>
 In my ongoing Ph.D., I built up intuition on Wave-Optics and machine learning algorithms, allowing me to complement the fluorescent microscope image formation model with Deep and Bayesian Learning.
 <br>
+<br>
 
 Throughout my career, I had the chance to encounter complex problems involving many different audio-visual, scientific, and industrial applications, software, frameworks, and ideas. This allowed me to learn versatility and robustness when approaching new problems.
 

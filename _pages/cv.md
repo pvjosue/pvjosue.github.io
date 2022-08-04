@@ -28,27 +28,29 @@ toc_sticky: true
 Education
 ---------
 
-### 2018- to date &nbsp; | &nbsp; PhD
+### 2018- to date &nbsp; | &nbsp; Ph.D. Project
 
-**PhD in Light-Field and Computational Microscopy**
+**in Computational Microscopy and Light-field imaging systems**
 
 *Technical University of Munich (Germany)*  
 * *Group:* [Computational Imaging and Inverse Problems](https://ciip.in.tum.de/)  
 * *Supervisor:* PD Dr. Tobias Lasser.
+* *Additional tasks:* Constant supervision of bacherlor and master student project, and, teaching activities.
 * Publications and Repos:
     * [Real-Time Light Field 3D Microscopy via Sparsity-Driven Learned Deconvolution](/SLXLFMNet)
     * [Artifact-free deconvolution in light field microscopy](/artifact-free)
     * [oLaF: A flexible 3D reconstruction framework for light field microscopy](/olaf)
 
 
-### 2019-2020 &nbsp; | &nbsp; PhD Project Abroad
+### 2019-2020 &nbsp; | &nbsp; Ph.D. Project Abroad
 
-**Light-Field Microscopy and Deep Learning**
+**Light-Field + Confocal Microscopy and Deep Learning**
 
 *University of Bern (Switzerland)*
 * *Group:* [Computer Vision Group](http://www.cvg.unibe.ch/)  
 * *Supervisor:* Prof. Paolo Favaro
-* Gain expertise in: Deep learning algorithms (Pytorch), Wave Optics simulation of microscopes.
+* Aim of the project: Create a Confocal and Light-field microscope 3D dataset of mice brain vasculature. Later, explore supervised learning algorithms for 3D reconstruction.
+* Gain expertise in: Deep learning algorithms (Pytorch), Wave Optics modeling of microscopes.
 * Publications and Repos:
     * [Learning to Model and Calibrate Optics Via a Differentiable Wave Optics Simulator](/WaveBlocks)
     * [Learning to Reconstruct Confocal Microscopy Stacks from Single Light Field Images](/LFMNet)
@@ -76,27 +78,28 @@ Education
 *CETI (Guadalajara, Mexico)*
 * *Minor:* Robotics and Computer Vision.  
 * *Thesis title:* AutoMapping, automatic mapping of structures using Structured Light.  
+* First place in yearly thesis project competition (Gaining direct graduation rights.)
 * *Grade:* 91.7 / 100 
 
 Work Experience
 ----------
 
 ### 2016-2017 &nbsp; | &nbsp; TUM
-**Technical University of Munich, HiWi in the [CAMP](http://campar.in.tum.de/WebHome) group in collaboration with Zeiss, Munich, Germany** 
+**Technical University of Munich, HiWi in the [CAMP](https://www.cs.cit.tum.de/camp/start/) group in collaboration with Zeiss, Munich, Germany** 
 * Assisting on research and development of algorithms for tool tracking in retinal microsurgery, supervised by Dr. Nicola Rieke. 
 * Gain expertise in: C++, Random forests, Zeiss framework, camera calibration methods, etc.
 
 ### 2014-2015 &nbsp; | &nbsp; Intel
 **Graphics Hardware Engineer, Guadalajara, Mexico** 
-* Development and maintenance of a graphic card simulator as a functional reference model and pre-silicon validation tool for graphic cards.
-* Worked remotely with an international team located in Folsom California
-* Gain expertise in: C++, scripting (Ruby, Python, Perl, Go), Netbach, etc. 
+* Development and maintenance of a graphic card simulator as a functional reference model and pre-silicon validation tool for graphic cards. Our team was focused in display and audio.
+* Worked within an international team located in Guadalajara Mexico and Folsom California.
+* Gain expertise in: Low level graphics feature implementation, lots of coding in C++, scripting (Ruby, Python, Perl, Go), Netbach, etc. 
 
 
 ### 2011-2015 &nbsp; | &nbsp; [Visualma](http://www.visualma.com)
 **Interactive Programer and Co-founder, Guadalajara, Mexico**
 * Realization of 3D mapping projections with computer vision and camera calibration methods.  
-* Connection of multiple platforms and frameworks achieving complex and autonomous entertainment systems.
+* Connection of multiple platforms and frameworks achieving complex and interactive entertainment systems.
 * Gain expertise in: Projection Software (Resolume, Touch-designer) 3D modeling (C4D, Realflow, HLSL shading), After Effects, interactive programing (Processing, Touch-Designer, VVVV), camera calibration software development, etc.
 
 Trainings
@@ -115,7 +118,7 @@ Human Languages
 --------------------
 * **Spanish:** Native language.  
 * **English:** Advanced, fluent technical work. Score of 101 in Toefl IBT.
-* **German:** Fluent, B2 level.
+* **German:** Fluent, B2.2 level.
 
 
 Technical Experience
@@ -124,16 +127,18 @@ Technical Experience
 ### Programming Languages  
 
 * C++, Python and Matlab as main languages.
-* Python and multiple scripting languages: Pytorch core development.
+* Python and C++ machine learning frameworks: Strong Pytorch + cuda development and basic Tensorflow.
 * GPU programming: Cuda, OpenCL, HLSL, etc.
-* Other languages: Micromanager (microscope software development), C#, Java, C, etc.
-* Visual programing: Advanced Touch-designer, Processing, OpenFrameworks, OpenCV, etc.
+* Scheduling and experiment management: Slurm and Guild.ai.
+* Other frameworks: Micromanager (microscope software development), C#, Java, C, etc.
+* Visual and interactive programing: Advanced Touch-designer, Processing, OpenFrameworks, OpenCV, etc.
 
 ### Additional Skills  
 
-* Micro-controlers and sensing (PIC, Arduino, chipkit, freescale, PLC).  
-* Communication protocols (I2C, OSC, MIDI, DMX, Spout).  
-* Animation: After Effects, Cinema 4D, RealFlow, etc.
+* Micro-controlers and sensing: Arduino, chipkit, freescale, PLC.  
+* Communication protocols: OSC, IS2, MIDI, DMX, Spout.  
+* Animation: After Effects, Cinema 4D, RealFlow.
+* etc.
 
 
 {% seo %}

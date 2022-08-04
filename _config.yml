@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: "Josue Page LFM" 
+title: "Josue Page Vizcaino" 
 masthead_title: >- 
   <i class="fas fa-microscope fa-2x" ></i> 
   <i class="fas fa-plus"></i> 
@@ -22,7 +22,7 @@ masthead_title: >-
   <i class="fas fa-cube fa-2x"></i>
 repository: "pvjosue/test.github.io"
 email: "pv.josue@gmail.com"
-description: I'm a Ph.D. candidate in the computational imaging and inverse problems group at the Technical University of Munich. 
+description: I'm a Ph.D. candidate in the computational imaging and inverse problems group at the Technical University of Munich.
 
 github_username: pvjosue
 minimal_mistakes_skin: mint
@@ -53,7 +53,7 @@ plugins:
 author:
   name   : "Josué Page Vizcaíno"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "PhD Student at the Technical University of Munich"
+  bio    : "Ph.D. Candidate at the Technical University of Munich"
   location: "Munich, Germany"
   googlescholar: "https://scholar.google.com/citations?hl=en&user=5WfCRjQAAAAJ"
   links:

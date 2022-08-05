@@ -13,7 +13,7 @@ layout: archive
         <li style="margin-top: 0; margin-bottom: 0;">Computational microscopy, adaptive optics, and real-time 3D microscopy.</li>
         <li style="margin-top: 0; margin-bottom: 0;">Joint optimization of optical systems and reconstruction algorithms through Pytorch-based wave optics simulator. (see <a href="https://github.com/pvjosue/WaveBlocks">WaveBlocks</a>).</li>
         <li style="margin-top: 0; margin-bottom: 0;">Normalizing flows, Bayesian learning, deep learning. For solving inverse imaging problems, etc.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Life sciences. I'm astonished by nature's beauty and elegance and happy to collaborate for further understanding.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Working within an interdiciplinary team in real-life and inpactful projects.</li>
     </ul>
     <br>
     <br>
@@ -21,16 +21,16 @@ In my ongoing Ph.D., I built up intuition on Wave-Optics and machine learning al
 <br>
 <br>
 
-Throughout my career, I had the chance to encounter complex problems involving many different audio-visual, scientific, and industrial applications, software, frameworks, and ideas. This allowed me to learn versatility and robustness when approaching new problems.
+Throughout my career, I had the chance to encounter complex challanges involving a variety of audio-visual, scientific, and industrial applications, frameworks, and ideas, with interdisciplinary and international teams. This allowed me to learn versatility and robustness when approaching new problems.
 
     <br>
     <br>
     Some of my skills and interest can be resumed by:
 <ul style="margin-top: 0; margin-bottom: 0;">    
         <li style="margin-top: 0; margin-bottom: 0;">Lots of coding: C++, Python, other scripting languages, and GPU acceleration frameworks like CUDA and OpenCL.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Highly proficient in visual programming and 3D animation frameworks like TouchDesigner, Processing, VVVV, Cinema 4D, RealFlow, etc.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Proficient in visual programming and 3D animation frameworks like TouchDesigner, Processing, VVVV, Cinema 4D, RealFlow, etc.</li>
         <li style="margin-top: 0; margin-bottom: 0;">Plugin development for Micro-manager, Leap Motion, Cinema 4D, After effects, etc.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Complex audio-visual system integration, such as a structured-light-based calibration system for video-mapping applications (see <a href="www.visualma.com">Visualma</a>), interactive and real-time installations using Leap Motion, Kinect, Raspberry Pi, and many self-made sensing and computing tools.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Complex audio-visual system integration, such as a structured-light-based calibration system for video-mapping applications (see <a href="https://www.visualma.com">Visualma</a>), interactive and real-time installations using Leap Motion, Kinect, Raspberry Pi, and many self-made sensing and computing tools.</li>
     </ul>
 
 </article>

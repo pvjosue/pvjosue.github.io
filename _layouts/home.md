@@ -11,7 +11,7 @@ layout: archive
     My current research is oriented towards:
     <ul style="margin-top: 0; margin-bottom: 0;">    
         <li style="margin-top: 0; margin-bottom: 0;">Computational microscopy towards real-time 3D microscopy.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Employing Normalizing flows, Bayesian learning, deep learning, etc. Complementing tradicional image formation models.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Employing Normalizing flows, Bayesian learning, deep learning, complementing tradicional image formation models.</li>
         <li style="margin-top: 0; margin-bottom: 0;">Joint optimization of optical systems and reconstruction algorithms through Pytorch-based wave optics simulator. (see <a href="https://github.com/pvjosue/WaveBlocks">WaveBlocks</a>).</li>
         <li style="margin-top: 0; margin-bottom: 0;">Publishing in venues like: <a href="/LFMNet">Transactions on Computational Imaging</a>, <a href="/artifact-free">Optics express</a>, <a href="/concurrent-segmentation">International Conference on Medical Image Computing and Computer Assisted Intervention</a>, <a href="/SLXLFMNet">International Conference on Computational Photography</a>, <a href="/WaveBlocks">International Conference on Image Processing</a>, etc.
         </li>

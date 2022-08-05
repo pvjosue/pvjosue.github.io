@@ -10,25 +10,28 @@ layout: archive
     <br>
     My current research is oriented towards:
     <ul style="margin-top: 0; margin-bottom: 0;">    
-        <li style="margin-top: 0; margin-bottom: 0;">Computational microscopy, adaptive optics, and real-time 3D microscopy.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Computational microscopy towards real-time 3D microscopy.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Employing Normalizing flows, Bayesian learning, deep learning, etc. Complementing tradicional image formation models.</li>
         <li style="margin-top: 0; margin-bottom: 0;">Joint optimization of optical systems and reconstruction algorithms through Pytorch-based wave optics simulator. (see <a href="https://github.com/pvjosue/WaveBlocks">WaveBlocks</a>).</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Normalizing flows, Bayesian learning, deep learning. For solving inverse imaging problems, etc.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Working within an interdiciplinary team in real-life and inpactful projects.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Publishing in venues like: <a href="/LFMNet">Transactions on Computational Imaging</a>, <a href="/artifact-free">Optics express</a>, <a href="/concurrent-segmentation">International Conference on Medical Image Computing and Computer Assisted Intervention</a>, <a href="/SLXLFMNet">International Conference on Computational Photography</a>, <a href="/WaveBlocks">International Conference on Image Processing</a>, etc.
+        </li>
+        <li style="margin-top: 0; margin-bottom: 0;">Collaborating with international labs in life sciences inpactful projects.</li>
     </ul>
     <br>
     <br>
-In my ongoing Ph.D., I built up intuition on Wave-Optics and machine learning algorithms, allowing me to complement the fluorescent microscope image formation model with Deep and Bayesian Learning.
+<!-- In my ongoing Ph.D., I built up intuition on Wave-Optics and machine learning algorithms, allowing me to complement the fluorescent microscope image formation model with Deep and Bayesian Learning.
 <br>
-<br>
+<br> -->
 
-Throughout my career, I had the chance to encounter complex challanges involving a variety of audio-visual, scientific, and industrial applications, frameworks, and ideas, with interdisciplinary and international teams. This allowed me to learn versatility and robustness when approaching new problems.
+Throughout my career, I have encountered complex challenges involving various audio-visual, scientific, and industrial applications, frameworks, and ideas, with interdisciplinary and international teams. This allowed me to learn versatility and robustness when approaching new problems.
 
     <br>
     <br>
     Some of my skills and interest can be resumed by:
 <ul style="margin-top: 0; margin-bottom: 0;">    
-        <li style="margin-top: 0; margin-bottom: 0;">Lots of coding: C++, Python, other scripting languages, and GPU acceleration frameworks like CUDA and OpenCL.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Proficient in visual programming and 3D animation frameworks like TouchDesigner, Processing, VVVV, Cinema 4D, RealFlow, etc.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Lots of coding: C++, Python, GPU frameworks and other languages. Applied to diverse tasks like low-level hardware simulation, interactive art installations, bio-medical inverse problems, etc.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Image formation modeling based on ray and diffraction optics as well as different medical imaging technologies.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Visual and interactive programming and 3D animation frameworks like TouchDesigner, Processing, VVVV, Cinema 4D, RealFlow, etc.</li>
         <li style="margin-top: 0; margin-bottom: 0;">Plugin development for Micro-manager, Leap Motion, Cinema 4D, After effects, etc.</li>
         <li style="margin-top: 0; margin-bottom: 0;">Complex audio-visual system integration, such as a structured-light-based calibration system for video-mapping applications (see <a href="https://www.visualma.com">Visualma</a>), interactive and real-time installations using Leap Motion, Kinect, Raspberry Pi, and many self-made sensing and computing tools.</li>
     </ul>

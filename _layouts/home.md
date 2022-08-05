@@ -23,7 +23,7 @@ layout: archive
 <br>
 <br> -->
 
-Throughout my career, I have encountered complex challenges involving various audio-visual, scientific, and industrial applications, frameworks, and ideas, with interdisciplinary and international teams. This allowed me to learn versatility and robustness when approaching new problems.
+Throughout my career, I have encountered complex challenges involving various audio-visual, scientific, and industrial applications, frameworks, and ideas, with interdisciplinary and international teams. This allowed me develop collaborative skills, versatility and robustness when approaching new problems.
 
     <br>
     <br>

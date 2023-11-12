@@ -25,10 +25,13 @@ toc_sticky: true
 }
 </style>
 
-Education
+Current activity
 ---------
+### 2023-to-date &nbsp; | &nbsp; Software Engineer | Developer
+At Carl Zeiss Munich, focused on imaging inverse problems and GPU programming.
 
-### 2018- to date &nbsp; | &nbsp; Ph.D. Project
+---------
+### 2018-2023 &nbsp; | &nbsp; Ph.D. Project
 
 **in Computational Microscopy and Light-field imaging systems**
 
@@ -40,6 +43,7 @@ Education
     * [Real-Time Light Field 3D Microscopy via Sparsity-Driven Learned Deconvolution](/SLXLFMNet)
     * [Artifact-free deconvolution in light field microscopy](/artifact-free)
     * [oLaF: A flexible 3D reconstruction framework for light field microscopy](/olaf)
+* Dissertation: [Enabling real-time light-field 3D fluorescence microscopy through computational microscopy and deep learning](/disertation)
 
 
 ### 2019-2020 &nbsp; | &nbsp; Ph.D. Project Abroad

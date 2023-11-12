@@ -51,13 +51,13 @@ plugins:
   - jekyll-include-cache
   - jekyll-seo-tag 
 author:
-  name   : "Josué Page Vizcaíno"
+  name   : "Dr. Josué Page Vizcaíno"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Ph.D. Candidate at the Technical University of Munich"
+  bio    : "Sofware developer at Carl Zeiss"
   location: "Munich, Germany"
   googlescholar: "https://scholar.google.com/citations?hl=en&user=5WfCRjQAAAAJ"
   links:
-    - label: "Institutional Website"
+    - label: "Academic Website"
       icon: "fas fa-fw fa-link"
       url: "https://ciip.in.tum.de/people/page.html"
     - label: "LinkedIn"

@@ -1,20 +1,13 @@
 ---
-title: "Fast light-field 3D microscopy and domain shift adaptation through optics aware invertible neural networks"
+title: "Fast light-field 3D microscopy with out-of-distribution detection and adaptation through Conditional Normalizing Flows"
 collection: publications
-date: 2022-05-07
-venue: 'yet to come!' # European Light Microscopy Initiative, Turku Finland'
-citation: 'Josué Page Vizcaíno' # European Light Microscopy Initiative, Turku Finland'
-#, Zeguan Wang, Panagiotis Symvoulidis, Paolo Favaro, Edward S. Boyden and Tobias Lasser.&quot;.'
+date: 2023-06-14
+venue: 'arXiv' # European Light Microscopy Initiative, Turku Finland'
+citation: 'Page Vizcaíno, J. et. al. Fast light-field 3D microscopy with out-of-distribution detection and adaptation through Conditional Normalizing Flows, arXiv.2306.06408, 14 June 2023&quot;.'
 ---
-
- <!-- [[PDF]](https://mediatum.ub.tum.de/doc/1522002/file.pdf)  -->
- <!-- [[Code]](https://gitlab.lrz.de/IP/olaf)  -->
- <!-- [[Project Page]](http://cvg.unibe.ch/media/project/page/LFMNet/index.html)  -->
+[[PDF]](https://arxiv.org/pdf/2306.06408.pdf)
+[[Code]](https://github.com/pvjosue/CWFA)
+[[Project Page]](https://github.com/pvjosue/CWFA)
 
 ## Abstract
-
-Real-time 3D fluorescence microscopy is crucial for the spatio-temporal analysis of live organisms. Scanning microscopes are usually used for this task due to their high spatial resolution, but at the expense of temporal resolution due to their scanning nature.
-
-The eXtended field-of-view light field microscope (XLFM) is a scan-less and straightforward alternative. The XLFM acquires spatio-angular information in a single camera exposure and, in a subsequent step, infers a 3D volume through a reconstruction algorithm, making it an exciting tool for achieving real-time 3D microscopy.
-Unfortunately, traditional reconstruction methods (like deconvolution) require lengthy processing times (~0.022 Hz), hampering the speed advantages of the XLFM. Neural network architectures can overcome the speed constraints at the expense of lacking certainty metrics and distribution analysis, rendering them unsuitable for the biomedical realm.
-In this work, we propose a mixture of normalizing flows (also known as invertible neural networks) and the image formation model of the XLFM to perform fast 3D reconstructions of live zebrafish neural activity (5-10 Hz of volumes with size 512x512x90 voxels). Furthermore, the proposed approach allows for exact Likelihood computation, enabling distribution monitoring, followed by out-of-distribution detection and retraining of the system when a novel sample is detected. We evaluate the proposed method on live fluorescent Zebrafish and sparse decomposed images containing only the neural activity of the fish.
+Real-time 3D fluorescence microscopy is crucial for the spatiotemporal analysis of live organisms, such as neural activity monitoring. The eXtended field-of-view light field microscope (XLFM), also known as Fourier light field microscope, is a straightforward, single snapshot solution to achieve this. The XLFM acquires spatial-angular information in a single camera exposure. In a subsequent step, a 3D volume can be algorithmically reconstructed, making it exceptionally well-suited for real-time 3D acquisition and potential analysis. Unfortunately, traditional reconstruction methods (like deconvolution) require lengthy processing times (0.0220 Hz), hampering the speed advantages of the XLFM. Neural network architectures can overcome the speed constraints at the expense of lacking certainty metrics, which renders them untrustworthy for the biomedical realm. This work proposes a novel architecture to perform fast 3D reconstructions of live immobilized zebrafish neural activity based on a conditional normalizing flow. It reconstructs volumes at 8 Hz spanning 512x512x96 voxels, and it can be trained in under two hours due to the small dataset requirements (10 image-volume pairs). Furthermore, normalizing flows allow for exact Likelihood computation, enabling distribution monitoring, followed by out-of-distribution detection and retraining of the system when a novel sample is detected. We evaluate the proposed method on a cross-validation approach involving multiple in-distribution samples (genetically identical zebrafish) and various out-of-distribution ones.

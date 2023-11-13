@@ -8,14 +8,12 @@ layout: archive
     {{ site.description }}
     <br>
     <br>
-    My current research is oriented towards:
+    My current research and work is oriented towards:
     <ul style="margin-top: 0; margin-bottom: 0;">    
-        <li style="margin-top: 0; margin-bottom: 0;">Computational microscopy towards real-time 3D microscopy.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Employing Normalizing flows, Bayesian learning, deep learning, complementing tradicional image formation models.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Joint optimization of optical systems and reconstruction algorithms through Pytorch-based wave optics simulator. (see <a href="https://github.com/pvjosue/WaveBlocks">WaveBlocks</a>).</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Publishing in venues like: <a href="/LFMNet">IEEE TCI</a>, <a href="/SLXLFMNet">ICCP</a>, <a href="/WaveBlocks">ICIP</a>, <a href="/artifact-free">Optics express</a>, <a href="/concurrent-segmentation">MICCAI</a>, etc.
-        </li>
-        <li style="margin-top: 0; margin-bottom: 0;">Collaborating with international labs in life sciences inpactful projects.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Computational microscopy.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Inverse problems, aka 2D and 3D deconvolution.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Open source projects oriented towards joint optimization of optical systems and reconstruction algorithms through Python based differentiable simulators. (see <a href="https://github.com/pvjosue/WaveBlocks">WaveBlocks</a>).</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Collaborating with international labs in life sciences fun projects.</li>
     </ul>
     <br>
     <br>

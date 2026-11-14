@@ -38,12 +38,12 @@ At Carl Zeiss Munich, focused on imaging inverse problems and GPU programming.
 *Technical University of Munich (Germany)*  
 * *Group:* [Computational Imaging and Inverse Problems](https://ciip.in.tum.de/)  
 * *Supervisor:* PD Dr. Tobias Lasser.
-* *Additional tasks:* Constant supervision of bacherlor and master student project, and, teaching activities.
+* *Additional tasks:* Constant supervision of bachelor's and master's student projects, and teaching activities.
 * Publications and Repos:
     * [Real-Time Light Field 3D Microscopy via Sparsity-Driven Learned Deconvolution](/SLXLFMNet)
     * [Artifact-free deconvolution in light field microscopy](/artifact-free)
     * [oLaF: A flexible 3D reconstruction framework for light field microscopy](/olaf)
-* Dissertation: [Enabling real-time light-field 3D fluorescence microscopy through computational microscopy and deep learning](/disertation)
+* Dissertation: [Enabling real-time light-field 3D fluorescence microscopy through computational microscopy and deep learning](/dissertation/)
 
 
 ### 2019-2020 &nbsp; | &nbsp; Ph.D. Project Abroad
@@ -54,12 +54,12 @@ At Carl Zeiss Munich, focused on imaging inverse problems and GPU programming.
 * *Group:* [Computer Vision Group](http://www.cvg.unibe.ch/)  
 * *Supervisor:* Prof. Paolo Favaro
 * Aim of the project: Create a Confocal and Light-field microscope 3D dataset of mice brain vasculature. Later, explore supervised learning algorithms for 3D reconstruction.
-* Gain expertise in: Deep learning algorithms (Pytorch), Wave Optics modeling of microscopes.
+* Gain expertise in: Deep learning algorithms (PyTorch), wave optics modeling of microscopes.
 * Publications and Repos:
     * [Learning to Model and Calibrate Optics Via a Differentiable Wave Optics Simulator](/WaveBlocks)
     * [Learning to Reconstruct Confocal Microscopy Stacks from Single Light Field Images](/LFMNet)
-    * N-dimensional convolution in Pytorch [convNd](https://github.com/pvjosue/pytorch_convNd)
-    * N-dimensional Fourier transform in Pytorch [fftNd](https://github.com/pvjosue/pytorch_fftNd)
+    * N-dimensional convolution in PyTorch [convNd](https://github.com/pvjosue/pytorch_convNd)
+    * N-dimensional Fourier transform in PyTorch [fftNd](https://github.com/pvjosue/pytorch_fftNd)
 
 
 ### 2015-2017 &nbsp; | &nbsp; Masters
@@ -97,14 +97,14 @@ Work Experience
 **Graphics Hardware Engineer, Guadalajara, Mexico** 
 * Development and maintenance of a graphic card simulator as a functional reference model and pre-silicon validation tool for graphic cards. Our team was focused in display and audio.
 * Worked within an international team located in Guadalajara Mexico and Folsom California.
-* Gain expertise in: Low level graphics feature implementation, lots of coding in C++, scripting (Ruby, Python, Perl, Go), Netbach, etc. 
+* Gain expertise in: Low level graphics feature implementation, lots of coding in C++, scripting (Ruby, Python, Perl, Go), NetBeans, etc.
 
 
 ### 2011-2015 &nbsp; | &nbsp; [Visualma](http://www.visualma.com)
-**Interactive Programer and Co-founder, Guadalajara, Mexico**
+**Interactive Programmer and Co-founder, Guadalajara, Mexico**
 * Realization of 3D mapping projections with computer vision and camera calibration methods.  
 * Connection of multiple platforms and frameworks achieving complex and interactive entertainment systems.
-* Gain expertise in: Projection Software (Resolume, Touch-designer) 3D modeling (C4D, Realflow, HLSL shading), After Effects, interactive programing (Processing, Touch-Designer, VVVV), camera calibration software development, etc.
+* Gain expertise in: Projection Software (Resolume, TouchDesigner), 3D modeling (C4D, RealFlow, HLSL shading), After Effects, interactive programming (Processing, TouchDesigner, VVVV), camera calibration software development, etc.
 
 Trainings
 --------------------
@@ -113,7 +113,7 @@ Trainings
 * *ETH:* Summer School Biomedical Imaging, EXCITE. Zurich, Switzerland.
 
 **2018** 
-* *Sundsval University:* LightField Summer School. Sundsval, Sweden. 
+* *Sundsvall University:* LightField Summer School. Sundsvall, Sweden.
 
 **2019** 
 * *ETH:* *Advanced Microscopy Winter School, EXCITE. Zurich, Switzerland.
@@ -130,17 +130,17 @@ Technical Experience
 
 ### Programming Languages  
 
-* C++, Python and Matlab as main languages.
-* Python and C++ machine learning frameworks: Strong Pytorch + cuda development and basic Tensorflow.
-* GPU programming: Cuda, OpenCL, HLSL, etc.
+* C++, Python and MATLAB as main languages.
+* Python and C++ machine learning frameworks: Strong PyTorch and CUDA development and basic TensorFlow.
+* GPU programming: CUDA, OpenCL, HLSL, etc.
 * Scheduling and experiment management: Slurm and Guild.ai.
-* Other frameworks: Micromanager (microscope software development), C#, Java, C, etc.
-* Visual and interactive programing: Advanced Touch-designer, Processing, OpenFrameworks, OpenCV, etc.
+* Other frameworks: Micro-Manager (microscope software development), C#, Java, C, etc.
+* Visual and interactive programming: Advanced TouchDesigner, Processing, openFrameworks, OpenCV, etc.
 
 ### Additional Skills  
 
-* Micro-controlers and sensing: Arduino, chipkit, freescale, PLC.  
-* Communication protocols: OSC, IS2, MIDI, DMX, Spout.  
+* Microcontrollers and sensing: Arduino, chipkit, freescale, PLC.
+* Communication protocols: OSC, I2S, MIDI, DMX, Spout.
 * Animation: After Effects, Cinema 4D, RealFlow.
 * etc.
 

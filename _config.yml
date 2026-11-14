@@ -53,7 +53,7 @@ plugins:
 author:
   name   : "Dr. Josué Page Vizcaíno"
   avatar : "/assets/images/bio-photo.jpg"
-  bio    : "Software developer at Carl Zeiss<br>Interactive visual artist"
+  bio    : "Software developer and interactive artist"
   location: "Munich, Germany"
   googlescholar: "https://scholar.google.com/citations?hl=en&user=5WfCRjQAAAAJ"
   links:

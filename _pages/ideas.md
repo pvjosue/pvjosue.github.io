@@ -40,6 +40,10 @@ author_profile: true
   border: 1px solid #ccc;
   border-top: none;
 }
+
+.page__title {
+  display: none;
+}
 </style>
 
 <script>
@@ -72,9 +76,9 @@ author_profile: true
 
 
 <div class="visual-arts-page">
-  <section class="visual-arts-page__intro" aria-labelledby="visual-arts-about">
+  <section class="visual-arts-page__intro" aria-labelledby="visual-arts-title">
+    <h1 id="visual-arts-title" class="visual-arts-page__eyebrow visual-arts-page__title">Visuelle Kunst / Visual Arts / Creative technology</h1>
     <div>
-      <p class="visual-arts-page__eyebrow">Visual arts / creative technology</p>
       <h2 id="visual-arts-about">Who am I?</h2>
       <p class="visual-arts-page__lead">I'm Josue, a visual artist, researcher and creative technologist. I turn code, sensors, and real-time graphics into live visuals and interactive experiences.</p>
     </div>
@@ -92,6 +96,11 @@ author_profile: true
   </section>
 
   <section class="visual-arts-page__section" aria-labelledby="visual-arts-services">
+    <p class="visual-arts-page__contact">
+      Have a project in mind?
+      <a class="visual-arts-page__contact-button" href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=visuelle.kunst.jpv@gmail.com&amp;su=Visual%20arts%20project%20inquiry" target="_blank" rel="noopener noreferrer">Get in touch</a>
+      <span>or email <a class="visual-arts-page__contact-email" href="mailto:visuelle.kunst.jpv@gmail.com">visuelle.kunst.jpv@gmail.com</a></span>
+    </p>
     <div class="visual-arts-page__section-heading">
       <p class="visual-arts-page__eyebrow">Available for</p>
       <h2 id="visual-arts-services">Services</h2>
@@ -122,10 +131,6 @@ author_profile: true
         <p>From one-off event visuals to ideas that need a custom setup.</p>
       </li>
     </ul>
-    <p class="visual-arts-page__contact">
-      Planning a sports event or presentation?
-      <a href="mailto:visuelle.kunst.jpv@gmail.com?subject=Sports%20event%20visuals">Get in touch</a>
-    </p>
   </section>
 
   <section class="visual-arts-page__previous" aria-labelledby="visual-arts-previous">
@@ -142,7 +147,7 @@ author_profile: true
 </div>
 
 ## Processing Sketches
-Back in 2011 a good friend introduced [Processing](https://processing.org/), a visual and interactive programing framework based on Java. It helped me to develop my programing skills in an intuitive way. Even getting one of my sketches (Fractal 3D) to the front page of [OpenProcessing.org](https://www.openprocessing.org).
+Back in 2011 a good friend introduced [Processing](https://processing.org/), a visual and interactive programming framework based on Java. It helped me to develop my programming skills in an intuitive way. Even getting one of my sketches (Fractal 3D) to the front page of [OpenProcessing.org](https://www.openprocessing.org).
 Here are some of my sketches from back then.
 <!-- Tab links -->
 <div class="tab">
@@ -178,15 +183,17 @@ Here are some of my sketches from back then.
 </div>
 
 
+{% comment %}
 ## NFTs
 ### CNFT on Cardano network
 * ChaoticSynchrony: 
   - [pull request](https://github.com/Cardano-NFTs/policyIDs/pull/3544)
   - policy id: "734cdbdd40617395a7fcaeb76780b7a2349fd779fd222eb3bdd7ef91"
+{% endcomment %}
 
 <script>
   document.getElementById("default_tab").click()
-  console.log('clicled')
+  console.log('clicked')
 
   // Get the canvas element form the page
   var canvas = document.getElementById('processing_canvas');

@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Visual Arts"
+title: "Visuelle Kunst"
 permalink: /ideas/
 author_profile: true
 ---

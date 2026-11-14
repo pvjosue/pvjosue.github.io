@@ -109,7 +109,7 @@ footer:
 analytics:
   provider: "google-gtag"
   google:
-    tracking_id: "UA-165372182-1"
+    tracking_id: "G-9ZVVL2CH1E"
     anonymize_ip: false # default
 # Collections
 collections:

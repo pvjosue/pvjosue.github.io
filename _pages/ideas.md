@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Ideas"
+title: "Visual Arts"
 permalink: /ideas/
 author_profile: true
 ---
@@ -70,6 +70,76 @@ author_profile: true
 <script type="text/javascript" src="../assets/processing/processingNew.js"></script>
 
 
+
+<div class="visual-arts-page">
+  <section class="visual-arts-page__intro" aria-labelledby="visual-arts-about">
+    <div>
+      <p class="visual-arts-page__eyebrow">Visual arts / creative technology</p>
+      <h2 id="visual-arts-about">Who am I?</h2>
+      <p class="visual-arts-page__lead">I'm Josue, a visual artist, researcher and creative technologist. I turn code, sensors, and real-time graphics into live visuals and interactive experiences.</p>
+    </div>
+    <div class="visual-arts-page__video-slot">
+      <span class="visual-arts-page__eyebrow">YouTube demoreel</span>
+      <iframe
+        src="https://www.youtube-nocookie.com/embed/QGxa51aDbSg"
+        title="Josue's visual arts demo reel"
+        loading="lazy"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        referrerpolicy="strict-origin-when-cross-origin"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </section>
+
+  <section class="visual-arts-page__section" aria-labelledby="visual-arts-services">
+    <div class="visual-arts-page__section-heading">
+      <p class="visual-arts-page__eyebrow">Available for</p>
+      <h2 id="visual-arts-services">Services</h2>
+    </div>
+    <ul class="visual-arts-page__services">
+      <li class="visual-arts-page__service--featured">
+        <h3>Sports events and presentations</h3>
+        <p>Bring athlete introductions, live event moments, and sports presentations to life with real-time interactive visuals.</p>
+      </li>
+      <li>
+        <h3>Interactive live shows</h3>
+        <p>Real-time visuals shaped by performers, music, sports and audience input.</p>
+      </li>
+      <li>
+        <h3>Sensor integration</h3>
+        <p>Connect movement and other live signals to responsive visuals.</p>
+      </li>
+      <li>
+        <h3>Interactive installations</h3>
+        <p>Build hands-on experiences for galleries, public spaces, and events.</p>
+      </li>
+      <li>
+        <h3>Weddings and celebrations</h3>
+        <p>Create custom visuals and interactive moments for your event.</p>
+      </li>
+      <li>
+        <h3>Custom commissions</h3>
+        <p>From one-off event visuals to ideas that need a custom setup.</p>
+      </li>
+    </ul>
+    <p class="visual-arts-page__contact">
+      Planning a sports event or presentation?
+      <a href="mailto:visuelle.kunst.jpv@gmail.com?subject=Sports%20event%20visuals">Get in touch</a>
+    </p>
+  </section>
+
+  <section class="visual-arts-page__previous" aria-labelledby="visual-arts-previous">
+    <div>
+      <p class="visual-arts-page__eyebrow">Vimeo archive / pre-2015</p>
+      <h2 id="visual-arts-previous">Previous works</h2>
+      <p>Selected videos from my years at <a href="https://visualma.com/">Visualma</a>, mostly from before 2015, will be collected here.</p>
+    </div>
+    <div class="visual-arts-page__archive-slot">
+      <span class="visual-arts-page__eyebrow">Vimeo videos</span>
+      <p>Selected work coming soon</p>
+    </div>
+  </section>
+</div>
 
 ## Processing Sketches
 Back in 2011 a good friend introduced [Processing](https://processing.org/), a visual and interactive programing framework based on Java. It helped me to develop my programing skills in an intuitive way. Even getting one of my sketches (Fractal 3D) to the front page of [OpenProcessing.org](https://www.openprocessing.org).

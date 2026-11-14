@@ -29,6 +29,7 @@
     // Get the checkbox
     var checkBox = document.getElementById("darkCheck");
     var rs = getComputedStyle(r);
+    r.classList.toggle("dark-mode", checkBox.checked);
     // Alert the value of the --blue variable
     // alert("The value of --blue is: " + rs.getPropertyValue('text-color'));
     var all = document.getElementsByTagName("*");
@@ -54,7 +55,9 @@
     setCookie("lights", checkBox.checked, 365)
     
     for (var i=0, max=all.length; i < max; i++) {
-      all[i].style.color = color;
+      if (!all[i].closest(".visual-arts-page__intro")) {
+        all[i].style.color = color;
+      }
     }
     for (var i=0, max=tab_links.length; i < max; i++) {
       tab_links[i].style.color = color_tab;

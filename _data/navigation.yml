@@ -5,7 +5,7 @@ main:
   - title: Publications 
     icon: "fa fa-briefcase"
     url: /posts/
-  - title: Ideas
+  - title: Visual Arts
     icon: "fa fa-bolt"
     url: /ideas/
   - title: CV

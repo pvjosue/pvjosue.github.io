@@ -1,0 +1,218 @@
+---
+permalink: /projection-mapping-calculator.html
+sitemap: false
+---
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Projection Mapping Calculator</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);--bg:#f6f6f3;--fg:#1d1d1b;--mut:#6b6b66;--card:#fff;--bd:#dcdcd6;--ac:#c2410c;--ok:#15803d;--bad:#b91c1c}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#161615;--fg:#eeeeea;--mut:#9a9a93;--card:#222220;--bd:#383835;--ac:#fb923c;--ok:#4ade80;--bad:#f87171}}
+:root[data-theme="dark"]{--bg:#161615;--fg:#eeeeea;--mut:#9a9a93;--card:#222220;--bd:#383835;--ac:#fb923c;--ok:#4ade80;--bad:#f87171}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.45 system-ui,-apple-system,"Segoe UI",sans-serif;padding:14px;max-width:760px;margin:auto}
+h1{font-size:20px;margin:4px 0 10px}h2{font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--mut);margin:18px 0 8px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px}
+.g{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+label{display:block;font-size:12px;color:var(--mut)}
+input,select{width:100%;font:inherit;padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--fg)}
+.big{font-size:22px;font-weight:700;color:var(--ac)}
+.kv{display:flex;justify-content:space-between;gap:8px;padding:4px 0;border-bottom:1px dashed var(--bd)}
+.kv:last-child{border:0}
+.box{overflow-x:auto}table{border-collapse:collapse;width:100%;font-size:13px}
+th,td{text-align:left;padding:6px 8px;border-bottom:1px solid var(--bd);white-space:nowrap}
+.ok{color:var(--ok)}.bad{color:var(--bad)}.m{color:var(--mut);font-size:12px}.btn{font:inherit;padding:8px 12px;border:0;border-radius:8px;background:var(--ac);color:var(--bg);font-weight:600}
+.back-link{display:inline-block;margin:0 0 12px;color:var(--ac);font-weight:600;text-decoration:none}.back-link:hover,.back-link:focus-visible{text-decoration:underline}
+mjx-container{overflow-x:auto;overflow-y:hidden;max-width:100%}
+a{color:#0E9F6E}a:hover{color:#0B7F58}
+</style>
+<script>window.MathJax={tex:{inlineMath:[['\\(','\\)']],displayMath:[['\\[','\\]']]},svg:{fontCache:'global'}};</script>
+<script async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-svg.min.js"></script>
+</head><body>
+<a class="back-link" href="/_project_proposals/">← Back to project index</a>
+<h1>📽️ Projection Mapping Calculator</h1>
+<div class="card g">
+<div><label>Throw distance D (m)</label><input id="D" type="number" value="10" step="0.5"></div>
+<div><label>Ambient light E<sub>amb</sub> on surface (lx)</label><input id="E" type="number" value="100" step="1"></div>
+<div><label>Mapped area width W (m)</label><input id="W" type="number" value="7" step="0.5"></div>
+<div><label>Mapped area height H (m)</label><input id="H" type="number" value="5" step="0.5"></div>
+<div><label>Surface reflectance ρ</label><select id="R"><option value=".8" selected>White plaster (0.8)</option><option value=".5">Light stone / concrete (0.5)</option><option value=".3">Brick / grey (0.3)</option><option value=".15">Dark facade (0.15)</option></select></div>
+<div><label>Target contrast (white vs. black)</label><select id="C"><option value="3" selected>3:1 visible</option><option value="5">5:1 good</option><option value="10">10:1 strong</option><option value="20">20:1 cinema-like</option></select></div>
+<div><label>Projectors across × up (tiles)</label><div class="g"><input id="nx" type="number" value="1" min="1"><input id="ny" type="number" value="1" min="1"></div></div>
+<div><label>Edge-blend overlap o (%)</label><input id="o" type="number" value="15"></div>
+<div><label>Rental days</label><input id="days" type="number" value="3" min="1"></div>
+<div><label>System efficiency η (haze, aging, lens)</label><input id="eta" type="number" value="0.8" step="0.05"></div>
+<div style="grid-column:1/3"><label><input id="gross" type="checkbox" checked style="width:auto"> show prices incl. 19 % MwSt (page prices are incl. VAT; default: gross)</label></div>
+</div>
+
+<h2>Result</h2>
+<div class="card" id="res"></div>
+<h2>Options (stacked first, then single; cheapest first)</h2>
+<div class="card box" id="tab"></div>
+
+<h2>Suggestion per contrast</h2>
+<div class="card box" id="per"></div>
+<h2>How each contrast looks</h2>
+<div class="card"><div id="vis" style="display:grid;grid-template-columns:1fr 1fr;gap:10px"></div>
+<p class="m">Simulation: the wall’s ambient light lifts every black to a grey. Real eyes adapt, so the brightest area reads as white. Dark details (blue glow, dark bars) vanish first at low contrast. Real facades add texture and colour tint.</p></div>
+<h2>Calibration (home test)</h2>
+<div class="card">
+<ol style="margin:0 0 10px;padding-left:18px">
+<li>Small projector, plain light wall, room as dark as you like. Note its real <b>ANSI lumens</b> (Eco/Bright mode as used).</li>
+<li>Project a full-white image. Measure image width, height and the distance to the wall (m).</li>
+<li>phyphox Light: phone flat on the wall, sensor facing the projector. <b>Projector off</b>: read E<sub>amb</sub> (room light as it will be).</li>
+<li><b>White image on:</b> read centre + four corners, enter all five.</li>
+<li><b>Black image on:</b> same five points.</li>
+<li>Press <b>Apply</b>: η goes into the main calculator. Use Copy to keep the values for later.</li></ol>
+\[ \eta=\frac{(\bar E_{white}-\bar E_{black})\,A_i}{\Phi},\quad CR_{room}=\frac{\bar E_{white}}{\bar E_{black}},\quad U=\frac{E_{min}}{\bar E_{white}} \]
+<div class="g">
+<div style="grid-column:1/3"><label>Name / note</label><input id="cl_name" type="text" placeholder="e.g. Living room, Optoma, Eco"></div>
+<div><label>ANSI lumens Φ</label><input id="cl_lm" type="number"></div>
+<div><label>Distance D (m)</label><input id="cl_D" type="number" step="0.1"></div>
+<div><label>Image width (m)</label><input id="cl_w" type="number" step="0.01"></div>
+<div><label>Image height (m)</label><input id="cl_h" type="number" step="0.01"></div>
+<div style="grid-column:1/3"><label>E<sub>amb</sub>, projector off (lx)</label><input id="cl_amb" type="number"></div>
+<div style="grid-column:1/3"><label>White readings (lx, comma separated)</label><input id="cl_white" type="text" placeholder="420, 380, 390, 370, 385"></div>
+<div style="grid-column:1/3"><label>Black readings (lx, comma separated)</label><input id="cl_black" type="text" placeholder="40, 38, 39, 37, 38"></div>
+</div>
+<div id="cl_out" style="margin:10px 0"></div>
+<button class="btn" id="cl_apply">Apply η</button> <button class="btn" id="cl_copy">Copy values</button> <button class="btn" id="cl_load">Load pasted values</button>
+<div class="m" id="cl_msg" style="margin:6px 0"></div>
+<label>Export / import (JSON). Paste saved values here, then Load.</label>
+<textarea id="cl_json" rows="3" style="width:100%;font:12px monospace;padding:8px;border:1px solid var(--bd);border-radius:8px;background:var(--bg);color:var(--fg)"></textarea>
+<p class="m">The last applied calibration is also remembered in this browser.</p>
+</div>
+<h2>Formulas</h2>
+<div class="card">
+\[ W_i=\max\!\Big(\tfrac{W}{n_x-(n_x-1)o},\; a\,\tfrac{H}{n_y-(n_y-1)o}\Big),\quad A_i=\tfrac{W_i^2}{a} \]
+\[ TR=\frac{D}{W_i}\qquad D\in[TR_{min}W_i,\;TR_{max}W_i] \]
+\[ CR=\frac{E_{amb}+E_{proj}}{E_{amb}}=1+\frac{\eta\,\Phi}{A_i\,E_{amb}}\;\Rightarrow\;\Phi_{req}=\frac{(CR-1)\,E_{amb}\,A_i}{\eta} \]
+\[ k=\Big\lceil \frac{\Phi_{req}}{\Phi_{proj}}\Big\rceil\ \text{(stacked per tile)},\qquad L_{white}=\frac{\rho\,(E_{amb}+E_{proj})}{\pi} \]
+<p class="m">a = projector aspect ratio, o = overlap fraction, Φ in ANSI lumens. Contrast is independent of ρ (Lambertian); ρ only sets absolute brightness L in cd/m².</p>
+</div>
+
+<h2>Out-of-the-box tips</h2>
+<div class="card m" id="tips"></div>
+<p class="m">Rent prices: Beamer Budgeting page (EUR incl. 19 % VAT; shown net unless toggled). 1 day = 1-day price. Extra day = the page's 2-day price minus 1-day price ("–" if the page gives no higher 2-day price). Total for N days: 2 days = the page's 2-day price (else 1-day + extra day, else 2 × 1-day); each day beyond 2 = extra day (else 1-day price). Totals × units. est. = a fallback was used (no 2-day price, no extra-day price, or 3+ days with a week tier the linear formula does not model). Aspect ratio from the model name (default 16:9). Lens fit by throw ratio only, lens cost not included. Excludes crew, truss/tower, outdoor housing, transport, media server. Get a quote from a rental house.</p>
+
+<script>
+const $=i=>document.getElementById(i),f=n=>Math.round(n).toLocaleString('de-DE');
+const O=[
+{id:'lm-2500-beamer-muenchen-beamer-2500',sec:'lm-2-3k',n:"Beamer 2500",lm:2500,pv:"beamer-muenchen.net",u:"https://www.beamer-muenchen.net/beamer-modelle.php",d1:36,d2:72,wk:108},
+{id:'lm-2700-beamer-muenchen-beamer-hd-2700',sec:'lm-2-3k',n:"Beamer HD 2700",lm:2700,pv:"beamer-muenchen.net",u:"https://www.beamer-muenchen.net/beamer-modelle.php",d1:39,d2:78,wk:117},
+{id:'lm-3400-beamer-muenchen-beamer-3400',sec:'lm-2-3k',n:"Beamer 3400",lm:3400,pv:"beamer-muenchen.net",u:"https://www.beamer-muenchen.net/beamer-modelle.php",d1:49,d2:98,wk:147},
+{id:'lm-3000-beamer-muenchen-full-hd-3000',sec:'lm-2-3k',n:"FULL HD 3000",lm:3000,pv:"beamer-muenchen.net",u:"https://www.beamer-muenchen.net/beamer-modelle.php",d1:59,d2:118,wk:177},
+{id:'lm-2500-g-zell-beamer-2500',sec:'lm-2-3k',n:"Beamer 2500",lm:2500,pv:"G-zell.de",u:"https://www.g-zell.de/verleih/beamer-praesentationstechnik-mieten/beamer-projektoren/",d1:36,d2:72,wk:null},
+{id:'lm-2700-g-zell-beamer-2700',sec:'lm-2-3k',n:"Beamer 2700",lm:2700,pv:"G-zell.de",u:"https://www.g-zell.de/verleih/beamer-praesentationstechnik-mieten/beamer-projektoren/",d1:39,d2:78,wk:null},
+{id:'lm-3400-g-zell-beamer-3400',sec:'lm-2-3k',n:"Beamer 3400",lm:3400,pv:"G-zell.de",u:"https://www.g-zell.de/verleih/beamer-praesentationstechnik-mieten/beamer-projektoren/",d1:49,d2:98,wk:null},
+{id:'lm-3000-g-zell-full-hd-3000',sec:'lm-2-3k',n:"FULL HD 3000",lm:3000,pv:"G-zell.de",u:"https://www.g-zell.de/verleih/beamer-praesentationstechnik-mieten/beamer-projektoren/",d1:59,d2:118,wk:null},
+{id:'lm-3000-g-zell-kurzdistanz-3000',sec:'lm-2-3k',n:"Kurzdistanz 3000",lm:3000,pv:"G-zell.de",u:"https://www.g-zell.de/verleih/beamer-praesentationstechnik-mieten/beamer-projektoren/",d1:50,d2:100,wk:null},
+{id:'lm-2000-munich-home-solutions-panasonic-hd-standard',sec:'lm-2-3k',n:"Panasonic HD Standard",lm:2000,pv:"Munich Home Solutions",u:"https://www.munichhomesolutions.de/projektor-und-beamer-verleih-muenchen",d1:39,d2:64,wk:119},
+{id:'lm-2300-munich-home-solutions-epson-full-hd-premium',sec:'lm-2-3k',n:"Epson Full HD Premium",lm:2300,pv:"Munich Home Solutions",u:"https://www.munichhomesolutions.de/projektor-und-beamer-verleih-muenchen",d1:69,d2:114,wk:199},
+{id:'lm-3000-munich-home-solutions-epson-wxga-praesentation',sec:'lm-2-3k',n:"Epson WXGA Präsentation",lm:3000,pv:"Munich Home Solutions",u:"https://www.munichhomesolutions.de/projektor-und-beamer-verleih-muenchen",d1:45,d2:74,wk:135},
+{id:'lm-3000-munich-home-solutions-hisense-4k-smart-laser',sec:'lm-2-3k',n:"Hisense 4K Smart Laser",lm:3000,pv:"Munich Home Solutions",u:"https://www.munichhomesolutions.de/projektor-und-beamer-verleih-muenchen",d1:129,d2:214,wk:599},
+{id:'lm-3300-munich-home-solutions-epson-4k-kino-open-air',sec:'lm-2-3k',n:"Epson 4K Kino/Open-Air",lm:3300,pv:"Munich Home Solutions",u:"https://www.munichhomesolutions.de/projektor-und-beamer-verleih-muenchen",d1:249,d2:398,wk:749},
+{id:'lm-2000-muenchner-beamerverleih-standard',sec:'lm-2-3k',n:"Standard",lm:2000,pv:"Münchner Beamerverleih",u:"http://www.muenchner-beamerverleih.de/beamer/index.php",d1:45,d2:80,wk:null},
+{id:'lm-2500-muenchner-beamerverleih-praesentation-sony',sec:'lm-2-3k',n:"Präsentation Sony",lm:2500,pv:"Münchner Beamerverleih",u:"http://www.muenchner-beamerverleih.de/beamer/index.php",d1:75,d2:135,wk:null},
+{id:'lm-3500-muenchner-beamerverleih-profi-mitsubishi-xd2000u',sec:'lm-2-3k',n:"Profi Mitsubishi XD2000U",lm:3500,pv:"Münchner Beamerverleih",u:"http://www.muenchner-beamerverleih.de/beamer/index.php",d1:95,d2:175,wk:null},
+{id:'lm-3000-renty-benq-th681-full-hd',sec:'lm-2-3k',n:"BenQ TH681 Full HD",lm:3000,pv:"Renty",u:"https://renty-event.com/medientechnik/beamer",d1:59.90,d2:null,wk:null},
+{id:'lm-3000-renty-benq-th671st-short-throw',sec:'lm-2-3k',n:"BenQ TH671ST short throw",lm:3000,pv:"Renty",u:"https://renty-event.com/medientechnik/beamer",d1:129,d2:null,wk:null},
+{id:'lm-2700-ltv-projektionsset-praesentationsbeamer-2700-ansi-lm-hd-720p',sec:'lm-2-3k',n:"Projektionsset/Präsentationsbeamer 2700 ANSI lm, HD 720p",lm:2700,pv:"LTV",u:"http://www.licht-ton-vermietung.de/videotechnik/beamer.php",d1:65,d2:130,wk:null},
+{id:'lm-3500-ltv-videoprojektor-3500-ansi-lm-fullhd',sec:'lm-2-3k',n:"Videoprojektor 3500 ANSI lm FullHD",lm:3500,pv:"LTV",u:"http://www.licht-ton-vermietung.de/videotechnik/beamer.php",d1:75,d2:150,wk:null},
+{id:'lm-4000-schallinger-full-hd-dlp-4000',sec:'lm-4k',n:"FULL HD DLP 4000",lm:4000,pv:"Schallinger",u:"https://www.schallinger.eu/produkte/beamer/videobeamer/",d1:50,d2:50,wk:96,wa:1},
+{id:'lm-4000-beamer-muenchen-acer-p5205-wxga',sec:'lm-4k',n:"Acer P5205 WXGA",lm:4000,pv:"beamer-muenchen.net",u:"https://www.beamer-muenchen.net/beamer-modelle.php",d1:69,d2:138,wk:260},
+{id:'lm-4000-beamer-muenchen-full-hd-4000',sec:'lm-4k',n:"FULL HD 4000",lm:4000,pv:"beamer-muenchen.net",u:"https://www.beamer-muenchen.net/beamer-modelle.php",d1:89,d2:178,wk:267},
+{id:'lm-4000-g-zell-full-hd-4000',sec:'lm-4k',n:"Full HD 4000",lm:4000,pv:"G-zell.de",u:"https://www.g-zell.de/verleih/beamer-praesentationstechnik-mieten/beamer-projektoren/",d1:89,d2:178,wk:null},
+{id:'lm-4600-munich-home-solutions-eiki-wxga',sec:'lm-4k',n:"Eiki WXGA",lm:4600,pv:"Munich Home Solutions",u:"https://www.munichhomesolutions.de/projektor-und-beamer-verleih-muenchen",d1:69,d2:114,wk:199},
+{id:'lm-4000-munich-home-solutions-epson-ust-3-chip-laser',sec:'lm-4k',n:"Epson UST 3-chip laser",lm:4000,pv:"Munich Home Solutions",u:"https://www.munichhomesolutions.de/projektor-und-beamer-verleih-muenchen",d1:149,d2:248,wk:449},
+{id:'lm-4500-muenchner-beamerverleih-nec-np2150',sec:'lm-4k',n:"NEC NP2150",lm:4500,pv:"Münchner Beamerverleih",u:"http://www.muenchner-beamerverleih.de/beamer/index.php",d1:135,d2:245,wk:null},
+{id:'lm-4000-renty-acer-h6815bd-4k',sec:'lm-4k',n:"Acer H6815BD 4K",lm:4000,pv:"Renty",u:"https://renty-event.com/medientechnik/beamer",d1:69.90,d2:null,wk:null},
+{id:'lm-4000-renty-acer-apexvision-l812-ust-4k',sec:'lm-4k',n:"Acer ApexVision L812 UST 4K",lm:4000,pv:"Renty",u:"https://renty-event.com/medientechnik/beamer",d1:79.90,d2:null,wk:null},
+{id:'lm-4000-renty-benq-lh730-full-hd',sec:'lm-4k',n:"BenQ LH730 Full HD",lm:4000,pv:"Renty",u:"https://renty-event.com/medientechnik/beamer",d1:139,d2:null,wk:null},
+{id:'lm-4300-renty-optoma-zh420-full-hd',sec:'lm-4k',n:"Optoma ZH420 Full HD",lm:4300,pv:"Renty",u:"https://renty-event.com/medientechnik/beamer",d1:169,d2:null,wk:null},
+{id:'lm-4000-renty-epson-eh-ls100-ust-laser',sec:'lm-4k',n:"Epson EH-LS100 UST laser",lm:4000,pv:"Renty",u:"https://renty-event.com/medientechnik/beamer",d1:249,d2:null,wk:null},
+{id:'lm-5200-renty-acer-h6542bdi',sec:'lm-5k',n:"Acer H6542BDi",lm:5200,pv:"Renty",u:"https://renty-event.com/medientechnik/beamer",d1:69.90,d2:80.39,wk:132.81},
+{id:'lm-5200-schallinger-full-hd-dlp-5200-viewsonic-pro9530hdl',sec:'lm-5k',n:"FULL HD DLP 5200 (ViewSonic PRO9530HDL)",lm:5200,pv:"Schallinger",u:"https://www.schallinger.eu/produkte/beamer/videobeamer/",d1:80,d2:80,wk:154,wa:1},
+{id:'lm-5000-schallinger-laser-lcd-sony-vpl-phz10',sec:'lm-5k',n:"Laser LCD (Sony VPL PHZ10)",lm:5000,pv:"Schallinger",u:"https://www.schallinger.eu/produkte/beamer/videobeamer/",d1:150,d2:150,wk:289,wa:1},
+{id:'lm-5000-m-verleih-vivitek-du775z-ust',sec:'lm-5k',n:"Vivitek DU775Z-UST",lm:5000,pv:"m-verleih",u:"https://m-verleih.de/beamer/",d1:149,d2:223.50,wk:596,wa:1},
+{id:'lm-5000-munich-home-solutions-viewsonic-full-hd',sec:'lm-5k',n:"ViewSonic Full HD",lm:5000,pv:"Munich Home Solutions",u:"https://www.munichhomesolutions.de/projektor-und-beamer-verleih-muenchen",d1:89,d2:144,wk:259},
+{id:'lm-5000-munich-home-solutions-epson-3-chip-wuxga',sec:'lm-5k',n:"Epson 3-chip WUXGA",lm:5000,pv:"Munich Home Solutions",u:"https://www.munichhomesolutions.de/projektor-und-beamer-verleih-muenchen",d1:109,d2:174,wk:319},
+{id:'lm-5500-munich-home-solutions-optoma-laser',sec:'lm-5k',n:"Optoma Laser",lm:5500,pv:"Munich Home Solutions",u:"https://www.munichhomesolutions.de/projektor-und-beamer-verleih-muenchen",d1:129,d2:204,wk:399},
+{id:'lm-5200-beamer-muenchen-full-hd-5200',sec:'lm-5k',n:"FULL HD 5200",lm:5200,pv:"beamer-muenchen.net",u:"https://www.beamer-muenchen.net/beamer-modelle.php",d1:139,d2:278,wk:417},
+{id:'lm-5200-g-zell-full-hd-5200',sec:'lm-5k',n:"Full HD 5200",lm:5200,pv:"G-zell.de",u:"https://www.g-zell.de/verleih/beamer-praesentationstechnik-mieten/beamer-projektoren/",d1:139,d2:278,wk:null},
+{id:'lm-5000-muenchner-beamerverleih-nec-np3150-event',sec:'lm-5k',n:"NEC NP3150 Event",lm:5000,pv:"Münchner Beamerverleih",u:"http://www.muenchner-beamerverleih.de/beamer/index.php",d1:220,d2:360,wk:null},
+{id:'lm-5000-renty-viewsonic-ls740hd-laser',sec:'lm-5k',n:"ViewSonic LS740HD laser",lm:5000,pv:"Renty",u:"https://renty-event.com/medientechnik/beamer",d1:189,d2:null,wk:null},
+{id:'lm-5200-renty-acer-x1528ki',sec:'lm-5k',n:"Acer X1528Ki",lm:5200,pv:"Renty",u:"https://renty-event.com/medientechnik/beamer",d1:189,d2:null,wk:null},
+{id:'lm-5000-renty-acer-vero-pl3510atv-laser',sec:'lm-5k',n:"Acer Vero PL3510ATV laser",lm:5000,pv:"Renty",u:"https://renty-event.com/medientechnik/beamer",d1:219,d2:null,wk:null},
+{id:'lm-5200-renty-epson-eb-l530u-wuxga-laser',sec:'lm-5k',n:"Epson EB-L530U WUXGA laser",lm:5200,pv:"Renty",u:"https://renty-event.com/medientechnik/beamer",d1:319,d2:null,wk:null},
+{id:'lm-5500-renty-optoma-zh551-laser',sec:'lm-5k',n:"Optoma ZH551 laser",lm:5500,pv:"Renty",u:"https://renty-event.com/medientechnik/beamer",d1:279,d2:null,wk:null},
+{id:'lm-5000-ltv-videoprojektor-5000-ansi-lm-fullhd-hdmi-vga',sec:'lm-5k',n:"Videoprojektor 5000 ANSI lm FullHD (HDMI, VGA)",lm:5000,pv:"LTV",u:"http://www.licht-ton-vermietung.de/videotechnik/beamer.php",d1:150,d2:300,wk:null},
+{id:'lm-6000-schallinger-praesentationsbeamer-dlp-acer-p7215',sec:'lm-6k',n:"Präsentationsbeamer DLP (Acer P7215)",lm:6000,pv:"Schallinger",u:"https://www.schallinger.eu/produkte/beamer/videobeamer/",d1:85,d2:85,wk:164,wa:1},
+{id:'lm-6000-schallinger-praesentationsbeamer-lcd-panasonic-pt-ex600',sec:'lm-6k',n:"Präsentationsbeamer LCD (Panasonic PT-EX600)",lm:6000,pv:"Schallinger",u:"https://www.schallinger.eu/produkte/beamer/videobeamer/",d1:95,d2:95,wk:183,wa:1},
+{id:'lm-6000-beamer-muenchen-xga-6000',sec:'lm-6k',n:"XGA 6000",lm:6000,pv:"beamer-muenchen.net",u:"https://www.beamer-muenchen.net/beamer-modelle.php",d1:145,d2:290,wk:435},
+{id:'lm-6000-g-zell-xga-6000',sec:'lm-6k',n:"XGA 6000",lm:6000,pv:"G-zell.de",u:"https://www.g-zell.de/verleih/beamer-praesentationstechnik-mieten/beamer-projektoren/",d1:145,d2:290,wk:null},
+{id:'lm-6000-g-zell-full-hd-laser-6000',sec:'lm-6k',n:"Full HD laser 6000",lm:6000,pv:"G-zell.de",u:"https://www.g-zell.de/verleih/beamer-praesentationstechnik-mieten/beamer-projektoren/",d1:190,d2:380,wk:null},
+{id:'lm-6000-renty-viewsonic-ls920wu',sec:'lm-6k',n:"ViewSonic LS920WU",lm:6000,pv:"Renty",u:"https://renty-event.com/medientechnik/beamer",d1:329,d2:null,wk:null},
+{id:'lm-6500-muenchner-beamerverleih-christie-lx650',sec:'lm-6k',n:"Christie LX650",lm:6500,pv:"Münchner Beamerverleih",u:"http://www.muenchner-beamerverleih.de/beamer/index.php",d1:360,d2:570,wk:null},
+{id:'lm-8000-m-verleih-nec-pa803u-daylight',sec:'lm-8k',n:"NEC PA803U daylight",lm:8000,pv:"m-verleih",u:"https://m-verleih.de/beamer/",d1:199,d2:298.50,wk:796,wa:1},
+{id:'lm-7000-m-verleih-vivitek-du4871z-laser',sec:'lm-8k',n:"Vivitek DU4871Z laser",lm:7000,pv:"m-verleih",u:"https://m-verleih.de/beamer/",d1:149,d2:223.50,wk:596,wa:1},
+{id:'lm-8000-g-zell-full-hd-8000',sec:'lm-8k',n:"Full HD 8000",lm:8000,pv:"G-zell.de",u:"https://www.g-zell.de/verleih/beamer-praesentationstechnik-mieten/beamer-projektoren/",d1:559,d2:1118,wk:null},
+{id:'lm-10000-beamer-muenchen-10000-sanyo',sec:'lm-10k',n:"10000 (Sanyo)",lm:10000,pv:"beamer-muenchen.net",u:"https://www.beamer-muenchen.net/beamer-modelle.php",d1:585,d2:965.25,wk:null},
+{id:'lm-12000-beamer-muenchen-12000',sec:'lm-10k',n:"12000",lm:12000,pv:"beamer-muenchen.net",u:"https://www.beamer-muenchen.net/beamer-modelle.php",d1:685,d2:null,wk:null},
+{id:'lm-10000-g-zell-10000',sec:'lm-10k',n:"10000",lm:10000,pv:"G-zell.de",u:"https://www.g-zell.de/verleih/beamer-praesentationstechnik-mieten/beamer-projektoren/",d1:585,d2:1170,wk:null},
+{id:'lm-12000-g-zell-12000',sec:'lm-10k',n:"12000",lm:12000,pv:"G-zell.de",u:"https://www.g-zell.de/verleih/beamer-praesentationstechnik-mieten/beamer-projektoren/",d1:685,d2:1370,wk:null},
+{id:'lm-10000-ltv-videoprojektor-10-000-ansi-lm-full-hd-wuxga-sdi-hdmi-vga',sec:'lm-10k',n:"Videoprojektor 10.000 ANSI lm (Full HD/WUXGA, SDI/HDMI/VGA)",lm:10000,pv:"LTV",u:"http://www.licht-ton-vermietung.de/videotechnik/beamer.php",d1:1000,d2:2000,wk:null}
+];
+const L=[['Ultra-wide',.3,.4],['Wide',.4,.7],['Wide',.7,1],['Standard',1,1.7],['Zoom',1.7,2.8],['Long zoom',2.8,4.6],['Tele',4.6,7.5],['Super tele',7.5,11]];
+const SECL={"lm-2-3k": "2–3k", "lm-4k": "4k", "lm-5k": "5k", "lm-6k": "6k", "lm-8k": "8k", "lm-10k": "10k+"};
+function calc(){
+const v=i=>+$(i).value,D=v('D'),E=Math.max(v('E'),.1),W=v('W'),H=v('H'),rho=v('R'),CR=v('C'),nx=Math.max(1,v('nx')),ny=Math.max(1,v('ny')),o=v('o')/100,days=Math.max(1,Math.ceil(v('days'))),eta=v('eta'),gross=$('gross').checked,t=gross?1:1/1.19;
+const asp=n=>/WXGA|WUXGA/i.test(n)?1.6:/\bXGA\b/i.test(n)?4/3:16/9;
+const lensFor=TR=>{const ln=L.find(l=>TR>=l[1]&&TR<=l[2]);return ln?`${ln[0]} ${ln[1]}–${ln[2]}`:null};
+const pricing=(p,d,t,n)=>{const ex=p.d2!=null&&p.d2>p.d1?p.d2-p.d1:null,two=p.d2!=null?p.d2:(ex!=null?p.d1+ex:p.d1*2),rest=ex??p.d1,est=(d>=2&&p.d2==null)||(d>=3&&(ex==null||p.wk!=null));return{p1:p.d1*t*n,ex:ex==null?null:ex*t*n,total:(d<=1?p.d1:two+(d-2)*rest)*t*n,est}};
+const setup=(p,k,units)=>`${units}× ${SECL[p.sec]} lm${k>1?' stacked':''}`;
+const link=(p,s)=>`<a href="/beamer-budgeting.html#${p.id}">${s}</a>`,prov=p=>`<a href="${p.u}" target="_blank" rel="noopener">${p.pv}</a>`,m2=n=>n.toLocaleString('de-DE',{minimumFractionDigits:2,maximumFractionDigits:2});
+const mkRow=(p,nx,ny)=>{const a=asp(p.n),Wi=Math.max(W/(nx-(nx-1)*o),a*H/(ny-(ny-1)*o)),A=Wi*Wi/a,need=(CR-1)*E*A/eta,k=Math.ceil(need/p.lm),units=k*nx*ny,TR=D/Wi,lens=lensFor(TR);
+return{p,a,Wi,A,need,k,units,TR,lens,nx,ny,grp:k>1?0:1,pr:pricing(p,days,t,units),Ep:eta*k*p.lm/A}};
+const rows=O.map(p=>mkRow(p,nx,ny));
+rows.sort((x,y)=>(x.grp-y.grp)||((x.lens?x.pr.total:1e12)-(y.lens?y.pr.total:1e12)));
+const b=rows.filter(r=>r.lens).reduce((a,r)=>!a||r.pr.total<a.pr.total?r:a,null)||rows[0];
+if(!b.lens){$('res').innerHTML=`<span class="bad">No lens fits TR = ${b.TR.toFixed(2)}.</span> Move the tower to D between ${(0.3*b.Wi).toFixed(1)} m and ${(11*b.Wi).toFixed(1)} m, or change the tile layout.`}else{
+const Ep=b.Ep,Lw=rho*(E+Ep)/Math.PI,Lb=rho*E/Math.PI;
+$('res').innerHTML=`<div class="m">Cheapest overall · ${b.grp?'single larger beamer':'stacked small beamers'}</div><div class="big">${link(b.p,setup(b.p,b.k,b.units))} + ${b.lens} lens</div>
+<div class="kv"><span>Image per tile W<sub>i</sub> × H<sub>i</sub></span><b>${b.Wi.toFixed(1)} × ${(b.Wi/b.a).toFixed(1)} m</b></div>
+<div class="kv"><span>Throw ratio TR</span><b>${b.TR.toFixed(2)}</b></div>
+<div class="kv"><span>Required Φ per tile</span><b>${f(b.need)} lm (${b.k} stacked) · <a href="/beamer-budgeting.html#${b.p.sec}">${SECL[b.p.sec]} lumen offers</a></b></div>
+<div class="kv"><span>Projected E / luminance white · black</span><b>${f(Ep)} lx · ${Lw.toFixed(1)} / ${Lb.toFixed(1)} cd/m²</b></div>
+<div class="kv"><span>Model · provider</span><b>${b.p.n} · ${prov(b.p)}</b></div>
+<div class="kv"><span>1 day · extra day each (${gross?'gross':'net'})</span><b>€ ${m2(b.pr.p1)} · ${b.pr.ex!=null?'€ '+m2(b.pr.ex):'–'}</b></div>
+<div class="kv"><span>Total for ${days} d (${gross?'gross':'net'})</span><b>€ ${m2(b.pr.total)}${b.pr.est?` <span class="bad">est.</span>`:''}</b></div>`;}
+const gh=[[0,'Stacked small beamers','several units of one smaller model reach the lumens together'],[1,'Single larger beamers','one unit per tile reaches the lumens alone']],row=(r,note='')=>`<tr><td>${link(r.p,setup(r.p,r.k,r.units))}<br><span class="m">${r.p.n} · ${prov(r.p)}${note}</span></td><td>${r.lens||'<span class="bad">no lens</span>'}</td><td>${r.TR.toFixed(2)}</td><td>${m2(r.pr.p1)}</td><td>${r.pr.ex!=null?m2(r.pr.ex):'–'}</td><td>${r.lens?m2(r.pr.total)+(r.pr.est?' <span class="bad">est.</span>':''):'–'}</td></tr>`;
+const rq=(()=>{const a=16/9,Wi=Math.max(W/(nx-(nx-1)*o),a*H/(ny-(ny-1)*o));return(CR-1)*E*(Wi*Wi/a)/eta})(),grid=(()=>{const c=[];for(let gx=1;gx<=4;gx++)for(let gy=1;gy<=4;gy++)c.push([gx,gy]);c.sort((x,y)=>x[0]*x[1]-y[0]*y[1]||x[0]-y[0]);for(const[gx,gy]of c){const s=O.map(p=>mkRow(p,gx,gy)).filter(r=>r.grp===1).sort((x,y)=>(x.lens?0:1)-(y.lens?0:1)||((x.lens?x.pr.total:1e12)-(y.lens?y.pr.total:1e12)));if(s.length)return s[0]}return null})();
+const sgl=`<tr><td colspan="6" class="m">No single beamer reaches the required ${f(rq)} lm per tile.</td></tr>`+(grid?row(grid,` · needs ${grid.nx}×${grid.ny} tiles`):'<tr><td colspan="6" class="m">No single beamer fits up to 4×4 tiles.</td></tr>');
+$('tab').innerHTML=`<table><tr><th>Setup</th><th>Lens</th><th>TR</th><th>1 day €</th><th>Extra day €</th><th>Total ${days} d €</th></tr>`+gh.map(([g,h,s])=>{const xs=rows.filter(r=>r.grp===g);return `<tr><th colspan="6">${h} <span class="m">${s}</span></th></tr>`+(xs.length?xs.slice(0,3).map(r=>row(r)).join(''):g===1?sgl:'<tr><td colspan="6" class="m">none with these settings</td></tr>')}).join('')+'</table>';
+const per=[2,3,5,10,20].map(c=>{let bs=null;O.forEach(p=>{const a=asp(p.n),Wi=Math.max(W/(nx-(nx-1)*o),a*H/(ny-(ny-1)*o)),A=Wi*Wi/a,need=(c-1)*E*A/eta,k=Math.ceil(need/p.lm),u=k*nx*ny,TR=D/Wi,lens=lensFor(TR);if(!lens)return;const pr=pricing(p,days,t,u);if(!bs||pr.total<bs.pr.total)bs={u,k,p,lens,need,pr}});return bs?`<tr><td><b>${c}:1</b></td><td>${f(bs.need)} lm</td><td>${link(bs.p,setup(bs.p,bs.k,bs.u))}<br><span class="m">${bs.p.n} · ${prov(bs.p)}</span></td><td>${bs.lens}</td><td>${m2(bs.pr.p1)}</td><td>${bs.pr.ex!=null?m2(bs.pr.ex):'–'}</td><td>${m2(bs.pr.total)}${bs.pr.est?' <span class="bad">est.</span>':''}</td></tr>`:`<tr><td><b>${c}:1</b></td><td colspan="6" class="bad">no lens fits TR ${(D/Math.max(W/(nx-(nx-1)*o),1.6*H/(ny-(ny-1)*o))).toFixed(2)}</td></tr>`});
+$('per').innerHTML=`<table><tr><th>Contrast</th><th>Φ per tile</th><th>Setup</th><th>Lens (TR)</th><th>1 day €</th><th>Extra day €</th><th>Total ${days} d €</th></tr>`+per.join('')+'</table>';
+const tips=[`Stacking two cheaper projectors often beats one big one in rent; the table already includes this.`,`Each +10 lx ambient light needs about ${f(10*(CR-1)*b.A/eta)} lm more per tile.`,`Dim or switch off street lamps / shop lights on the surface: halving E<sub>amb</sub> halves the lumens needed.`,`Pick a dark-content design: contrast ${CR}:1 only holds for white; mid-tones need more light.`,`If the lens does not fit, shifting the tower by ΔD changes TR directly: TR = D / W<sub>i</sub>.`,`Measure lux on the surface, sensor facing the projector, at several points and use the highest value.`];
+$('tips').innerHTML='• '+tips.join('<br>• ');}
+(function(){const w=240,h=130,lin=s=>s<=.04045?s/12.92:Math.pow((s+.055)/1.055,2.4),sr=l=>255*(l<=.0031308?12.92*l:1.055*Math.pow(l,1/2.4)-.055),bars=[[1,1,1],[1,1,0],[0,1,1],[0,1,0],[1,0,1],[1,0,0],[0,0,1],[.25,.25,.25]];
+function px(x,y){if(y<h*.5)return bars[Math.floor(x/w*bars.length)];if(y<h*.65){const g=x/w;return[g,g,g]}const dx=(x-w/2)/(w/2),dy=(y-h*.82)/(h*.18),g=Math.max(0,1-Math.sqrt(dx*dx*.25+dy*dy));return[.05+.9*g*g,.08+.5*g,.2+.7*g]}
+[[2,'2:1'],[3,'3:1'],[5,'5:1'],[10,'10:1'],[20,'20:1'],[1000,'Dark room (reference)']].forEach(([c,t])=>{const d=document.createElement('div'),cv=document.createElement('canvas');cv.width=w;cv.height=h;cv.style.cssText='width:100%;border-radius:8px;display:block';const x=cv.getContext('2d'),im=x.createImageData(w,h);for(let j=0;j<h;j++)for(let i=0;i<w;i++){const p=px(i,j),k=(j*w+i)*4;for(let n=0;n<3;n++)im.data[k+n]=sr((1+(c-1)*lin(p[n]))/c);im.data[k+3]=255}x.putImageData(im,0,0);d.appendChild(cv);const l=document.createElement('div');l.className='m';l.textContent=t;d.appendChild(l);$('vis').appendChild(d)})})();
+const nm=s=>s.split(/[\s,;]+/).filter(Boolean).map(Number).filter(isFinite),av=a=>a.reduce((x,y)=>x+y,0)/(a.length||1);
+function cal(){const lm=+$('cl_lm').value,w=+$('cl_w').value,h=+$('cl_h').value,D=+$('cl_D').value,Ea=+$('cl_amb').value,Wl=nm($('cl_white').value),Bl=nm($('cl_black').value),o={name:$('cl_name').value,lm,w,h,D,Eamb:Ea,white:Wl,black:Bl};
+let out='<span class="m">Enter lumens, image size and the white/black readings.</span>';
+if(lm&&w&&h&&Wl.length&&Bl.length){const A=w*h,Ew=av(Wl),Eb=av(Bl),eta=(Ew-Eb)*A/lm;o.eta=+eta.toFixed(3);
+out=`<div class="kv"><span>η (measured)</span><b class="${eta>1.05||eta<.3?'bad':'ok'}">${eta.toFixed(2)}</b></div><div class="kv"><span>Mean white / black</span><b>${f(Ew)} / ${f(Eb)} lx</b></div><div class="kv"><span>Room contrast white : black</span><b>${(Ew/Eb).toFixed(1)}:1</b></div>`+(Ea?`<div class="kv"><span>White : ambient, measured vs. predicted (η 0.8)</span><b>${(Ew/Ea).toFixed(1)}:1 vs. ${(1+.8*lm/(A*Ea)).toFixed(1)}:1</b></div>`:'')+`<div class="kv"><span>Uniformity (min / mean)</span><b>${(Math.min(...Wl)/Ew*100).toFixed(0)} %</b></div>`+(D?`<div class="kv"><span>Throw ratio D / W</span><b>${(D/w).toFixed(2)}</b></div>`:'')+(eta>1.05?'<div class="bad">η above 1: lumen rating too low or sensor misreads.</div>':eta<.3?'<div class="bad">η very low: check the ANSI value (LED lumens are often overstated).</div>':'');}
+$('cl_out').innerHTML=out;$('cl_json').value=JSON.stringify(o);return o}
+function fill(o){[['cl_name','name'],['cl_lm','lm'],['cl_w','w'],['cl_h','h'],['cl_D','D'],['cl_amb','Eamb']].forEach(([i,k])=>{if(o[k]!=null)$(i).value=o[k]});$('cl_white').value=(o.white||[]).join(', ');$('cl_black').value=(o.black||[]).join(', ')}
+['cl_name','cl_lm','cl_w','cl_h','cl_D','cl_amb','cl_white','cl_black'].forEach(i=>$(i).addEventListener('input',cal));
+$('cl_apply').onclick=()=>{const o=cal();if(!o.eta){$('cl_msg').textContent='Fill in all values first.';return}$('eta').value=o.eta.toFixed(2);calc();try{localStorage.setItem('mapcal',JSON.stringify(o))}catch(e){}$('cl_msg').textContent='η = '+o.eta.toFixed(2)+' applied to the calculator.'};
+$('cl_copy').onclick=()=>{cal();const t=$('cl_json');t.select();try{navigator.clipboard.writeText(t.value)}catch(e){}try{document.execCommand('copy')}catch(e){}$('cl_msg').textContent='Copied. Paste it into a note to reuse later.'};
+$('cl_load').onclick=()=>{try{const o=JSON.parse($('cl_json').value);fill(o);const r=cal();if(r.eta){$('eta').value=r.eta.toFixed(2);calc()}$('cl_msg').textContent='Loaded and applied.'}catch(e){$('cl_msg').textContent='Invalid JSON.'}};
+try{const s=localStorage.getItem('mapcal');if(s){const o=JSON.parse(s);fill(o);const r=cal();if(r.eta)$('eta').value=r.eta.toFixed(2)}}catch(e){}
+cal();
+document.querySelectorAll('input,select').forEach(e=>e.addEventListener('input',calc));calc();
+</script></body></html>

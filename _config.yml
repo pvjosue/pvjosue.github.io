@@ -40,6 +40,9 @@ timezone: Europe/Berlin # https://en.wikipedia.org/wiki/List_of_tz_database_time
 
 include:
   - _pages
+  - _project_proposals
+  - _bouldering
+  - _tools
 
 # Plugins (previously gems:)
 plugins:

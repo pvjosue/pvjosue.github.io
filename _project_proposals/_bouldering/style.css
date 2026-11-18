@@ -53,6 +53,11 @@ a{color:#0E9F6E}a:hover{color:#0B7F58}
 .tiers strong{margin-bottom:2px;color:var(--ink);font-size:.91rem}
 .proposal-label{margin-bottom:8px;font-size:.68rem}
 .proposed{border-style:dashed}
+.idea-items{padding:0 16px 14px}
+.idea-item+.idea-item{margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+.idea-item h4{margin:0 0 .4em;font-size:1rem}
+.idea-item>p{margin:0;color:var(--mut);font-size:.9rem;line-height:1.45}
+.idea-item .proposal-label{margin-bottom:5px}
 .shared-note{margin-top:14px;padding:14px 16px;border-left:3px solid var(--category);background:var(--card);color:var(--mut);font-size:.9rem}
 .shared-note strong{display:block;margin-bottom:3px;color:var(--ink)}
 .catalog-next{margin-top:28px;padding:22px 0 8px;border-top:1px solid var(--line)}

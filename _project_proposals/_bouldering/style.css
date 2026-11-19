@@ -43,6 +43,12 @@ a{color:#0E9F6E}a:hover{color:#0B7F58}
 .project-card>summary h3{margin:0 0 .4em;font-size:1.08rem;line-height:1.35}
 .project-card>summary p{margin:0;color:var(--mut);font-size:.94rem;line-height:1.5}
 .project-card[open]>summary{border-bottom:1px solid var(--line)}
+.competition-project>summary{padding:0}
+.competition-project>summary::after{z-index:1;top:12px;right:12px;border-color:#fff;background:#14202B;color:#fff}
+.competition-project-info{padding:14px 16px 16px}
+.competition-project-info p{margin:0 0 10px;color:var(--mut);font-size:.9rem;line-height:1.45}
+.competition-project-info a{color:var(--category);font-weight:700;text-decoration:none}
+.competition-project-info a:hover,.competition-project-info a:focus-visible{text-decoration:underline}
 .tiers{display:grid;gap:10px;margin:12px 0 0;padding:0;list-style:none;counter-reset:tier}
 .tiers{margin:0;padding:14px 16px}
 .tiers li{position:relative;margin:0;padding:0;color:var(--mut);font-size:.88rem;line-height:1.45;counter-increment:tier}
@@ -53,15 +59,18 @@ a{color:#0E9F6E}a:hover{color:#0B7F58}
 .tiers strong{margin-bottom:2px;color:var(--ink);font-size:.91rem}
 .competition-tiers{gap:14px}
 .competition-tiers li::before{display:none}
-.competition-tiers a{padding:0 0 10px}
-.competition-banner{display:flex;flex-direction:column;overflow:hidden;border-radius:4px;background:#14202B}
+.competition-tiers li{overflow:hidden;border:1px solid var(--line);border-radius:6px;background:var(--card)}
+.competition-tiers a{padding:0 0 14px}
+.competition-banner{display:flex;flex-direction:column;overflow:hidden;border-radius:0;background:#14202B}
 .competition-banner>img{display:block;width:100%;height:auto;aspect-ratio:1.22;object-fit:cover;transition:transform .2s ease}
 .competition-tiers a:hover .competition-banner>img,.competition-tiers a:focus-visible .competition-banner>img{transform:scale(1.035)}
 .competition-banner .banner-copy{position:static;display:grid;gap:3px;padding:12px 14px 14px;background:#14202B;color:#fff}
 .banner-copy>span:first-child{color:#FF5A1F;font-size:.7rem;font-weight:800;letter-spacing:.1em}
 .banner-copy strong{margin:0;color:#fff;font-size:1.08rem;line-height:1.2}
 .banner-copy>span:last-child{font-size:.82rem;line-height:1.35}
-.competition-tiers a>strong{display:block;margin:10px 0 3px}
+.competition-tiers a>strong{display:block;margin:12px 14px 3px}
+.competition-tiers a>span:not(.competition-banner){margin:0 14px}
+.daily-gym-project .banner-copy>span:first-child{color:#9BB8FF}
 .proposal-image{margin:18px 0 0}
 .proposal-image img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;border-radius:5px}
 .proposal-image figcaption{margin-top:8px;color:var(--mut);font-size:.9rem}

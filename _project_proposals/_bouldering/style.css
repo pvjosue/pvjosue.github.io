@@ -63,6 +63,7 @@ a{color:#0E9F6E}a:hover{color:#0B7F58}
 .competition-tiers a{padding:0 0 14px}
 .competition-banner{display:flex;flex-direction:column;overflow:hidden;border-radius:0;background:#14202B}
 .competition-banner>img{display:block;width:100%;height:auto;aspect-ratio:1.22;object-fit:cover;transition:transform .2s ease}
+.banner-image-placeholder{display:grid;aspect-ratio:1.22;place-items:center;border-bottom:1px dashed #8494A6;background:#26384D;color:#E8EDF1;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .competition-tiers a:hover .competition-banner>img,.competition-tiers a:focus-visible .competition-banner>img{transform:scale(1.035)}
 .competition-banner .banner-copy{position:static;display:grid;gap:3px;padding:12px 14px 14px;background:#14202B;color:#fff}
 .banner-copy>span:first-child{color:#FF5A1F;font-size:.7rem;font-weight:800;letter-spacing:.1em}
@@ -71,6 +72,9 @@ a{color:#0E9F6E}a:hover{color:#0B7F58}
 .competition-tiers a>strong{display:block;margin:12px 14px 3px}
 .competition-tiers a>span:not(.competition-banner){margin:0 14px}
 .daily-gym-project .banner-copy>span:first-child{color:#9BB8FF}
+.training-project .banner-copy>span:first-child{color:#F4C95D}
+.run-comparison-project .banner-copy>span:first-child{color:#C4A5FF}
+.setter-project .banner-copy>span:first-child{color:#7FE3C4}
 .proposal-image{margin:18px 0 0}
 .proposal-image img{display:block;width:100%;height:auto;max-height:520px;object-fit:cover;border-radius:5px}
 .proposal-image figcaption{margin-top:8px;color:var(--mut);font-size:.9rem}

@@ -49,6 +49,32 @@
     .left-table th {
       text-align: left;
     }
+    .examples {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1em;
+    }
+    .examples figure {
+      margin: 0;
+    }
+    .examples .crop {
+      overflow: hidden;
+      aspect-ratio: 16 / 9;
+    }
+    .examples img {
+      display: block;
+      width: 200%;
+      max-width: none;
+      height: auto;
+    }
+    .examples .span-full {
+      grid-column: 1 / -1;
+    }
+    .examples .span-full video {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
   </style>
 </head>
 <body style="--c:#FF5A1F">
@@ -73,14 +99,22 @@
     </section>
     <section>
       <h2>Examples</h2>
-      <div class="scroll">
-        <figure class="proposal-image">
-          <img src="../../assets/images/projected_wall_icy_logo.gif" alt="Animated icy logo projected onto a climbing wall.">
-          <figcaption>Animated sponsor logo on the wall.</figcaption>
+      <div class="examples">
+        <figure class="proposal-image span-full">
+          <video autoplay loop muted playsinline preload="auto" aria-label="Animated comp wall visual projected onto the climbing wall.">
+            <source src="../../assets/images/comp_wall_animation.webm" type="video/webm">
+            <source src="../../assets/images/comp_wall_animation.mp4" type="video/mp4">
+            Animated comp wall visual projected onto the climbing wall.
+          </video>
+          <figcaption>Example: comp wall animation across the full wall.</figcaption>
         </figure>
         <figure class="proposal-image">
-          <img src="../../assets/images/projected_wall_rope_shoe.gif" alt="Animated rope and shoe visual projected onto a climbing wall.">
-          <figcaption>Animated visual mapped to the holds.</figcaption>
+          <div class="crop"><img src="../../assets/images/projected_wall_icy_logo.gif" alt="Animated icy logo projected onto a climbing wall."></div>
+          <figcaption>Example: animated logo on the wall.</figcaption>
+        </figure>
+        <figure class="proposal-image">
+          <div class="crop"><img src="../../assets/images/projected_wall_rope_shoe.gif" alt="Animated rope and shoe visual projected onto a climbing wall."></div>
+          <figcaption>Example: animated visual on the wall.</figcaption>
         </figure>
       </div>
     </section>

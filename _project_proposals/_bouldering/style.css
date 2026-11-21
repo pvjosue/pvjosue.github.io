@@ -66,9 +66,11 @@ a{color:#0E9F6E}a:hover{color:#0B7F58}
 .banner-image-placeholder{display:grid;aspect-ratio:1.22;place-items:center;border-bottom:1px dashed #8494A6;background:#26384D;color:#E8EDF1;font-size:.82rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
 .competition-tiers a:hover .competition-banner>img,.competition-tiers a:focus-visible .competition-banner>img{transform:scale(1.035)}
 .competition-project:hover .competition-banner>img,.competition-project:focus-within .competition-banner>img,.competition-project[open] .competition-banner>img{transform:scale(1.035)}
-.competition-banner .banner-copy{position:static;display:grid;gap:3px;padding:12px 14px 14px;background:#14202B;color:#fff}
+.competition-banner .banner-copy{position:static;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3px;padding:12px 52px 14px 14px;background:#14202B;color:#fff}
+.banner-copy>span:first-child,.banner-copy>span:last-child{grid-column:1/-1}
 .banner-copy>span:first-child{color:#FF5A1F;font-size:.7rem;font-weight:800;letter-spacing:.1em}
-.banner-copy strong{margin:0;color:#fff;font-size:1.08rem;line-height:1.2}
+.banner-copy strong{grid-column:1;margin:0;color:#fff;font-size:1.08rem;line-height:1.2}
+.banner-copy .project-price{grid-column:2;grid-row:2;align-self:center;color:#fff;font-size:.82rem;font-weight:700;white-space:nowrap}
 .banner-copy>span:last-child{font-size:.82rem;line-height:1.35}
 .competition-tiers a>strong{display:block;margin:12px 14px 3px}
 .competition-tiers a>span:not(.competition-banner){margin:0 14px}

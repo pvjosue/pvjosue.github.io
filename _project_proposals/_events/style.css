@@ -1,0 +1,218 @@
+/* Events and audiovisual installations: dark, editorial, champagne accent */
+
+:root {
+  --bg: #0E0D0B;
+  --ink: #F2EDE4;
+  --mut: #A79F92;
+  --card: #16140F;
+  --line: rgba(242, 237, 228, 0.14);
+  --gold: #C9A96E;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font: 16px/1.65 "Helvetica Neue", Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--gold); }
+a:hover { color: #E3C995; }
+
+h1, h2, h3 {
+  font-family: "Cormorant Garamond", "Iowan Old Style", Georgia, serif;
+  font-weight: 500;
+  letter-spacing: 0.005em;
+}
+
+/* Banner */
+.banner {
+  position: relative;
+  height: min(74vh, 660px);
+  min-height: 440px;
+  overflow: hidden;
+  background: #000;
+}
+
+.banner-sketch {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  cursor: crosshair;
+}
+
+.banner-shade {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(90deg, rgba(14, 13, 11, 0.72) 0%, rgba(14, 13, 11, 0.15) 60%),
+    linear-gradient(180deg, rgba(14, 13, 11, 0.25) 0%, rgba(14, 13, 11, 0.1) 40%, var(--bg) 100%);
+}
+
+.banner .back {
+  position: absolute;
+  z-index: 1;
+  top: 24px;
+  left: 0;
+  right: 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  color: var(--ink);
+  font-size: 0.92rem;
+  text-decoration: none;
+  opacity: 0.85;
+}
+.banner .back:hover { opacity: 1; }
+
+.banner-copy {
+  position: absolute;
+  z-index: 1;
+  pointer-events: none;
+  left: 0;
+  right: 0;
+  bottom: 56px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+}
+
+.eyebrow {
+  display: inline-block;
+  color: var(--gold);
+  font-size: 0.74rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+.banner h1 {
+  margin: 0.3em 0 0.25em;
+  font-size: clamp(2.6rem, 7vw, 5.2rem);
+  line-height: 1;
+  font-weight: 500;
+  max-width: 12em;
+  text-shadow: 0 2px 24px rgba(0, 0, 0, 0.35);
+}
+
+.tag {
+  margin: 0;
+  max-width: 36em;
+  color: #DCD5C8;
+  font-size: 1.1rem;
+}
+
+/* Sections */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 32px 56px;
+}
+
+.category-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  gap: 28px;
+}
+
+.category {
+  --category: var(--gold);
+  min-width: 0;
+  padding: 0 0 8px;
+  border-top: 1px solid var(--category);
+}
+
+.category-heading {
+  padding: 22px 0 22px;
+  min-height: 190px;
+}
+
+.category .eyebrow { color: var(--category); }
+
+.category-heading h2 {
+  margin: 0.3em 0 0.35em;
+  font-size: 2rem;
+  line-height: 1.1;
+}
+
+.category-heading p {
+  margin: 0;
+  color: var(--mut);
+  font-size: 0.95rem;
+}
+
+.piece {
+  margin-top: 14px;
+  padding: 22px 22px 20px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 2px;
+  transition: border-color 0.2s ease;
+}
+
+.piece:hover { border-color: var(--category); }
+
+.piece h3 {
+  margin: 0 0 0.35em;
+  font-size: 1.5rem;
+  line-height: 1.15;
+}
+
+.piece p {
+  margin: 0 0 0.9em;
+  color: var(--mut);
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.piece small {
+  display: block;
+  color: var(--category);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+/* Closing */
+.closing {
+  margin-top: 48px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+}
+
+.closing p { margin: 0; }
+.credit { color: var(--mut); font-size: 0.85rem; }
+
+@media (max-width: 1050px) {
+  .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .category-heading { min-height: 0; }
+}
+
+@media (max-width: 680px) {
+  .category-grid { grid-template-columns: 1fr; gap: 36px; }
+  .banner { min-height: 400px; }
+  .banner .back,
+  .banner-copy,
+  main { padding-left: 20px; padding-right: 20px; }
+  .banner-copy { bottom: 40px; }
+  .category-heading h2 { font-size: 1.8rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .piece { transition: none; }
+}

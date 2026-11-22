@@ -42,6 +42,7 @@ include:
   - _pages
   - _project_proposals
   - _bouldering
+  - _events
   - _tools
 
 # Plugins (previously gems:)

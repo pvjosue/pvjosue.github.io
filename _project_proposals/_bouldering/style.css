@@ -97,3 +97,78 @@ a.project-card:focus-visible{outline:3px solid var(--category);outline-offset:2p
 @media(max-width:1050px){.category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.category-heading{min-height:0}}
 @media(max-width:680px){.category-grid{grid-template-columns:1fr;gap:16px}.category{padding:16px}.category-heading h2{font-size:1.55rem}.catalog .hero{padding-top:24px}}
 @media(prefers-reduced-motion:reduce){.competition-banner>img{transition:none}}
+
+/* Contact form (shared include: _includes/bouldering-contact-form.html) */
+.contact-box {
+  border: 1px solid #bbb;
+  border-radius: 12px;
+  padding: 1.5em;
+}
+.contact-form label {
+  display: block;
+}
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #bbb;
+  border-radius: 10px;
+  padding: 0.25em 0.6em;
+  font: inherit;
+}
+.contact-form textarea {
+  display: block;
+  margin-top: 0.25em;
+  resize: vertical;
+}
+.contact-form .req {
+  color: #c00;
+}
+.contact-form fieldset {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25em 1em;
+}
+.contact-form fieldset legend {
+  grid-column: 1 / -1;
+}
+.contact-form fieldset .span-2 {
+  grid-column: 1 / -1;
+}
+.contact-form fieldset p {
+  margin: 0;
+}
+
+/* Foldable sections (details.fold) */
+.fold summary {
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1em;
+}
+.fold summary::-webkit-details-marker {
+  display: none;
+}
+.fold summary h2 {
+  margin: 0;
+}
+.fold summary::after {
+  content: "+";
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--c);
+}
+.fold[open] summary::after {
+  content: "−";
+}
+.fold[open] summary {
+  margin-bottom: 0.75em;
+}
+
+/* Tables with left-aligned cells */
+.left-table td,
+.left-table th {
+  text-align: left;
+}

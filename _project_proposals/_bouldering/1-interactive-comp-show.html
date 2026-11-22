@@ -1,3 +1,6 @@
+---
+permalink: /_project_proposals/_bouldering/1-interactive-comp-show.html
+---
 <!doctype html>
 <html lang="en">
 <head>
@@ -6,45 +9,6 @@
   <title>Interactive Comp Day Show</title>
   <link rel="stylesheet" href="style.css">
   <style>
-    .contact-box {
-      border: 1px solid #bbb;
-      border-radius: 12px;
-      padding: 1.5em;
-    }
-    .contact-form label {
-      display: block;
-    }
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      box-sizing: border-box;
-      border: 1px solid #bbb;
-      border-radius: 10px;
-      padding: 0.25em 0.6em;
-      font: inherit;
-    }
-    .contact-form textarea {
-      display: block;
-      margin-top: 0.25em;
-      resize: vertical;
-    }
-    .contact-form .req {
-      color: #c00;
-    }
-    .contact-form fieldset {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.25em 1em;
-    }
-    .contact-form fieldset legend {
-      grid-column: 1 / -1;
-    }
-    .contact-form fieldset .span-2 {
-      grid-column: 1 / -1;
-    }
-    .contact-form fieldset p {
-      margin: 0;
-    }
     .left-table td,
     .left-table th {
       text-align: left;
@@ -74,32 +38,6 @@
       display: block;
       width: 100%;
       height: auto;
-    }
-    .fold summary {
-      cursor: pointer;
-      list-style: none;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1em;
-    }
-    .fold summary::-webkit-details-marker {
-      display: none;
-    }
-    .fold summary h2 {
-      margin: 0;
-    }
-    .fold summary::after {
-      content: "+";
-      font-size: 1.6rem;
-      line-height: 1;
-      color: var(--c);
-    }
-    .fold[open] summary::after {
-      content: "−";
-    }
-    .fold[open] summary {
-      margin-bottom: 0.75em;
     }
   </style>
 </head>
@@ -204,31 +142,7 @@
       <p class="note">Not sure how bright your room is? Measure the light on the wall with a light meter app. On Android, the free app phyphox (the "Light" experiment) works well. iPhones can't read the light sensor, so use a handheld lux meter (about €20–30) instead. Phone readings are rough, so a ballpark figure is enough.</p>
       </details>
     </section>
-    <section class="contact-box">
-      <h2>Contact request</h2>
-      <p>Tell us a bit about your gym or event and we will get back to you with a tailored estimate.</p>
-      <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="1fe79c9c-347c-416f-8907-428a72c1b354">
-        <p class="note"><span class="req">*</span> required</p>
-        <p><label>Name <span class="req">*</span> <input type="text" name="name" required></label></p>
-        <p><label>Email <span class="req">*</span> <input type="email" name="email" required></label></p>
-        <p><label>Project description <span class="req">*</span> <textarea name="project_description" rows="3" required></textarea></label></p>
-        <fieldset>
-          <legend>Optional: measurements of the wall</legend>
-          <p><label>Wall brightness (lux) <input type="number" name="wall_brightness_lux" min="0" step="1"></label></p>
-          <p><label>Projection width (m) <input type="number" name="projection_width_m" min="0" step="0.1"></label></p>
-          <p><label>Projection height (m) <input type="number" name="projection_height_m" min="0" step="0.1"></label></p>
-          <p><label>Distance from projector to wall (m) <input type="number" name="projector_distance_m" min="0" step="0.1"></label></p>
-          <p class="note span-2">How to measure with a phone:</p>
-          <ul class="note span-2">
-            <li><strong>Brightness (lux):</strong> install a light meter app (many free ones use the phone's light sensor). Lights on as they would be during the event, hold the phone flat against the wall area you want to project onto, and note the reading. Phone readings are rough, so a ballpark figure is enough.</li>
-            <li><strong>Width and height:</strong> measure the wall area you want covered with a tape measure or the phone's AR measure tool. A rough estimate is fine.</li>
-            <li><strong>Distance:</strong> measure from the spot where the projector would stand to the wall, in a straight line, with a tape measure.</li>
-          </ul>
-        </fieldset>
-        <p><button type="submit">Submit</button></p>
-      </form>
-    </section>
+{% include bouldering-contact-form.html %}
   </main>
   <nav class="pn">
     <a href="1-finals-show-visual-night.html">← Comp Day Show · Visual Night</a>

@@ -75,6 +75,32 @@
       width: 100%;
       height: auto;
     }
+    .fold summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1em;
+    }
+    .fold summary::-webkit-details-marker {
+      display: none;
+    }
+    .fold summary h2 {
+      margin: 0;
+    }
+    .fold summary::after {
+      content: "+";
+      font-size: 1.6rem;
+      line-height: 1;
+      color: var(--c);
+    }
+    .fold[open] summary::after {
+      content: "−";
+    }
+    .fold[open] summary {
+      margin-bottom: 0.75em;
+    }
   </style>
 </head>
 <body style="--c:#FF5A1F">
@@ -98,23 +124,21 @@
       </figure>
     </section>
     <section>
-      <h2>Examples</h2>
+      <h2>Interactive visuals and sponsors Examples</h2>
       <div class="examples">
         <figure class="proposal-image span-full">
           <video autoplay loop muted playsinline controls controlsList="nodownload noremoteplayback" disablePictureInPicture preload="auto" oncontextmenu="return false;" poster="../../assets/images/comp_wall_animation-poster.jpg" aria-label="Animated comp wall visual projected onto the climbing wall.">
             <source src="../../assets/images/comp_wall_animation.webm" type="video/webm">
             <source src="../../assets/images/comp_wall_animation.mp4" type="video/mp4">
-            Animated comp wall visual projected onto the climbing wall.
+            Animated comp wall visual projected onto the climbing wall, someone could interact with it and move the particles at will.
           </video>
-          <figcaption>Comp wall animation across the full wall.</figcaption>
+          <figcaption>Animated comp wall visual projected onto the climbing wall, someone could interact with it and move the particles at will.</figcaption>
         </figure>
         <figure class="proposal-image">
           <div class="crop"><img src="../../assets/images/projected_wall_icy_logo.gif" alt="Animated icy logo projected onto a climbing wall."></div>
-          <figcaption>Animated logo on the wall.</figcaption>
         </figure>
         <figure class="proposal-image">
           <div class="crop"><img src="../../assets/images/projected_wall_rope_shoe.gif" alt="Animated rope and shoe visual projected onto a climbing wall."></div>
-          <figcaption>Animated visual on the wall.</figcaption>
         </figure>
       </div>
     </section>
@@ -137,7 +161,8 @@
       </ul>
     </section>
     <section>
-      <h2>Delivery &amp; budget</h2>
+      <details class="fold">
+      <summary><h2>Delivery &amp; budget</h2></summary>
       <!-- <p>A partial-wall planning example is about 6 × 4 m; full-wall coverage uses two projectors. Confirm the final image size and lens position at the venue.</p> -->
       <div class="scroll"><table class="left-table">
         <tr><th></th><th>Projected Area · approx. 6 × 4 m</th></tr>
@@ -150,9 +175,22 @@
       </table></div>
       <p class="note">** Projectors are the biggest cost, and how many you need depends on three things: how bright the venue lights are (the brighter the room, the more powerful the projector), how large an area you want to cover, and how far the projector sits from the wall. The price shown is a starting point for one 8,000-lumen projector covering about 6 × 4 m. We confirm the exact setup on site.</p>
       <p class="note">Travel is charged at €0.30 per kilometre for the round trip from Munich. This is the German tax-free mileage rate for business trips by car.</p>
+      </details>
     </section>
     <section>
-      <h2>Brightness check</h2>
+      <details class="fold">
+      <summary><h2>Venue setup</h2></summary>
+      <ul>
+        <li>Secure zones for projector placement.</li>
+        <li>Time for beamer and camera setup and calibration (possible during route setting).</li>
+        <li>Dim ambient illumination if possible (the brighter the lights, the more powerful and expensive the projectors required).</li>
+        <li>Power supply for the projector(s) and camera(s).</li>
+      </ul>
+      </details>
+    </section>
+    <section>
+      <details class="fold">
+      <summary><h2>Brightness check</h2></summary>
       <p>The picture looks clearer the darker the room is. This estimate is for one 8,000-lumen projector covering a 6 × 4 m area, placed about 7 to 12 m from the wall.</p>
       <table class="left-table">
         <tr><th>Room lighting</th><th>Light on the wall</th><th>How the picture looks</th></tr>
@@ -162,15 +200,7 @@
       </table>
       <p>If the gym stays at dimmed or bright lighting, we add a second projector on the same area. Two projectors make the picture about twice as bright.</p>
       <p class="note">Not sure how bright your room is? Measure the light on the wall with a light meter app. On Android, the free app phyphox (the "Light" experiment) works well. iPhones can't read the light sensor, so use a handheld lux meter (about €20–30) instead. Phone readings are rough, so a ballpark figure is enough.</p>
-    </section>
-    <section>
-      <h2>Venue setup</h2>
-      <ul>
-        <li>Secure zones for projector placement.</li>
-        <li>Time for beamer and camera setup and calibration (possible during route setting).</li>
-        <li>Dim ambient illumination if possible (the brighter the lights, the more powerful and expensive the projectors required).</li>
-        <li>Power supply for the projector(s) and camera(s).</li>
-      </ul>
+      </details>
     </section>
     <section class="contact-box">
       <h2>Contact request</h2>

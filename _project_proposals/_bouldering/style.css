@@ -45,6 +45,8 @@ a{color:#0E9F6E}a:hover{color:#0B7F58}
 .project-card[open]>summary{border-bottom:1px solid var(--line)}
 .competition-project>summary{padding:0}
 .competition-project>summary::after{z-index:1;top:12px;right:12px;border-color:#fff;background:#14202B;color:#fff}
+a.project-card{display:block;color:inherit;text-decoration:none}
+a.project-card:focus-visible{outline:3px solid var(--category);outline-offset:2px}
 .competition-project-info{padding:14px 16px 16px}
 .competition-project-info p{margin:0 0 10px;color:var(--mut);font-size:.9rem;line-height:1.45}
 .competition-project-info a{color:var(--category);font-weight:700;text-decoration:none}

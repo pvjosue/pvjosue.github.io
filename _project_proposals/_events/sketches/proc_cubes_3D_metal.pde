@@ -10,6 +10,8 @@
 float theta=0, separacion=2;
 float ROT_STEP=0.05/8;          // original step was 0.05 (now 1/8 of that)
 float S=1;                      // device pixel ratio: buffer = CSS size * S
+float LW=1, LH=1;               // logical size in CSS pixels; mouse mapping and cube sizes use these, not the buffer size
+float YMAX=0.6;                 // largest share of the canvas height the mouse can reach for cube size (1 = full height)
 
 
 int NMETAL=3;
@@ -26,10 +28,12 @@ void setup()
   // Render at the canvas's real on-screen size in device pixels, so nothing is stretched.
   // A phone banner is ~390x620 CSS px at 3x: a 1170x1860 buffer, which is small for a GPU.
   S = externals.window.devicePixelRatio;
-  size(int(externals.canvas.clientWidth*S), int(externals.canvas.clientHeight*S), P3D);
+  LW = externals.canvas.clientWidth;
+  LH = externals.canvas.clientHeight;
+  size(int(LW*S), int(LH*S), P3D);
   smooth();
-  mouseX = width/2;
-  mouseY = height/2;
+  mouseX = LW/2;
+  mouseY = LH/2;
 
   // cold steel (main), graphite (shadowed secondary), ice-cyan (accent)
   metalAlbedo[0]=color(158,168,180); metalSpec[0]=color(236,246,255);
@@ -62,14 +66,15 @@ void draw()
   rotateY(theta);
   rotateX(theta);
   rotateZ(theta);
-  separacion=map(mouseX,0,width,0,3);
-  drawSphere(0,0,0,mouseY/4*S,1,separacion);
-  drawSphere(0,height/4,0,mouseY/4*S,0,separacion);
-  drawSphere(0,-height/4,0,mouseY/4*S,0,separacion);
-  drawSphere(0,0,height/4,mouseY/4*S,2,separacion);
-  drawSphere(0,0,-height/4,mouseY/4*S,2,separacion);
-  drawSphere(height/4,0,0,mouseY/4*S,1,separacion);
-  drawSphere(-height/4,0,0,mouseY/4*S,1,separacion);
+  separacion=map(mouseX,0,LW,0,3);
+  float sizeY=min(mouseY, YMAX*LH);   // cube size stops at YMAX of the canvas height
+  drawSphere(0,0,0,sizeY/4*S,1,separacion);
+  drawSphere(0,height/4,0,sizeY/4*S,0,separacion);
+  drawSphere(0,-height/4,0,sizeY/4*S,0,separacion);
+  drawSphere(0,0,height/4,sizeY/4*S,2,separacion);
+  drawSphere(0,0,-height/4,sizeY/4*S,2,separacion);
+  drawSphere(height/4,0,0,sizeY/4*S,1,separacion);
+  drawSphere(-height/4,0,0,sizeY/4*S,1,separacion);
   popMatrix();
 
   theta+=ROT_STEP;

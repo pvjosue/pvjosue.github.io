@@ -5,7 +5,7 @@
 //  - the simulation in CSS-pixel units (LW x LH), drawn at device resolution (S = devicePixelRatio)
 
 int tam=0;                      // particle count, set in setup() from the canvas area
-float tu=1,dista_max=7,radio=10;
+float tu=1,dista_max=11,radio=10;   // link distance up from 7, a bit under double
 float S=1;                      // device pixel ratio
 float LW=1, LH=1;               // logical size in CSS pixels
 particula[] p;

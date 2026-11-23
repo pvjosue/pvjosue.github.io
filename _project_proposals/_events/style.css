@@ -142,6 +142,9 @@ main {
   padding: 22px 0 22px;
 }
 
+/* Product Launches goes last; the markup order and numbering stay as they are */
+.category:first-child { order: 1; }
+
 .category .eyebrow { color: var(--category); }
 
 /* number and name are one heading, one size, one flowing line (wraps as a paragraph) */
@@ -157,8 +160,16 @@ main {
   .category-heading h2 { min-height: 2.3em; }
 }
 
+/* number in its own column, title in the next: wrapped lines hang under the title, not the number */
+.category-heading h2 {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  column-gap: 0.3em;
+}
+
 .category-heading .num {
   color: var(--category);
+  white-space: nowrap;
 }
 
 .category-heading p {

@@ -9,6 +9,7 @@
 
 float theta=0, separacion=2;
 float ROT_STEP=0.05/8;          // original step was 0.05 (now 1/8 of that)
+float S=1;                      // device pixel scale (capped at 2): buffer = CSS size * S
 
 
 int NMETAL=3;
@@ -22,8 +23,10 @@ int[] stype=new int[NSTARS];
 
 void setup()
 {
-  // Full resolution: twice the pixels of the original half-size canvas, same 2:1 shape.
-  size(externals.window.innerWidth, externals.window.innerWidth/2, P3D);
+  // Render at device resolution (capped at 2x for phone GPUs), same 2:1 shape.
+  // The CSS keeps the canvas at its displayed size; only the buffer gets denser.
+  S = min(externals.window.devicePixelRatio, 2);
+  size(int(externals.window.innerWidth*S), int(externals.window.innerWidth*S/2), P3D);
   smooth();
   mouseX = width/2;
   mouseY = height/2;
@@ -54,19 +57,19 @@ void draw()
   noStroke();
 
   pushMatrix();
-  translate(0,0,-200);
+  translate(0,0,-200*S);
   translate(2*width/3,height/2,0);
   rotateY(theta);
   rotateX(theta);
   rotateZ(theta);
   separacion=map(mouseX,0,width,0,3);
-  drawSphere(0,0,0,mouseY/4,1,separacion);
-  drawSphere(0,height/4,0,mouseY/4,0,separacion);
-  drawSphere(0,-height/4,0,mouseY/4,0,separacion);
-  drawSphere(0,0,height/4,mouseY/4,2,separacion);
-  drawSphere(0,0,-height/4,mouseY/4,2,separacion);
-  drawSphere(height/4,0,0,mouseY/4,1,separacion);
-  drawSphere(-height/4,0,0,mouseY/4,1,separacion);
+  drawSphere(0,0,0,mouseY/4*S,1,separacion);
+  drawSphere(0,height/4,0,mouseY/4*S,0,separacion);
+  drawSphere(0,-height/4,0,mouseY/4*S,0,separacion);
+  drawSphere(0,0,height/4,mouseY/4*S,2,separacion);
+  drawSphere(0,0,-height/4,mouseY/4*S,2,separacion);
+  drawSphere(height/4,0,0,mouseY/4*S,1,separacion);
+  drawSphere(-height/4,0,0,mouseY/4*S,1,separacion);
   popMatrix();
 
   theta+=ROT_STEP;
@@ -75,7 +78,7 @@ void draw()
 void drawStars()
 {
   noLights();
-  strokeWeight(2.0);
+  strokeWeight(2.0*S);
   for(int i=0;i<NSTARS;i++)
   {
     float twinkle=0.9+0.1*sin(frameCount*0.015+sphase[i]);
@@ -84,7 +87,7 @@ void drawStars()
     else if(stype[i]==1) stroke(255*b, 246*b, 230*b);  // warm white
     else if(stype[i]==2) stroke(235*b, 200*b, 150*b);  // faint gold
     else stroke(180*b, 200*b, 235*b);                  // pale blue
-    point(sx[i], sy[i], sz[i]);
+    point(sx[i], sy[i], sz[i]*S);
   }
 }
 
@@ -92,18 +95,19 @@ void drawStars()
 void lightRig()
 {
   ambientLight(10, 13, 19);
+  // z positions below are in logical units; multiply by S to match the denser buffer.
 
   lightSpecular(245, 250, 255);
   directionalLight(160, 170, 182, 0.3, 0.5, -1);      // cool white key
 
   lightSpecular(120, 235, 255);
-  pointLight(70, 190, 215, 0.95*width, 0.2*height, -380);    // thin cyan rim from the right
+  pointLight(70, 190, 215, 0.95*width, 0.2*height, -380*S);    // thin cyan rim from the right
 
   lightSpecular(200, 222, 240);
-  pointLight(110, 120, 135, 0.12*width, 0.85*height, -300);  // grey-blue bounce, low left
+  pointLight(110, 120, 135, 0.12*width, 0.85*height, -300*S);  // grey-blue bounce, low left
 
   lightSpecular(255, 255, 255);
-  pointLight(190, 200, 212, 0.5*width, -0.5*height, -900);   // distant top light
+  pointLight(190, 200, 212, 0.5*width, -0.5*height, -900*S);   // distant top light
 }
 
 void metal(int m)
@@ -124,7 +128,7 @@ void drawSphere(float x, float y, float z, float radio, int m, float divisor)
   translate(x,y,z);
   metal(m);
   box(radio);
-  if(radio>20)
+  if(radio>20*S)
   {
     drawSphere(radio/divisor,0,0,radio/2,m+1,divisor);
     drawSphere(-radio/divisor,0,0,radio/2,m+2,divisor);

@@ -4,19 +4,19 @@
 //  - connections drawn as translucent shapes whose opacity fades with distance
 //  - the simulation in CSS-pixel units (LW x LH), drawn at device resolution (S = devicePixelRatio)
 
-int tam=400;                    // more particles than before (was 200)
+int tam=0;                      // particle count, set in setup() from the canvas area
 float tu=1,dista_max=7,radio=10;
 float S=1;                      // device pixel ratio
 float LW=1, LH=1;               // logical size in CSS pixels
-particula[] p = new particula[tam];
+particula[] p;
 
 // elegant palette, matching the page's accents
 color[] PAL = {
-  color(201,169,110),   // champagne (gold)
-  color(208,140,107),   // copper
-  color(143,184,166),   // sage
-  color(220,213,200),   // platinum
-  color(158,201,217)    // ice
+  color(240,178,104),   // amber
+  color(232,132,88),    // burnt orange
+  color(246,200,150),   // apricot
+  color(236,206,170),   // warm cream
+  color(196,108,70)     // deep copper
 };
 color BG = color(14,13,11);
 
@@ -28,6 +28,9 @@ void setup()
   size(int(LW*S), int(LH*S));
   // bead size follows the canvas area: 10px on desktop, down to 4px on a phone, so they don't crowd
   radio = constrain(10*sqrt(LW*LH/(1200.0*660)), 4, 10);
+  // a calm field: about 260 beads on the desktop banner, fewer on small screens
+  tam = int(constrain(260*(LW*LH)/(1200.0*660), 90, 260));
+  p = new particula[tam];
   for(int i=0;i<tam;i++)
     p[i] = new particula(random(LW),random(LH),random(-1,1),random(-1,1),radio,p,PAL[int(random(PAL.length))],i);
   dista_max*=p[0].r;
@@ -145,9 +148,9 @@ class particula
 
     noStroke();
     // soft halo, then the bead itself
-    fill(red(c), green(c), blue(c), 10 + 25*s);
-    ellipse(pos[0],pos[1],r*3.2,r*3.2);
-    fill(c, 120 + 135*s);
+    fill(red(c), green(c), blue(c), 12 + 40*s);
+    ellipse(pos[0],pos[1],r*3.6,r*3.6);
+    fill(c, 150 + 105*s);
     ellipse(pos[0],pos[1],r*1.6,r*1.6);
   }
 
@@ -165,7 +168,7 @@ class particula
       if(dis<r+o[i].r)
       {
         // touching: a solid, slightly brighter link
-        fill(link(col,o[i].col,235));
+        fill(link(col,o[i].col,190));
         vel[0]-=cos(angulo)*tu;
         vel[1]-=sin(angulo)*tu;
         o[i].vel[0]+=cos(angulo)*tu;
@@ -183,7 +186,7 @@ class particula
       else if(dis<dista_max)
       {
         // a fine link whose opacity fades with distance
-        float a = map(dis,2*r,dista_max,210,0);
+        float a = map(dis,2*r,dista_max,175,0);
         fill(link(col,o[i].col,a));
         beginShape();
         vertex(pos[0]+r*cos(angulo+PI/e+PI/4),pos[1]+r*sin(angulo+PI/e+PI/4));

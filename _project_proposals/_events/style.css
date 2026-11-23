@@ -152,6 +152,11 @@ main {
   font-weight: 500;
 }
 
+/* On three columns, reserve two heading lines so the first card of every column starts on the same row */
+@media (min-width: 1051px) {
+  .category-heading h2 { min-height: 2.3em; }
+}
+
 .category-heading .num {
   color: var(--category);
 }
@@ -212,7 +217,6 @@ main {
 
 @media (max-width: 1050px) {
   .category-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .category-heading { min-height: 0; }
 }
 
 @media (max-width: 680px) {

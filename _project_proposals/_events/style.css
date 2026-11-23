@@ -140,15 +140,20 @@ main {
 
 .category-heading {
   padding: 22px 0 22px;
-  min-height: 190px;
 }
 
 .category .eyebrow { color: var(--category); }
 
+/* number and name are one heading, one size, one flowing line (wraps as a paragraph) */
 .category-heading h2 {
-  margin: 0.3em 0 0.35em;
-  font-size: 2rem;
-  line-height: 1.1;
+  margin: 0;
+  font-size: 2.2rem;
+  line-height: 1.15;
+  font-weight: 500;
+}
+
+.category-heading .num {
+  color: var(--category);
 }
 
 .category-heading p {

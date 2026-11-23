@@ -9,7 +9,7 @@
 
 float theta=0, separacion=2;
 float ROT_STEP=0.05/8;          // original step was 0.05 (now 1/8 of that)
-float S=1;                      // device pixel scale (capped at 2): buffer = CSS size * S
+float S=1;                      // device pixel ratio: buffer = CSS size * S
 
 
 int NMETAL=3;
@@ -23,10 +23,10 @@ int[] stype=new int[NSTARS];
 
 void setup()
 {
-  // Render at device resolution (capped at 2x for phone GPUs), same 2:1 shape.
-  // The CSS keeps the canvas at its displayed size; only the buffer gets denser.
-  S = min(externals.window.devicePixelRatio, 2);
-  size(int(externals.window.innerWidth*S), int(externals.window.innerWidth*S/2), P3D);
+  // Render at the canvas's real on-screen size in device pixels, so nothing is stretched.
+  // A phone banner is ~390x620 CSS px at 3x: a 1170x1860 buffer, which is small for a GPU.
+  S = externals.window.devicePixelRatio;
+  size(int(externals.canvas.clientWidth*S), int(externals.canvas.clientHeight*S), P3D);
   smooth();
   mouseX = width/2;
   mouseY = height/2;

@@ -107,24 +107,22 @@ author_profile: true
     </div>
     <ul class="visual-arts-page__services">
       <li class="visual-arts-page__service--featured">
-        <h3>Sports events and presentations</h3>
-        <p>Bring athlete introductions, live event moments, and sports presentations to life with real-time interactive visuals.</p>
+        <a class="visual-arts-page__service-link" href="/_project_proposals/_bouldering/index.html">
+          <h3>Sports events and presentations</h3>
+          <p>Bring athlete introductions, live event moments, and sports presentations to life with real-time interactive visuals.</p>
+        </a>
       </li>
-      <li>
-        <h3>Interactive live shows</h3>
-        <p>Real-time visuals shaped by performers, music, sports and audience input.</p>
-      </li>
-      <li>
-        <h3>Sensor integration</h3>
-        <p>Connect movement and other live signals to responsive visuals.</p>
-      </li>
-      <li>
-        <h3>Interactive installations</h3>
-        <p>Build hands-on experiences for galleries, public spaces, and events.</p>
-      </li>
-      <li>
-        <h3>Weddings and celebrations</h3>
-        <p>Create custom visuals and interactive moments for your event.</p>
+      <li class="visual-arts-page__service--wide">
+        <a class="visual-arts-page__service-link" href="/_project_proposals/_events/index.html">
+          <h3>Events and audiovisual installations</h3>
+          <p>Light, sound and movement for product launches, gatherings and interactive spaces.</p>
+          <div class="visual-arts-page__service-tags">
+            <span>Product launches</span>
+            <span>Gatherings and casual events</span>
+            <span>Interactive installations</span>
+          </div>
+          <span class="visual-arts-page__service-cta">Explore the events page →</span>
+        </a>
       </li>
       <li>
         <h3>Custom commissions</h3>

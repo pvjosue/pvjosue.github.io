@@ -245,6 +245,43 @@ html.dark-mode .visual-arts-page__services .visual-arts-page__service--featured 
   font-size: 1rem;
 }
 
+.visual-arts-page__service-link {
+  display: block;
+  color: inherit;
+  text-decoration: none;
+}
+
+.visual-arts-page__service-link:hover h3,
+.visual-arts-page__service-link:focus-visible h3 {
+  text-decoration: underline;
+}
+
+.visual-arts-page__services .visual-arts-page__service--wide {
+  grid-column: 1 / -1;
+}
+
+.visual-arts-page__service-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: 0.8rem;
+}
+
+.visual-arts-page__service-tags span {
+  padding: 0.2rem 0.6rem;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  opacity: 0.85;
+}
+
+.visual-arts-page__service-cta {
+  display: inline-block;
+  margin-top: 0.9rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+
 .visual-arts-page__services p {
   margin: 0;
   font-size: 0.85rem;

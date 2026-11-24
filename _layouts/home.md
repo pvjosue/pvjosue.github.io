@@ -9,31 +9,20 @@ layout: archive
     <br>
     <br>
     My current research and work is oriented towards:
-    <ul style="margin-top: 0; margin-bottom: 0;">    
-        <li style="margin-top: 0; margin-bottom: 0;">Computational microscopy.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Inverse problems, aka 2D and 3D deconvolution.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Open source projects oriented towards joint optimization of optical systems and reconstruction algorithms through Python based differentiable simulators. (see <a href="https://github.com/pvjosue/WaveBlocks">WaveBlocks</a>).</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Collaborating with international labs in life sciences fun projects.</li>
+    <ul style="margin-top: 0; margin-bottom: 0;">
+        <li style="margin-top: 0; margin-bottom: 0;">Computational microscopy: learned 3D reconstruction, inverse problems, and 2D/3D deconvolution.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">GPU computing: custom CUDA kernels, multi-node PyTorch training, and inference optimization with TensorRT and Triton.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Open models and LLMs: fine-tuning, model serving, and agent-assisted scientific workflows.</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Differentiable optics: joint optimization of optical systems and reconstruction algorithms through Python-based simulators (see <a href="https://github.com/pvjosue/WaveBlocks">WaveBlocks</a>).</li>
+        <li style="margin-top: 0; margin-bottom: 0;">Collaborating with international labs in the life sciences.</li>
     </ul>
     <br>
     <br>
-<!-- In my ongoing Ph.D., I built up intuition on Wave-Optics and machine learning algorithms, allowing me to complement the fluorescent microscope image formation model with Deep and Bayesian Learning.
-<br>
-<br> -->
-
-Throughout my career, I have encountered complex challenges involving various audio-visual, scientific, and industrial applications, frameworks, and ideas, with interdisciplinary and international teams. This allowed me develop collaborative skills, versatility and robustness when approaching new problems.
+    I completed my PhD at TUM (2018–2023) on real-time learned light-field microscopy, with research visits at the University of Bern and the Marine Biological Laboratory in Woods Hole. At Carl Zeiss Microscopy I take GPU-accelerated imaging software from research prototype to released product, working across CUDA, C#, and Python with application scientists and customers.
 
     <br>
     <br>
-    Some of my skills and interest can be resumed by:
-<ul style="margin-top: 0; margin-bottom: 0;">    
-        <li style="margin-top: 0; margin-bottom: 0;">Lots of coding: C++, Python, GPU frameworks and other languages. Applied to diverse tasks like low-level hardware simulation, interactive art installations, bio-medical inverse problems, etc.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Image formation modeling based on ray and diffraction optics as well as different medical imaging technologies.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Visual and interactive programming and 3D animation frameworks like TouchDesigner, Processing, VVVV, Cinema 4D, RealFlow, etc.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Plugin development for Micro-manager, Leap Motion, Cinema 4D, After effects, etc.</li>
-        <li style="margin-top: 0; margin-bottom: 0;">Complex audio-visual system integration, such as a structured-light-based calibration system for video-mapping applications (see <a href="https://www.visualma.com">Visualma</a>), interactive and real-time installations using Leap Motion, Kinect, Raspberry Pi, and many self-made sensing and computing tools.</li>
-    </ul>
-
+    Earlier in my career I built real-time audio-visual and interactive systems, including a structured-light video-mapping system for <a href="https://www.visualma.com">Visualma</a>, Leap Motion and Kinect installations. My main languages are Python, C++, C#, CUDA, and MATLAB.
 </article>
   
 {% if site.use_paginator %}

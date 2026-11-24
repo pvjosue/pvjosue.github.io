@@ -326,6 +326,22 @@ html.dark-mode .visual-arts-page__services .visual-arts-page__service--featured 
   }
 }
 
+// Follow button in the author sidebar: in dark mode the inverse button was rendering white on white
+html.dark-mode .author__content .btn--inverse,
+html.dark-mode .btn--inverse {
+  background-color: transparent;
+  border: 1px solid rgba(242, 237, 228, 0.45);
+  color: #F2EDE4;
+}
+
+html.dark-mode .author__content .btn--inverse:hover,
+html.dark-mode .btn--inverse:hover,
+html.dark-mode .btn--inverse:focus {
+  background-color: rgba(242, 237, 228, 0.1);
+  border-color: #F2EDE4;
+  color: #F2EDE4;
+}
+
 // // // Main Page style
 // // .page__content, .text__description{
 // //   color: $masthead-link-color-hover;

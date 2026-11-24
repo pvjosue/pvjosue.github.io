@@ -54,13 +54,17 @@
 
     setCookie("lights", checkBox.checked, 365)
     
+    // the ideas page styles its own colours in CSS (light and dark), so the toggle leaves it alone
+    var skip = ".visual-arts-page__intro, .ideas-page";
     for (var i=0, max=all.length; i < max; i++) {
-      if (!all[i].closest(".visual-arts-page__intro")) {
+      if (!all[i].closest(skip)) {
         all[i].style.color = color;
       }
     }
     for (var i=0, max=tab_links.length; i < max; i++) {
-      tab_links[i].style.color = color_tab;
+      if (!tab_links[i].closest(skip)) {
+        tab_links[i].style.color = color_tab;
+      }
     }
   }
 

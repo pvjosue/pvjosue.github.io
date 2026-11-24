@@ -1,16 +1,20 @@
-// Particle network for the events banner, on a dark background.
+// Particle network for the ideas-page hero.
 // Based on the particle-network sketch by the author, with:
 //  - a restrained palette taken from the page (champagne, copper, sage, platinum, ice)
 //  - connections drawn as translucent shapes whose opacity fades with distance
 //  - the simulation in CSS-pixel units (LW x LH), drawn at device resolution (S = devicePixelRatio)
+//  - inverted when the page is in light mode: a light background with deep, darker tones
+//    (only on the ideas page; anywhere else it stays dark)
 
 int tam=0;                      // particle count, set in setup() from the canvas area
 float tu=1,dista_max=11,radio=10;   // link distance up from 7, a bit under double
 float S=1;                      // device pixel ratio
 float LW=1, LH=1;               // logical size in CSS pixels
 particula[] p;
+int[] kind;                     // which palette colour each bead uses
+boolean light = false;          // true when the ideas page is in light mode
 
-// elegant palette, matching the page's accents
+// elegant palette for the dark page
 color[] PAL = {
   color(240,178,104),   // amber
   color(232,132,88),    // burnt orange
@@ -18,7 +22,25 @@ color[] PAL = {
   color(236,206,170),   // warm cream
   color(196,108,70)     // deep copper
 };
-color BG = color(14,13,11);
+
+// the same families, deepened for the light page
+color[] PALL = {
+  color(150,78,40),     // deep copper
+  color(176,96,56),     // burnt orange
+  color(138,109,59),    // bronze
+  color(120,86,60),     // umber
+  color(70,104,94)      // sage slate
+};
+
+color BG_DARK = color(14,13,11);
+color BG_LIGHT = color(243,246,246);
+
+// true on the ideas page while it is in light mode; the events page has no toggle and stays dark
+boolean isLight()
+{
+  if (externals.canvas.closest(".ideas-page") == null) return false;
+  return !externals.window.document.documentElement.classList.contains("dark-mode");
+}
 
 void setup()
 {
@@ -31,14 +53,26 @@ void setup()
   // a calm field: about 260 beads on the desktop banner, fewer on small screens
   tam = int(constrain(260*(LW*LH)/(1200.0*660), 90, 260));
   p = new particula[tam];
+  kind = new int[tam];
   for(int i=0;i<tam;i++)
-    p[i] = new particula(random(LW),random(LH),random(-1,1),random(-1,1),radio,p,PAL[int(random(PAL.length))],i);
+  {
+    kind[i] = int(random(PAL.length));
+    p[i] = new particula(random(LW),random(LH),random(-1,1),random(-1,1),radio,p,PAL[kind[i]],i);
+  }
   dista_max*=p[0].r;
 }
 
 void draw()
 {
+  light = isLight();
+  color BG = light ? BG_LIGHT : BG_DARK;
+  color[] P = light ? PALL : PAL;
   background(BG);
+
+  // follow the page theme: each bead takes its colour from the current palette
+  for(int i=0;i<tam;i++)
+    p[i].col = P[kind[i]];
+
   // the pointer always repels nearby beads: no click needed
   for(int i=0;i<tam;i++)
   {
@@ -141,10 +175,13 @@ class particula
 
   void pintar()
   {
-    // brightness follows speed: slow beads stay dim, fast ones glow toward warm white
+    // brightness follows speed: slow beads stay dim, fast ones glow
+    // toward warm white on the dark page, or toward ink on the light page
     float speed = sqrt(vel[0]*vel[0] + vel[1]*vel[1]);
     float s = constrain(map(speed,0.25,1.0,0,1),0,1);
-    color c = lerpColor(col, color(255,250,240), 0.9*s);
+    color c = light
+      ? lerpColor(col, color(30,40,42), 0.45*s)
+      : lerpColor(col, color(255,250,240), 0.9*s);
 
     noStroke();
     // soft halo, then the bead itself

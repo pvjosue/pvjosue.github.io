@@ -6,7 +6,7 @@
 //  - inverted when the page is in light mode: a light background with deep, darker tones
 //    (only on the ideas page; anywhere else it stays dark)
 //  - performance: a spatial grid replaces the all-pairs check, the device pixel ratio is capped,
-//    touch devices run at 30 fps, and nothing is allocated per bead per frame
+//    nothing is allocated per bead per frame
 
 int tam=0;                      // particle count, set in setup() from the canvas area
 float tu=1,dista_max=11,radio=10;   // link distance up from 7, a bit under double
@@ -58,9 +58,8 @@ void setup()
   LH = externals.canvas.clientHeight;
   onIdeas = externals.canvas.closest(".ideas-page") != null;
   size(int(LW*S), int(LH*S));
-  // touch screens get 30 fps: smooth enough, and it leaves room for scrolling
-  boolean coarse = externals.window.matchMedia("(pointer: coarse)").matches;
-  frameRate(coarse ? 30 : 60);
+  // full frame rate on every device: a capped rate looked choppy on phones
+  frameRate(60);
   // bead size follows the canvas area: 10px on desktop, down to 4px on a phone, so they don't crowd
   radio = constrain(10*sqrt(LW*LH/(1200.0*660)), 4, 10);
   // a calm field: about 260 beads on the desktop banner, fewer on small screens

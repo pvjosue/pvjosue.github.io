@@ -558,6 +558,28 @@ author_profile: true
   ["processing_canvas_1", "processing_canvas_2", "processing_canvas_3", "processing_canvas_4"].forEach(function (id) {
     document.getElementById(id).addEventListener("dblclick", goFullscreen);
   });
+
+  // the hero banner only animates while it is on screen, so it doesn't compete with scrolling
+  (function () {
+    var hero = document.querySelector(".ip-sketch");
+    if (!hero || !("IntersectionObserver" in window)) return;
+
+    function apply(visible, attempts) {
+      var inst = hero.id && Processing.getInstanceById(hero.id);
+      if (!inst) {
+        // Processing.js attaches to the canvas a little after load: try again shortly
+        if (attempts < 20) { setTimeout(function () { apply(visible, attempts + 1); }, 150); }
+        return;
+      }
+      if (visible) { inst.loop(); } else { inst.noLoop(); }
+    }
+
+    window.addEventListener("load", function () {
+      new IntersectionObserver(function (entries) {
+        apply(entries[entries.length - 1].isIntersecting, 0);
+      }).observe(hero);
+    });
+  })();
 </script>
 </div>
 

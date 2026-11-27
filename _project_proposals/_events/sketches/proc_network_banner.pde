@@ -2,17 +2,25 @@
 // Based on the particle-network sketch by the author, with:
 //  - a restrained palette taken from the page (champagne, copper, sage, platinum, ice)
 //  - connections drawn as translucent shapes whose opacity fades with distance
-//  - the simulation in CSS-pixel units (LW x LH), drawn at device resolution (S = devicePixelRatio)
+//  - the simulation in CSS-pixel units (LW x LH), drawn at device resolution (S = devicePixelRatio, capped at 2)
 //  - inverted when the page is in light mode: a light background with deep, darker tones
 //    (only on the ideas page; anywhere else it stays dark)
+//  - performance: a spatial grid replaces the all-pairs check, the device pixel ratio is capped,
+//    touch devices run at 30 fps, and nothing is allocated per bead per frame
 
 int tam=0;                      // particle count, set in setup() from the canvas area
 float tu=1,dista_max=11,radio=10;   // link distance up from 7, a bit under double
-float S=1;                      // device pixel ratio
+float S=1;                      // device pixel ratio (capped)
 float LW=1, LH=1;               // logical size in CSS pixels
 particula[] p;
 int[] kind;                     // which palette colour each bead uses
 boolean light = false;          // true when the ideas page is in light mode
+boolean onIdeas = false;        // true when the canvas sits on the ideas page (checked once)
+
+// spatial grid: beads are bucketed into cells one link-length wide
+float cs = 1;                   // cell size in CSS pixels
+int gc = 1, gr = 1;             // grid columns and rows
+int[] head, nxt, cellOfBead;    // first bead per cell, next bead in the same cell, cell of each bead
 
 // elegant palette for the dark page
 color[] PAL = {
@@ -38,16 +46,21 @@ color BG_LIGHT = color(243,246,246);
 // true on the ideas page while it is in light mode; the events page has no toggle and stays dark
 boolean isLight()
 {
-  if (externals.canvas.closest(".ideas-page") == null) return false;
+  if (!onIdeas) return false;
   return !externals.window.document.documentElement.classList.contains("dark-mode");
 }
 
 void setup()
 {
-  S = externals.window.devicePixelRatio;
+  // a 3x phone screen paints 2.25x the pixels of a 2x one with no visible gain, so cap it
+  S = min(externals.window.devicePixelRatio, 2);
   LW = externals.canvas.clientWidth;
   LH = externals.canvas.clientHeight;
+  onIdeas = externals.canvas.closest(".ideas-page") != null;
   size(int(LW*S), int(LH*S));
+  // touch screens get 30 fps: smooth enough, and it leaves room for scrolling
+  boolean coarse = externals.window.matchMedia("(pointer: coarse)").matches;
+  frameRate(coarse ? 30 : 60);
   // bead size follows the canvas area: 10px on desktop, down to 4px on a phone, so they don't crowd
   radio = constrain(10*sqrt(LW*LH/(1200.0*660)), 4, 10);
   // a calm field: about 260 beads on the desktop banner, fewer on small screens
@@ -60,6 +73,14 @@ void setup()
     p[i] = new particula(random(LW),random(LH),random(-1,1),random(-1,1),radio,p,PAL[kind[i]],i);
   }
   dista_max*=p[0].r;
+
+  // grid sized once: cells are at least one link-length wide, plus slack for beads moving between rebuilds
+  cs = dista_max + 4;
+  gc = int(LW/cs)+1;
+  gr = int(LH/cs)+1;
+  head = new int[gc*gr];
+  nxt = new int[tam];
+  cellOfBead = new int[tam];
 }
 
 void draw()
@@ -73,19 +94,38 @@ void draw()
   for(int i=0;i<tam;i++)
     p[i].col = P[kind[i]];
 
-  // the pointer always repels nearby beads: no click needed
+  // the pointer always repels nearby beads: no click needed (scalar maths, no allocations)
   for(int i=0;i<tam;i++)
   {
-    PVector d = new PVector(p[i].pos[0],p[i].pos[1]);
-    d.x-=mouseX;
-    d.y-=mouseY;
-    if(d.mag()<100)
+    float dx = p[i].pos[0]-mouseX;
+    float dy = p[i].pos[1]-mouseY;
+    float d = sqrt(dx*dx + dy*dy);
+    if(d<100)
     {
-      float tu=d.mag()*0.01;
-      float angulo = atan2(d.y,d.x);
-      p[i].vel[0]+=cos(angulo)*tu;
-      p[i].vel[1]+=sin(angulo)*tu;
+      float push = d*0.01;
+      float angulo = atan2(dy,dx);
+      p[i].vel[0]+=cos(angulo)*push;
+      p[i].vel[1]+=sin(angulo)*push;
     }
+  }
+
+  // move every bead first, so the grid is built from where beads are now
+  for(int i=0;i<tam;i++)
+  {
+    p[i].pared();
+    p[i].mover();
+  }
+
+  // bucket beads into the grid
+  for(int c=0;c<head.length;c++) head[c]=-1;
+  for(int i=0;i<tam;i++)
+  {
+    int cx = constrain(int(p[i].pos[0]/cs),0,gc-1);
+    int cy = constrain(int(p[i].pos[1]/cs),0,gr-1);
+    int c = cy*gc+cx;
+    cellOfBead[i] = c;
+    nxt[i] = head[c];
+    head[c] = i;
   }
 
   // All coordinates below are CSS pixels; scale() maps them onto the denser buffer.
@@ -93,9 +133,14 @@ void draw()
   scale(S);
   for(int i=0;i<tam;i++)
   {
-    p[i].pared();
-    p[i].mover();
-    p[i].colision();
+    // only beads in the same or a neighbouring cell can be within link distance
+    int c = cellOfBead[i];
+    int cx = c % gc;
+    int cy = c / gc;
+    for(int ny=int(max(0,cy-1)); ny<=int(min(gr-1,cy+1)); ny++)
+      for(int nx=int(max(0,cx-1)); nx<=int(min(gc-1,cx+1)); nx++)
+        for(int j=head[ny*gc+nx]; j!=-1; j=nxt[j])
+          if(j>i) p[i].colision(p[j]);
     p[i].pintar();
   }
   popMatrix();
@@ -191,48 +236,49 @@ class particula
     ellipse(pos[0],pos[1],r*1.6,r*1.6);
   }
 
-  void colision()
+  // Collision and link between this bead and another one (o_). draw() only passes nearby beads.
+  void colision(particula o_)
   {
-    for(int i=id+1;i<o.length;i++)
-    {
-      float dx = o[i].pos[0]-pos[0];
-      float dy = o[i].pos[1]-pos[1];
-      float dis = sqrt(dx*dx + dy*dy);
-      float angulo = atan2(dy,dx);
-      float angulo1 = atan2(-dy,-dx);
-      float e = map(dis,2*r,dista_max,1,180);
+    float dx = o_.pos[0]-pos[0];
+    float dy = o_.pos[1]-pos[1];
+    float dis = sqrt(dx*dx + dy*dy);
+    if(dis>=dista_max) return;
+    float angulo = atan2(dy,dx);
+    float angulo1 = atan2(-dy,-dx);
+    float e = map(dis,2*r,dista_max,1,180);
 
-      if(dis<r+o[i].r)
-      {
-        // touching: a solid, slightly brighter link
-        fill(link(col,o[i].col,190));
-        vel[0]-=cos(angulo)*tu;
-        vel[1]-=sin(angulo)*tu;
-        o[i].vel[0]+=cos(angulo)*tu;
-        o[i].vel[1]+=sin(angulo)*tu;
-        pos[0]-=(r*2-dis)*cos(angulo);
-        pos[1]-=(r*2-dis)*sin(angulo);
-        beginShape();
-        vertex(pos[0]+r*cos(angulo-PI/4),pos[1]+r*sin(angulo-PI/4));
-        vertex(pos[0]+r*cos(angulo+PI/4),pos[1]+r*sin(angulo+PI/4));
-        vertex(o[i].pos[0]+o[i].r*cos(angulo+PI/4),o[i].pos[1]+o[i].r*sin(angulo+PI/4));
-        vertex(o[i].pos[0]+o[i].r*cos(angulo-PI/4),o[i].pos[1]+o[i].r*sin(angulo-PI/4));
-        vertex(pos[0]+r*cos(angulo-PI/4),pos[1]+r*sin(angulo-PI/4));
-        endShape();
-      }
-      else if(dis<dista_max)
-      {
-        // a fine link whose opacity fades with distance
-        float a = map(dis,2*r,dista_max,175,0);
-        fill(link(col,o[i].col,a));
-        beginShape();
-        vertex(pos[0]+r*cos(angulo+PI/e+PI/4),pos[1]+r*sin(angulo+PI/e+PI/4));
-        bezierVertex(pos[0]+r*cos(angulo+PI/e),pos[1]+r*sin(angulo+PI/e),o[i].pos[0]+o[i].r*cos(angulo1-PI/e),o[i].pos[1]+o[i].r*sin(angulo1-PI/e),o[i].pos[0]+o[i].r*cos(angulo1-PI/e-PI/4),o[i].pos[1]+o[i].r*sin(angulo1-PI/e-PI/4));
-        vertex(o[i].pos[0]+o[i].r*cos(angulo1+PI/e+PI/4),o[i].pos[1]+o[i].r*sin(angulo1+PI/e+PI/4));
-        bezierVertex(o[i].pos[0]+o[i].r*cos(angulo1+PI/e),o[i].pos[1]+o[i].r*sin(angulo1+PI/e),pos[0]+r*cos(angulo-PI/e),pos[1]+r*sin(angulo-PI/e),pos[0]+r*cos(angulo-PI/e-PI/4),pos[1]+r*sin(angulo-PI/e-PI/4));
-        vertex(pos[0]+r*cos(angulo+PI/e+PI/4),pos[1]+r*sin(angulo+PI/e+PI/4));
-        endShape();
-      }
+    if(dis<r+o_.r)
+    {
+      // touching: a solid, slightly brighter link
+      fill(link(col,o_.col,190));
+      vel[0]-=cos(angulo)*tu;
+      vel[1]-=sin(angulo)*tu;
+      o_.vel[0]+=cos(angulo)*tu;
+      o_.vel[1]+=sin(angulo)*tu;
+      pos[0]-=(r*2-dis)*cos(angulo);
+      pos[1]-=(r*2-dis)*sin(angulo);
+      beginShape();
+      vertex(pos[0]+r*cos(angulo-PI/4),pos[1]+r*sin(angulo-PI/4));
+      vertex(pos[0]+r*cos(angulo+PI/4),pos[1]+r*sin(angulo+PI/4));
+      vertex(o_.pos[0]+o_.r*cos(angulo+PI/4),o_.pos[1]+o_.r*sin(angulo+PI/4));
+      vertex(o_.pos[0]+o_.r*cos(angulo-PI/4),o_.pos[1]+o_.r*sin(angulo-PI/4));
+      vertex(pos[0]+r*cos(angulo-PI/4),pos[1]+r*sin(angulo-PI/4));
+      endShape();
+    }
+    else
+    {
+      // a fine link whose opacity fades with distance
+      float a = map(dis,2*r,dista_max,175,0);
+      // the faintest links are invisible but still cost a shape each: skip them
+      if(a<20) return;
+      fill(link(col,o_.col,a));
+      beginShape();
+      vertex(pos[0]+r*cos(angulo+PI/e+PI/4),pos[1]+r*sin(angulo+PI/e+PI/4));
+      bezierVertex(pos[0]+r*cos(angulo+PI/e),pos[1]+r*sin(angulo+PI/e),o_.pos[0]+o_.r*cos(angulo1-PI/e),o_.pos[1]+o_.r*sin(angulo1-PI/e),o_.pos[0]+o_.r*cos(angulo1-PI/e-PI/4),o_.pos[1]+o_.r*sin(angulo1-PI/e-PI/4));
+      vertex(o_.pos[0]+o_.r*cos(angulo1+PI/e+PI/4),o_.pos[1]+o_.r*sin(angulo1+PI/e+PI/4));
+      bezierVertex(o_.pos[0]+o_.r*cos(angulo1+PI/e),o_.pos[1]+o_.r*sin(angulo1+PI/e),pos[0]+r*cos(angulo-PI/e),pos[1]+r*sin(angulo-PI/e),pos[0]+r*cos(angulo-PI/e-PI/4),pos[1]+r*sin(angulo-PI/e-PI/4));
+      vertex(pos[0]+r*cos(angulo+PI/e+PI/4),pos[1]+r*sin(angulo+PI/e+PI/4));
+      endShape();
     }
   }
 }
